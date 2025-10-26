@@ -1,103 +1,214 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입판매</title>
-  <meta name="description" content="대전 컴퓨터 출장수리, 중고PC 매입·판매, 데이터 복구, 속도 개선 등 모든 문제를 빠르고 정확하게 해결합니다.">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-neutral-50 text-neutral-900">
+import React from "react";
 
-  <!-- Header -->
-  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
-      <a href="#home" class="flex items-center gap-2">
-        <span class="text-xl font-bold text-black tracking-tight">LongPC</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#services" class="hover:text-black">서비스</a>
-        <a href="#pricing" class="hover:text-black">요금</a>
-        <a href="#contact" class="hover:text-black">문의</a>
-      </nav>
-      <a href="tel:01067064733" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold bg-black text-white rounded-2xl hover:bg-black/90">
-        010-6706-4733
-      </a>
-    </div>
-  </header>
+// LongPC 원페이지 (React) — Tailwind만 필요, 외부 라이브러리 없음
+// 로고 이미지: /public/logo.png (Next.js 기준) 또는 /src/assets/logo.png (Vite 기준)
 
-  <!-- Hero -->
-  <section id="home" class="text-center py-16 sm:py-24">
-    <span class="inline-block rounded-full bg-black text-white px-3 py-1 text-xs font-medium">당일 출장 · 합리적 비용 · 친절 상담</span>
-    <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight">
-      대전 <span class="text-black">컴퓨터 출장수리</span> · 중고PC <span class="text-black">매입·판매</span>
-    </h1>
-    <p class="mt-4 text-neutral-600 text-lg max-w-2xl mx-auto">
-      부품교체·윈도우 재설치·데이터복구·속도개선 등 모든 문제를 빠르고 정확하게 해결합니다.
-    </p>
-    <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a href="tel:01067064733" class="inline-flex items-center justify-center px-5 py-3 text-base font-semibold rounded-2xl bg-black text-white hover:bg-black/90">
-        📞 바로 전화하기
-      </a>
-      <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center px-5 py-3 text-base font-semibold rounded-2xl border border-neutral-300 hover:bg-neutral-100">
-        💬 카카오채널 상담
-      </a>
-    </div>
-  </section>
+const cx = (...cls) => cls.filter(Boolean).join(" ");
 
-  <!-- 서비스 상세 -->
-  <section id="services" class="py-16 bg-white border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-8">서비스 상세 안내</h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">컴퓨터 출장수리</h3>
-          <p class="text-sm text-neutral-600 mb-2">대전 전지역 출장 가능 / 즉시 점검 및 수리</p>
-          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
-            <li>부팅 불가 / 전원 문제 / 블루스크린</li>
-            <li>SSD, 메모리, 메인보드 교체</li>
-            <li>소음, 발열, 팬 청소 및 관리</li>
-            <li>기업, 관공서 정기점검 계약 가능</li>
+function Button({ asChild = false, href, children, variant = "solid", size = "md", className = "", ...props }) {
+  const base = "inline-flex items-center justify-center font-semibold rounded-2xl transition focus:outline-none focus:ring-2 focus:ring-black/20";
+  const sizes = { sm: "px-3 py-2 text-sm", md: "px-4 py-2 text-sm", lg: "px-5 py-3 text-base" };
+  const variants = { solid: "bg-black text-white hover:bg-black/90", outline: "border border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-50" };
+  const cls = cx(base, sizes[size], variants[variant], className);
+  if (asChild && href) return (<a href={href} className={cls} {...props}>{children}</a>);
+  if (href) return (<a href={href} className={cls} {...props}>{children}</a>);
+  return (<button className={cls} {...props}>{children}</button>);
+}
+
+function Card({ className = "", children }) { return <div className={cx("rounded-2xl border border-neutral-200 bg-white", className)}>{children}</div>; }
+function CardHeader({ children }) { return <div className="p-5 border-b border-neutral-200">{children}</div>; }
+function CardTitle({ children }) { return <div className="text-lg font-semibold">{children}</div>; }
+function CardDescription({ children }) { return <p className="mt-1 text-sm text-neutral-600">{children}</p>; }
+function CardContent({ children }) { return <div className="p-5">{children}</div>; }
+
+export default function LongPCLanding() {
+  const phone = "010-6706-4733";
+  const phoneHref = `tel:${phone.replaceAll('-', '')}`;
+  const email = "p1jj@naver.com";
+  const kakaoLink = "http://pf.kakao.com/_Cpacn";
+
+  return (
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      {/* Header */}
+      <header className="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-neutral-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            {/* 로고 이미지 적용 */}
+            <a href="#home" className="flex items-center gap-3">
+              <img src="/logo.png" alt="LongPC" className="h-9 w-auto object-contain" />
+              <span className="sr-only">LongPC</span>
+            </a>
+            <nav className="hidden md:flex items-center gap-6 text-sm">
+              <a href="#services" className="hover:text-black">서비스</a>
+              <a href="#pricing" className="hover:text-black">요금</a>
+              <a href="#contact" className="hover:text-black">문의</a>
+            </nav>
+            <Button href={phoneHref} className="rounded-2xl">{phone}</Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section id="home" className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,0,0,0.06),transparent_40%),radial-gradient(ellipse_at_bottom_left,rgba(0,0,0,0.06),transparent_40%)]"/>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
+          <span className="inline-block rounded-full bg-black text-white px-3 py-1 text-xs font-medium">당일 출장 · 합리적 비용 · 친절 상담</span>
+          <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+            대전 <span className="text-black">컴퓨터 출장수리</span> · 중고PC <span className="text-black">매입·판매</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-neutral-600 text-lg">부품교체·윈도우 재설치·데이터복구·속도개선 등 모든 문제를 빠르고 정확하게 해결합니다.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button href={phoneHref} asChild size="lg" className="rounded-2xl"><a>📞 바로 전화하기</a></Button>
+            <Button href={kakaoLink} asChild variant="outline" size="lg" className="rounded-2xl"><a target="_blank" rel="noreferrer">💬 카카오채널 상담</a></Button>
+          </div>
+          <ul className="mt-6 flex flex-wrap gap-3 text-sm text-neutral-600">
+            <li>연중무휴 09:00–21:00</li>
+            <li>대전 전지역 출장</li>
+            <li>부품 보증 및 A/S</li>
           </ul>
         </div>
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">데이터 복구</h3>
-          <p class="text-sm text-neutral-600 mb-2">삭제, 포맷, 인식불가 등 데이터 손실 복구</p>
-          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
-            <li>HDD/SSD/USB/외장하드 복구</li>
-            <li>논리/물리 손상 분석 및 복원</li>
-            <li>복구 불가 시 비용 청구 없음</li>
-          </ul>
+      </section>
+
+      {/* 서비스 상세 안내 */}
+      <section id="services" className="py-16 bg-white border-t border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8">서비스 상세 안내</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle>컴퓨터 출장수리</CardTitle>
+                <CardDescription>대전 전지역 출장 가능 / 즉시 점검 및 수리</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc ml-5 text-sm space-y-1">
+                  <li>부팅 불가 / 전원 문제 / 블루스크린</li>
+                  <li>SSD, 메모리, 메인보드 교체</li>
+                  <li>소음, 발열, 팬 청소 및 관리</li>
+                  <li>기업, 관공서 정기점검 계약 가능</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>속도 개선 & 최적화</CardTitle>
+                <CardDescription>체감 속도 향상 / 쾌적한 사용 환경 제공</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc ml-5 text-sm space-y-1">
+                  <li>SSD 업그레이드 및 데이터 이전</li>
+                  <li>윈도우/드라이버 재설치 및 정품 인증</li>
+                  <li>불필요한 프로그램 제거 및 시스템 최적화</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>데이터 복구</CardTitle>
+                <CardDescription>삭제, 포맷, 인식불가 등 데이터 손실 복구</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc ml-5 text-sm space-y-1">
+                  <li>HDD/SSD/USB/외장하드 복구</li>
+                  <li>논리/물리 손상 분석 및 복원</li>
+                  <li>복구 불가 시 비용 청구 없음</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">중고PC 매입/판매</h3>
-          <p class="text-sm text-neutral-600 mb-2">부품·노트북·법인 물량 모두 가능</p>
-          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
-            <li>시세 반영 / 즉시 결제</li>
-            <li>데이터 완전 삭제</li>
-            <li>택배 및 방문 거래 가능</li>
-          </ul>
+      </section>
+
+      {/* 가격 안내 */}
+      <section id="pricing" className="py-16 bg-neutral-100 border-t border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8">가격 안내</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle>출장 점검비</CardTitle>
+                <CardDescription>대전 전지역 동일</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-extrabold">₩20,000~</div>
+                <p className="text-sm text-neutral-600 mt-2">수리 진행 시 점검비 차감</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>윈도우 재설치</CardTitle>
+                <CardDescription>드라이버/최적화 포함</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-extrabold">₩40,000~</div>
+                <p className="text-sm text-neutral-600 mt-2">정품 인증 및 최신 업데이트 포함</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>SSD 업그레이드</CardTitle>
+                <CardDescription>데이터 이전 포함</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-3xl font-extrabold">₩60,000~</div>
+                <p className="text-sm text-neutral-600 mt-2">용량별 가격 상이 (부품가 별도)</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
+      </section>
+
+      {/* 문의 */}
+      <section id="contact" className="py-16 bg-white border-t border-neutral-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8">문의하기</h2>
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <Card>
+                <CardHeader>
+                  <CardTitle>바로 연락</CardTitle>
+                  <CardDescription>전화 · 카카오채널 · 이메일</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <a href={phoneHref} className="inline-flex items-center gap-2 text-lg font-semibold hover:underline">📞 {phone}</a><br/>
+                  <a href={kakaoLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:underline">💬 카카오 채널 문의</a><br/>
+                  <a href={`mailto:${email}`} className="inline-flex items-center gap-2 hover:underline">✉️ {email}</a>
+                </CardContent>
+              </Card>
+            </div>
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>서비스 지역</CardTitle>
+                  <CardDescription>대전 전지역 / 세종·청주 인근 협의</CardDescription>
+                </CardHeader>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 카카오 고정 버튼 */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
+        <div className="hidden sm:block bg-black text-white text-sm px-3 py-1 rounded-full shadow-md mb-1">상담하기</div>
+        <a href={kakaoLink} target="_blank" rel="noreferrer" aria-label="카카오채널 상담 열기" className="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-[#FEE500] text-black shadow-xl border border-neutral-300 grid place-items-center">💬<span className="sr-only">카카오채널 상담</span></a>
       </div>
-    </div>
-  </section>
 
-  <!-- 가격 안내 -->
-  <section id="pricing" class="py-16 bg-neutral-100 border-t border-neutral-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-8">가격 안내</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">출장 점검비</h3>
-          <p class="text-3xl font-extrabold mt-2">₩30,000~</p>
-          <p class="text-sm text-neutral-600">수리 진행 시 점검비 차감</p>
+      {/* Footer */}
+      <footer className="py-10 border-t border-neutral-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div className="font-semibold">LongPC</div>
+            <div className="text-sm text-neutral-600">컴퓨터 출장수리 · 중고PC 매입·판매 — 대전</div>
+          </div>
+          <div className="text-sm text-neutral-600">사업자정보/개인정보처리방침 링크 영역</div>
         </div>
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">윈도우 재설치</h3>
-          <p class="text-3xl font-extrabold mt-2">₩40,000~</p>
-          <p class="text-sm text-neutral-600">드라이버 및 최적화 포함</p>
-        </div>
-        <div class="rounded-2xl border border-neutral-200 p-5">
-          <h3 class="text-lg font-semibold">SSD 업그레이드</h3>
-          <p class="text-3xl font-extrabold mt-2">₩60,000~</p>
-          <p class="text-sm text-neutral-600">데이터
+      </footer>
+
+      {/* SEO 구조화 데이터 */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "LocalBusiness", name: "LongPC", telephone: phone, email,
+        areaServed: "Daejeon, Korea", url: "https://example.com", openingHours: "Mo-Su 09:00-21:00", sameAs: [kakaoLink]
+      }) }} />
+    </div>
+  );
+}
