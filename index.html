@@ -1,85 +1,79 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</title>
-  <!-- Tailwind CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입판매</title>
+  <meta name="description" content="대전 컴퓨터 출장수리, 중고PC 매입·판매, 데이터 복구, 속도 개선 등 모든 문제를 빠르고 정확하게 해결합니다.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-in { animation: fadeIn .25s ease-out forwards; opacity: 0; }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-  </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900">
 
-  <!-- 헤더 -->
-  <header class="sticky top-0 z-30 backdrop-blur bg-white/80 border-b border-neutral-200">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-14 items-center justify-between">
-      <a href="#home" class="flex items-center gap-2">
-        <span class="h-8 w-8 rounded-full bg-black text-white grid place-items-center font-bold">L</span>
-        <span class="font-semibold tracking-tight">LongPC</span>
-      </a>
+  <!-- Header (검은 배경 / 흰색 글자) -->
+  <header class="sticky top-0 z-30 bg-black text-white border-b border-neutral-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+      <a href="#home" class="text-2xl font-bold tracking-tight">LongPC</a>
       <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#services" class="hover:text-black">서비스</a>
-        <a href="#pricing" class="hover:text-black">요금</a>
-        <a href="#contact" class="hover:text-black">문의</a>
+        <a href="#services" class="hover:text-[#FEE500] transition">서비스</a>
+        <a href="#pricing" class="hover:text-[#FEE500] transition">요금</a>
+        <a href="#contact" class="hover:text-[#FEE500] transition">문의</a>
       </nav>
-      <a href="tel:01067064733" class="inline-flex items-center gap-2 rounded-2xl bg-black text-white px-4 py-2 text-sm font-semibold">010-6706-4733</a>
+      <a href="tel:01067064733" class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold bg-[#FEE500] text-black rounded-2xl hover:brightness-95">
+        010-6706-4733
+      </a>
     </div>
   </header>
 
-  <!-- 메인 섹션 -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(0,0,0,0.06),transparent_40%),radial-gradient(ellipse_at_bottom_left,rgba(0,0,0,0.06),transparent_40%)]"></div>
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative">
-      <span class="inline-block rounded-full bg-black text-white px-3 py-1 text-xs font-medium">당일 출장 · 합리적 비용 · 친절 상담</span>
-      <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
-        대전 <span class="text-black">컴퓨터 출장수리</span> · 중고PC <span class="text-black">매입·판매</span>
-      </h1>
-      <p class="mt-4 max-w-2xl text-neutral-600 text-lg">부품교체·윈도우 재설치·데이터복구·속도개선 등 모든 문제를 빠르고 정확하게 해결합니다.</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="tel:01067064733" class="inline-flex items-center gap-2 rounded-2xl bg-black text-white px-5 py-3 text-base font-semibold">📞 바로 전화하기</a>
-        <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-2xl border border-neutral-300 bg-white text-neutral-900 hover:bg-neutral-50 px-5 py-3 text-base font-semibold">💬 카카오채널 상담</a>
-      </div>
-      <ul class="mt-6 flex flex-wrap gap-3 text-sm text-neutral-600">
-        <li>연중무휴 09:00–21:00</li>
-        <li>대전 전지역 출장</li>
-        <li>부품 보증 및 A/S</li>
-      </ul>
+  <!-- Hero -->
+  <section id="home" class="text-center py-16 sm:py-24">
+    <span class="inline-block rounded-full bg-black text-white px-3 py-1 text-xs font-medium">당일 출장 · 합리적 비용 · 친절 상담</span>
+    <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold leading-tight">
+      대전 <span class="text-black">컴퓨터 출장수리</span> · 중고PC <span class="text-black">매입·판매</span>
+    </h1>
+    <p class="mt-4 text-neutral-600 text-lg max-w-2xl mx-auto">
+      부품교체·윈도우 재설치·데이터복구·속도개선 등 모든 문제를 빠르고 정확하게 해결합니다.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="tel:01067064733" class="inline-flex items-center justify-center px-5 py-3 text-base font-semibold rounded-2xl bg-black text-white hover:bg-neutral-800">
+        📞 바로 전화하기
+      </a>
+      <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center px-5 py-3 text-base font-semibold rounded-2xl border border-neutral-300 hover:bg-neutral-100">
+        💬 카카오채널 상담
+      </a>
     </div>
   </section>
 
-  <!-- 서비스 상세 안내 -->
+  <!-- 서비스 상세 -->
   <section id="services" class="py-16 bg-white border-t border-neutral-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl font-bold mb-8">서비스 상세 안내</h2>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">컴퓨터 출장수리</h3>
-          <p class="text-sm text-neutral-600 mb-3">대전 전지역 출장 가능 / 즉시 점검 및 수리</p>
-          <ul class="list-disc ml-5 text-sm space-y-1">
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">컴퓨터 출장수리</h3>
+          <p class="text-sm text-neutral-600 mb-2">대전 전지역 출장 가능 / 즉시 점검 및 수리</p>
+          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
             <li>부팅 불가 / 전원 문제 / 블루스크린</li>
             <li>SSD, 메모리, 메인보드 교체</li>
             <li>소음, 발열, 팬 청소 및 관리</li>
+            <li>기업, 관공서 정기점검 계약 가능</li>
           </ul>
         </div>
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">속도 개선 & 최적화</h3>
-          <p class="text-sm text-neutral-600 mb-3">체감 속도 향상 / 쾌적한 사용 환경 제공</p>
-          <ul class="list-disc ml-5 text-sm space-y-1">
-            <li>SSD 업그레이드 및 데이터 이전</li>
-            <li>윈도우/드라이버 재설치 및 정품 인증</li>
-            <li>불필요한 프로그램 제거 및 시스템 최적화</li>
-          </ul>
-        </div>
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">데이터 복구</h3>
-          <p class="text-sm text-neutral-600 mb-3">삭제, 포맷, 인식불가 등 데이터 손실 복구</p>
-          <ul class="list-disc ml-5 text-sm space-y-1">
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">데이터 복구</h3>
+          <p class="text-sm text-neutral-600 mb-2">삭제, 포맷, 인식불가 등 데이터 손실 복구</p>
+          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
             <li>HDD/SSD/USB/외장하드 복구</li>
             <li>논리/물리 손상 분석 및 복원</li>
             <li>복구 불가 시 비용 청구 없음</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">중고PC 매입/판매</h3>
+          <p class="text-sm text-neutral-600 mb-2">부품·노트북·법인 물량 모두 가능</p>
+          <ul class="list-disc ml-5 text-sm text-neutral-700 space-y-1">
+            <li>시세 반영 / 즉시 결제</li>
+            <li>데이터 완전 삭제</li>
+            <li>택배 및 방문 거래 가능</li>
           </ul>
         </div>
       </div>
@@ -88,69 +82,48 @@
 
   <!-- 가격 안내 -->
   <section id="pricing" class="py-16 bg-neutral-100 border-t border-neutral-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl sm:text-4xl font-bold mb-8">가격 안내</h2>
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">출장 점검비</h3>
-          <p class="text-sm text-neutral-600 mb-3">대전 전지역 동일</p>
-          <div class="text-3xl font-extrabold">₩30,000~</div>
-          <p class="text-sm text-neutral-600 mt-2">수리 진행 시 점검비 차감</p>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">출장 점검비</h3>
+          <p class="text-3xl font-extrabold mt-2">₩30,000~</p>
+          <p class="text-sm text-neutral-600">수리 진행 시 점검비 차감</p>
         </div>
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">윈도우 재설치</h3>
-          <p class="text-sm text-neutral-600 mb-3">드라이버/최적화 포함</p>
-          <div class="text-3xl font-extrabold">₩40,000~</div>
-          <p class="text-sm text-neutral-600 mt-2">정품 인증 및 최신 업데이트 포함</p>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">윈도우 재설치</h3>
+          <p class="text-3xl font-extrabold mt-2">₩40,000~</p>
+          <p class="text-sm text-neutral-600">드라이버 및 최적화 포함</p>
         </div>
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-1">SSD 업그레이드</h3>
-          <p class="text-sm text-neutral-600 mb-3">데이터 이전 포함</p>
-          <div class="text-3xl font-extrabold">₩60,000~</div>
-          <p class="text-sm text-neutral-600 mt-2">용량별 가격 상이 (부품가 별도)</p>
+        <div class="rounded-2xl border border-neutral-200 p-5">
+          <h3 class="text-lg font-semibold">SSD 업그레이드</h3>
+          <p class="text-3xl font-extrabold mt-2">₩60,000~</p>
+          <p class="text-sm text-neutral-600">데이터 이전 포함 (부품 별도)</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 문의 -->
-  <section id="contact" class="py-14 border-t border-neutral-200 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-6">문의하기</h2>
-      <div class="grid gap-6 lg:grid-cols-3">
-        <div class="lg:col-span-2 rounded-2xl border border-neutral-200 bg-white p-5">
-          <div class="space-y-2 text-[15px]">
-            <a href="tel:01067064733" class="inline-flex items-center gap-2 font-semibold hover:underline">📞 010-6706-4733</a><br>
-            <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 hover:underline">💬 카카오 채널 문의</a><br>
-            <a href="mailto:p1jj@naver.com" class="inline-flex items-center gap-2 hover:underline">✉️ p1jj@naver.com</a>
-          </div>
-        </div>
-        <div class="rounded-2xl border border-neutral-200 bg-white p-5">
-          <h3 class="text-lg font-semibold mb-2">서비스 지역</h3>
-          <p class="text-sm text-neutral-600">대전 전지역 / 세종·청주 인근 협의</p>
-        </div>
-      </div>
+  <section id="contact" class="py-16 bg-white border-t border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-8">문의하기</h2>
+      <p class="text-lg text-neutral-700 mb-4">전화 · 카카오채널 · 이메일</p>
+      <a href="tel:01067064733" class="block text-lg font-semibold hover:underline">📞 010-6706-4733</a>
+      <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" class="block hover:underline">💬 카카오채널 상담</a>
+      <a href="mailto:p1jj@naver.com" class="block hover:underline"✉️ p1jj@naver.com</a>
     </div>
   </section>
 
-  <!-- 카카오 버튼 -->
-  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-2">
-    <div class="hidden sm:block bg-black text-white text-sm px-3 py-1 rounded-full shadow-md mb-1 fade-in">상담하기</div>
-    <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" aria-label="카카오채널 상담 열기" class="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-[#FEE500] text-black shadow-xl border border-neutral-300 grid place-items-center">
-      💬
-      <span class="sr-only">카카오채널 상담</span>
-    </a>
-  </div>
+  <!-- 고정 카카오 버튼 -->
+  <a href="http://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
+     class="fixed bottom-5 right-5 h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-[#FEE500] text-black shadow-xl border border-neutral-300 grid place-items-center">
+     💬
+  </a>
 
-  <!-- 푸터 -->
-  <footer class="py-10 border-t border-neutral-200 bg-white mt-10">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div>
-        <div class="font-semibold">LongPC</div>
-        <div class="text-sm text-neutral-600">컴퓨터 출장수리 · 중고PC 매입·판매 — 대전</div>
-      </div>
-      <div class="text-sm text-neutral-600">사업자정보/개인정보처리방침 링크 영역</div>
-    </div>
+  <!-- Footer -->
+  <footer class="py-10 border-t border-neutral-200 bg-black text-white text-center text-sm">
+    LongPC © 2025 · 대전 컴퓨터 출장수리 · 중고PC 매입/판매
   </footer>
 
 </body>
