@@ -12,9 +12,7 @@
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:url" content="https://longpc.co.kr" />
   <link rel="icon" href="/favicon.ico" />
-  <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 가독성 좋은 한글 폰트(선택) -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     html,body { font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
@@ -36,11 +34,11 @@
           <a href="#pricing" class="hover:text-white/90 text-neutral-300">요금</a>
           <a href="#contact" class="hover:text-white/90 text-neutral-300">문의</a>
         </nav>
+        <!-- ⬇️ 버튼 크기 축소: 모바일 기준 작게, PC에서 원래 크기 -->
         <a href="tel:01067064733"
-           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
-          <!-- phone icon -->
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="text-lg font-bold tracking-wide">010-6706-4733</span>
+           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="font-bold tracking-wide">010-6706-4733</span>
         </a>
       </div>
     </div>
@@ -56,15 +54,16 @@
       </div>
       <!-- CTA in hero bottom -->
       <div class="absolute bottom-8 flex gap-3">
+        <!-- ⬇️ 버튼 크기 축소 -->
         <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="text-lg font-bold tracking-wide">바로 전화하기</span>
+           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="font-bold tracking-wide">바로 전화하기</span>
         </a>
         <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-6 py-3 font-semibold hover:bg-white hover:text-black transition-all duration-300">
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span class="text-lg font-bold tracking-wide">카카오채널 상담</span>
+           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="font-bold tracking-wide">카카오채널 상담</span>
         </a>
       </div>
     </div>
@@ -214,22 +213,23 @@
       <h2 class="text-3xl sm:text-4xl font-bold mb-8">문의하기</h2>
       <p class="text-lg text-neutral-300 mb-4">전화 · 카카오채널 · 이메일</p>
       <div class="flex items-center justify-center gap-3 flex-wrap">
+        <!-- ⬇️ 버튼 크기 축소 -->
         <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="text-lg font-bold tracking-wide">바로 전화하기</span>
+           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="font-bold tracking-wide">바로 전화하기</span>
         </a>
         <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-6 py-3 font-semibold hover:bg-white hover:text-black transition-all duration-300">
-          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span class="text-lg font-bold tracking-wide">카카오채널 상담</span>
+           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span class="font-bold tracking-wide">카카오채널 상담</span>
         </a>
       </div>
       <a href="mailto:p1jj@naver.com" class="block mt-4 hover:underline text-neutral-300">p1jj@naver.com</a>
     </div>
   </section>
 
-  <!-- Floating Kakao -->
+  <!-- Floating Kakao (그대로 유지) -->
   <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" aria-label="카카오채널 상담"
      class="fixed bottom-5 right-5 h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-white text-black shadow-xl grid place-items-center hover:scale-105 transition z-50">💬</a>
 
