@@ -2,16 +2,19 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</title>
   <meta name="description" content="대전 컴퓨터 출장수리, 윈도우 재설치, 데이터 복구, 중고PC 매입·판매 — LongPC (연중무휴 09:00–21:00)" />
   <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:title" content="LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매" />
   <meta property="og:description" content="부품교체·윈도우 재설치·데이터복구·속도개선. 대전 전지역 출장, 합리적 비용, 친절 상담." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:url" content="https://longpc.co.kr" />
   <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -22,21 +25,21 @@
     ::-webkit-scrollbar-track { background: #0a0a0a; }
   </style>
 </head>
-<body class="bg-neutral-950 text-neutral-100">
+<body class="bg-neutral-950 text-neutral-100 antialiased">
 
   <!-- Header -->
   <header class="sticky top-0 z-40 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <a href="#home" class="text-2xl font-extrabold tracking-tight text-white">LongPC</a>
+      <div class="flex h-14 sm:h-16 items-center justify-between">
+        <a href="#home" class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">LongPC</a>
         <nav class="hidden md:flex items-center gap-6 text-sm">
           <a href="#services" class="hover:text-white/90 text-neutral-300">서비스</a>
           <a href="#pricing" class="hover:text-white/90 text-neutral-300">요금</a>
           <a href="#contact" class="hover:text-white/90 text-neutral-300">문의</a>
         </nav>
-        <!-- ⬇️ 버튼 크기 축소: 모바일 기준 작게, PC에서 원래 크기 -->
+        <!-- 모바일에선 헤더 CTA 감춤 (히어로에 CTA 노출) -->
         <a href="tel:01067064733"
-           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300">
           <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
           <span class="font-bold tracking-wide">010-6706-4733</span>
         </a>
@@ -44,24 +47,23 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (모바일 최적화: 낮은 높이, 촘촘한 여백, 작은 버튼) -->
   <section id="home" class="relative overflow-hidden">
-    <div class="relative h-[60vh] sm:h-[66vh] lg:h-[72vh] bg-[radial-gradient(1000px_600px_at_20%_-20%,rgba(255,255,255,.06),transparent),radial-gradient(800px_500px_at_80%_120%,rgba(255,255,255,.06),transparent)] bg-neutral-950 text-white flex flex-col items-center justify-center text-center px-6">
-      <div class="space-y-3">
-        <span class="inline-block rounded-full bg-white/10 text-white px-3 py-1 text-xs backdrop-blur">당일 출장 · 합리적 비용 · 친절 상담</span>
-        <h1 id="hero-headline" class="text-4xl sm:text-5xl font-extrabold tracking-tight">대전 컴퓨터 출장수리</h1>
-        <p id="hero-sub" class="text-lg text-neutral-300">부품교체·윈도우 재설치·데이터복구</p>
+    <div class="relative h-[42vh] sm:h-[48vh] lg:h-[56vh] bg-[radial-gradient(1000px_600px_at_20%_-20%,rgba(255,255,255,.06),transparent),radial-gradient(800px_500px_at_80%_120%,rgba(255,255,255,.06),transparent)] bg-neutral-950 text-white flex flex-col items-center justify-center text-center px-4 sm:px-6">
+      <div class="space-y-2 sm:space-y-3 leading-tight">
+        <span class="inline-block rounded-full bg-white/10 text-white px-2.5 py-1 text-[11px] sm:text-xs backdrop-blur">당일 출장 · 합리적 비용 · 친절 상담</span>
+        <h1 id="hero-headline" class="text-3xl sm:text-5xl font-extrabold tracking-tight">대전 컴퓨터 출장수리</h1>
+        <p id="hero-sub" class="text-sm sm:text-lg text-neutral-300">부품교체·윈도우 재설치·데이터복구</p>
       </div>
-      <!-- CTA in hero bottom -->
-      <div class="absolute bottom-8 flex gap-3">
-        <!-- ⬇️ 버튼 크기 축소 -->
+      <!-- CTA -->
+      <div class="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
         <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300 min-h-[44px]">
           <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
           <span class="font-bold tracking-wide">바로 전화하기</span>
         </a>
         <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300">
+           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300 min-h-[44px]">
           <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <span class="font-bold tracking-wide">카카오채널 상담</span>
         </a>
@@ -69,20 +71,19 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="py-16 border-t border-neutral-900 bg-neutral-950">
+  <!-- Services (모바일 단일열 → md부터 그리드) -->
+  <section id="services" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-8">서비스 상세 안내</h2>
+      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">서비스 상세 안내</h2>
 
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Card -->
+      <div class="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">컴퓨터 출장수리</div>
-            <p class="mt-1 text-sm text-neutral-400">대전 전지역 출장 / 즉시 점검 및 수리</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">컴퓨터 출장수리</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">대전 전지역 출장 / 즉시 점검 및 수리</p>
           </div>
-          <div class="p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <div class="p-4 sm:p-5">
+            <ul class="list-disc ml-5 text-sm sm:text-sm space-y-1 text-neutral-300">
               <li>부팅 불가 · 전원 문제 · 블루스크린</li>
               <li>SSD/메모리/메인보드 교체</li>
               <li>소음·발열 관리 및 팬 청소</li>
@@ -92,11 +93,11 @@
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">속도 개선 & 최적화</div>
-            <p class="mt-1 text-sm text-neutral-400">체감 속도 향상 / 쾌적한 사용 환경</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">속도 개선 & 최적화</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">체감 속도 향상 / 쾌적한 사용 환경</p>
           </div>
-          <div class="p-5">
+          <div class="p-4 sm:p-5">
             <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
               <li>SSD 업그레이드 · 데이터 이전</li>
               <li>윈도우/드라이버 재설치 및 정품 인증</li>
@@ -106,11 +107,11 @@
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">데이터 복구</div>
-            <p class="mt-1 text-sm text-neutral-400">삭제·포맷·인식불가 데이터 복원</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">데이터 복구</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">삭제·포맷·인식불가 데이터 복원</p>
           </div>
-          <div class="p-5">
+          <div class="p-4 sm:p-5">
             <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
               <li>HDD/SSD/USB/외장하드 복구</li>
               <li>논리/물리 손상 분석</li>
@@ -120,11 +121,11 @@
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">중고PC 매입</div>
-            <p class="mt-1 text-sm text-neutral-400">부품·노트북·법인 물량·고장품 포함</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">중고PC 매입</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">부품·노트북·법인 물량·고장품 포함</p>
           </div>
-          <div class="p-5">
+          <div class="p-4 sm:p-5">
             <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
               <li>실시간 시세 반영 · 즉시 결제</li>
               <li>데이터 완전삭제 · 영수증 발급</li>
@@ -134,11 +135,11 @@
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">중고PC 판매</div>
-            <p class="mt-1 text-sm text-neutral-400">업무용·학생용·게임용 맞춤 견적</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">중고PC 판매</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">업무용·학생용·게임용 맞춤 견적</p>
           </div>
-          <div class="p-5">
+          <div class="p-4 sm:p-5">
             <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
               <li>테스트 완료 후 출고 / 기본 보증</li>
               <li>사양 상담 및 견적 안내</li>
@@ -148,11 +149,11 @@
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">네트워크 & 주변기기</div>
-            <p class="mt-1 text-sm text-neutral-400">가정/사무실 인터넷 및 장비 구성</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">네트워크 & 주변기기</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">가정/사무실 인터넷 및 장비 구성</p>
           </div>
-          <div class="p-5">
+          <div class="p-4 sm:p-5">
             <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
               <li>공유기, NAS, 프린터, CCTV 세팅</li>
               <li>사무실 네트워크 점검 · 배선 정리</li>
@@ -164,42 +165,42 @@
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing" class="py-16 border-t border-neutral-900 bg-neutral-950">
+  <!-- Pricing (모바일 간결화) -->
+  <section id="pricing" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-8">가격 안내</h2>
+      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">가격 안내</h2>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">출장 점검비</div>
-            <p class="mt-1 text-sm text-neutral-400">대전 전지역 동일</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">출장 점검비</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">대전 전지역 동일</p>
           </div>
-          <div class="p-5">
-            <div class="text-3xl font-extrabold text-white">₩30,000~</div>
-            <p class="text-sm text-neutral-400 mt-2">수리 진행 시 점검비 차감</p>
+          <div class="p-4 sm:p-5">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩30,000~</div>
+            <p class="text-xs sm:text-sm text-neutral-400 mt-1">수리 진행 시 점검비 차감</p>
           </div>
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">윈도우 재설치</div>
-            <p class="mt-1 text-sm text-neutral-400">드라이버/최적화 포함</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">윈도우 재설치</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">드라이버/최적화 포함</p>
           </div>
-          <div class="p-5">
-            <div class="text-3xl font-extrabold text-white">₩40,000~</div>
-            <p class="text-sm text-neutral-400 mt-2">정품 인증 및 최신 업데이트 포함</p>
+          <div class="p-4 sm:p-5">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩40,000~</div>
+            <p class="text-xs sm:text-sm text-neutral-400 mt-1">정품 인증 및 최신 업데이트 포함</p>
           </div>
         </div>
 
         <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-5 border-b border-neutral-800">
-            <div class="text-lg font-semibold">SSD 업그레이드</div>
-            <p class="mt-1 text-sm text-neutral-400">데이터 이전 포함</p>
+          <div class="p-4 sm:p-5 border-b border-neutral-800">
+            <div class="text-base sm:text-lg font-semibold">SSD 업그레이드</div>
+            <p class="mt-1 text-xs sm:text-sm text-neutral-400">데이터 이전 포함</p>
           </div>
-          <div class="p-5">
-            <div class="text-3xl font-extrabold text-white">₩60,000~</div>
-            <p class="text-sm text-neutral-400 mt-2">용량/부품가 별도</p>
+          <div class="p-4 sm:p-5">
+            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩60,000~</div>
+            <p class="text-xs sm:text-sm text-neutral-400 mt-1">용량/부품가 별도</p>
           </div>
         </div>
       </div>
@@ -207,31 +208,32 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16 border-t border-neutral-900 bg-neutral-950">
+  <!-- Contact (모바일 중앙정렬 + 44px 터치타겟) -->
+  <section id="contact" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold mb-8">문의하기</h2>
-      <p class="text-lg text-neutral-300 mb-4">전화 · 카카오채널 · 이메일</p>
-      <div class="flex items-center justify-center gap-3 flex-wrap">
-        <!-- ⬇️ 버튼 크기 축소 -->
+      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">문의하기</h2>
+      <p class="text-base sm:text-lg text-neutral-300 mb-4 sm:mb-6">전화 · 카카오채널 · 이메일</p>
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
         <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.03] transition-all duration-300">
+           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300 min-h-[44px]">
           <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
           <span class="font-bold tracking-wide">바로 전화하기</span>
         </a>
         <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300">
+           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300 min-h-[44px]">
           <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <span class="font-bold tracking-wide">카카오채널 상담</span>
         </a>
       </div>
-      <a href="mailto:p1jj@naver.com" class="block mt-4 hover:underline text-neutral-300">p1jj@naver.com</a>
+      <a href="mailto:p1jj@naver.com" class="block mt-3 hover:underline text-neutral-300 text-sm sm:text-base">p1jj@naver.com</a>
     </div>
   </section>
 
-  <!-- Floating Kakao (그대로 유지) -->
+  <!-- Floating Kakao (노치·안전영역 고려) -->
   <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" aria-label="카카오채널 상담"
-     class="fixed bottom-5 right-5 h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-white text-black shadow-xl grid place-items-center hover:scale-105 transition z-50">💬</a>
+     class="fixed right-4 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-white text-black shadow-xl grid place-items-center hover:scale-105 transition z-50">
+    💬
+  </a>
 
   <!-- Footer -->
   <footer class="py-10 border-t border-neutral-900 bg-neutral-950 text-neutral-300">
