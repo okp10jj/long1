@@ -1,294 +1,727 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="UTF-8" />
   <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</title>
-  <meta name="description" content="대전 컴퓨터 출장수리, 윈도우 재설치, 데이터 복구, 중고PC 매입·판매 — LongPC (연중무휴 09:00–21:00)" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="theme-color" content="#0a0a0a" />
-  <meta property="og:title" content="LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매" />
-  <meta property="og:description" content="부품교체·윈도우 재설치·데이터복구·속도개선. 대전 전지역 출장, 합리적 비용, 친절 상담." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ko_KR" />
-  <meta property="og:url" content="https://longpc.co.kr" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="대전 컴퓨터 출장수리, 윈도우 재설치, 데이터 복구, 중고PC 매입·판매 전문 LongPC. 당일 출장, 합리적 비용, 친절 상담." />
   <style>
-    html,body { font-family: "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 10px; height: 10px; }
-    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 8px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* 공통 레이아웃 */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    section {
+      padding: 60px 0;
+    }
+    h1,h2,h3 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 24px;
+      border-left: 4px solid #000;
+      padding-left: 10px;
+    }
+
+    /* 헤더 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      color: #fff;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand {
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .brand span {
+      color: #ffffff; /* 포인트 색 흰색 */
+    }
+    nav ul {
+      display: flex;
+      gap: 12px;
+    }
+    nav a {
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    nav a:hover {
+      background: #222;
+    }
+    .header-phone {
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .header-phone a {
+      color: #ffffff;
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      nav ul {
+        gap: 8px;
+      }
+      .header-phone {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    /* 전화기 아이콘 (흰색 SVG) */
+    .phone-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.69.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.69 1 1 0 01-.24 1.01l-2.23 2.09z"/></svg>');
+      margin-right: 4px;
+      vertical-align: -3px;
+    }
+
+    /* 메인(히어로) — 대전 컴퓨터 출장수리 */
+    main {
+      padding-top: 64px; /* 헤더 높이 보정 */
+    }
+    .hero {
+      background: #000;
+      color: #fff;
+      padding: 56px 0 60px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.6fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      background: #ffffff;
+      color: #000;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+    .hero-desc {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .hero-phone {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-caption {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+    .btn-primary:hover {
+      background: #222222;
+      border-color: #222222;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border-color: #444;
+    }
+    .btn-outline:hover { background: #111; }
+
+    /* 카카오 버튼: 검정색 */
+    .btn-kakao {
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+    }
+    .btn-kakao:hover {
+      background: #222;
+      border-color: #222;
+    }
+
+    .hero-box {
+      background: #111;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #222;
+      font-size: 13px;
+    }
+    .hero-box h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .hero-box ul li {
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 22px;
+      }
+      .hero-subtitle {
+        font-size: 16px;
+      }
+      .hero-phone {
+        font-size: 20px;
+      }
+    }
+
+    /* 서비스 상세 안내 */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      font-size: 14px;
+    }
+    .service-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .service-card p {
+      font-size: 13px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .service-card ul {
+      padding-left: 12px;
+      font-size: 13px;
+      color: #444;
+      list-style: disc;
+    }
+
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 가격 안내 */
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .price-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      font-size: 13px;
+    }
+    .price-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .price-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .price-sub {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    .price-amount {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .price-note {
+      font-size: 11px;
+      color: #777;
+    }
+
+    @media (max-width: 900px) {
+      .price-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .price-footnote {
+      font-size: 12px;
+      color: #666;
+      margin-top: 12px;
+    }
+
+    /* 문의하기 */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+    .contact-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      font-size: 14px;
+    }
+    .contact-box h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .contact-list li {
+      margin-bottom: 6px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .contact-box small {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #666;
+    }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      resize: vertical;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: inherit;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    .btn-full {
+      width: 100%;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 사업자 정보 푸터 */
+    footer {
+      background: #111;
+      color: #aaa;
+      font-size: 12px;
+      padding: 20px 0;
+    }
+    footer .biz-name {
+      color: #fff;
+      font-weight: 700;
+    }
+    footer p + p {
+      margin-top: 4px;
+    }
   </style>
 </head>
-<body class="bg-neutral-950 text-neutral-100 antialiased">
-
-  <!-- Header -->
-  <header class="sticky top-0 z-40 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 sm:h-16 items-center justify-between">
-        <a href="#home" class="text-xl sm:text-2xl font-extrabold tracking-tight text-white">LongPC</a>
-        <nav class="hidden md:flex items-center gap-6 text-sm">
-          <a href="#services" class="hover:text-white/90 text-neutral-300">서비스</a>
-          <a href="#pricing" class="hover:text-white/90 text-neutral-300">요금</a>
-          <a href="#contact" class="hover:text-white/90 text-neutral-300">문의</a>
+<body>
+  <!-- 헤더 -->
+  <header>
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="brand">LongPC <span>컴퓨터</span></div>
+        <nav>
+          <ul>
+            <li><a href="#top">LongPC</a></li>
+            <li><a href="#service">서비스</a></li>
+            <li><a href="#price">요금</a></li>
+            <li><a href="#contact">문의</a></li>
+          </ul>
         </nav>
-        <!-- 모바일에선 헤더 CTA 감춤 (히어로에 CTA 노출) -->
-        <a href="tel:01067064733"
-           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="font-bold tracking-wide">010-6706-4733</span>
-        </a>
+      </div>
+      <div class="header-phone">
+        <span>서비스 요금 문의</span>
+        <span class="phone-icon"></span>
+        <a href="tel:01067064733">010-6706-4733</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero (모바일 최적화: 낮은 높이, 촘촘한 여백, 작은 버튼) -->
-  <section id="home" class="relative overflow-hidden">
-    <div class="relative h-[42vh] sm:h-[48vh] lg:h-[56vh] bg-[radial-gradient(1000px_600px_at_20%_-20%,rgba(255,255,255,.06),transparent),radial-gradient(800px_500px_at_80%_120%,rgba(255,255,255,.06),transparent)] bg-neutral-950 text-white flex flex-col items-center justify-center text-center px-4 sm:px-6">
-      <div class="space-y-2 sm:space-y-3 leading-tight">
-        <span class="inline-block rounded-full bg-white/10 text-white px-2.5 py-1 text-[11px] sm:text-xs backdrop-blur">당일 출장 · 합리적 비용 · 친절 상담</span>
-        <h1 id="hero-headline" class="text-3xl sm:text-5xl font-extrabold tracking-tight">대전 컴퓨터 출장수리</h1>
-        <p id="hero-sub" class="text-sm sm:text-lg text-neutral-300">부품교체·윈도우 재설치·데이터복구</p>
-      </div>
-      <!-- CTA -->
-      <div class="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
-        <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300 min-h-[44px]">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="font-bold tracking-wide">바로 전화하기</span>
-        </a>
-        <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300 min-h-[44px]">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span class="font-bold tracking-wide">카카오채널 상담</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <main id="top">
+    <!-- HERO : 대전 컴퓨터 출장수리 -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-tag">당일 출장 · 합리적 비용 · 친절 상담</div>
+          <h1 class="hero-title"># 대전 컴퓨터 출장수리</h1>
+          <h2 class="hero-subtitle">부품교체·윈도우 재설치·데이터복구</h2>
+          <p class="hero-desc">
+            대전 전지역(유성·서구·중구·동구·대덕) 컴퓨터·노트북 출장수리,
+            윈도우 재설치, 데이터 복구, 중고PC 매입·판매까지 한 번에 해결해 드립니다.
+          </p>
+          <p class="hero-phone">
+            <span class="phone-icon"></span>
+            <span>010-6706-4733</span>
+          </p>
+          <p class="hero-caption">연중무휴 09:00–21:00 (통화 후 방문 시간 안내)</p>
 
-  <!-- Services (모바일 단일열 → md부터 그리드) -->
-  <section id="services" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">서비스 상세 안내</h2>
-
-      <div class="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">컴퓨터 출장수리</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">대전 전지역 출장 / 즉시 점검 및 수리</p>
+          <div class="hero-buttons">
+            <a href="tel:01067064733" class="btn btn-primary">바로 전화하기</a>
+            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn btn-kakao">카카오채널 상담</a>
           </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm sm:text-sm space-y-1 text-neutral-300">
+        </div>
+
+        <aside class="hero-box">
+          <h3>이런 문제, LongPC가 해결합니다</h3>
+          <ul>
+            <li>· 부팅 불가, 전원 문제, 블루스크린</li>
+            <li>· SSD/메모리/메인보드 등 부품 교체</li>
+            <li>· 소음·발열 관리 및 팬/먼지 청소</li>
+            <li>· 실수로 삭제·포맷한 데이터 복구</li>
+            <li>· 사용 안 하는 중고PC·노트북 매입</li>
+            <li>· 사무실·학원·관공서 정기점검 계약</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 서비스 상세 안내 -->
+    <section id="service">
+      <div class="container">
+        <h2 class="section-title">서비스 상세 안내</h2>
+
+        <div class="service-grid">
+          <!-- 컴퓨터 출장수리 -->
+          <div class="service-card">
+            <h3>컴퓨터 출장수리</h3>
+            <p>대전 전지역 출장 / 즉시 점검 및 수리</p>
+            <ul>
               <li>부팅 불가 · 전원 문제 · 블루스크린</li>
               <li>SSD/메모리/메인보드 교체</li>
               <li>소음·발열 관리 및 팬 청소</li>
               <li>기업/관공서 정기점검 계약</li>
             </ul>
           </div>
-        </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">속도 개선 & 최적화</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">체감 속도 향상 / 쾌적한 사용 환경</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <!-- 속도 개선 & 최적화 -->
+          <div class="service-card">
+            <h3>속도 개선 &amp; 최적화</h3>
+            <p>체감 속도 향상 / 쾌적한 사용 환경</p>
+            <ul>
               <li>SSD 업그레이드 · 데이터 이전</li>
               <li>윈도우/드라이버 재설치 및 정품 인증</li>
               <li>불필요 프로그램 제거 · 시스템 최적화</li>
             </ul>
           </div>
-        </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">데이터 복구</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">삭제·포맷·인식불가 데이터 복원</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <!-- 데이터 복구 -->
+          <div class="service-card">
+            <h3>데이터 복구</h3>
+            <p>삭제·포맷·인식불가 데이터 복원</p>
+            <ul>
               <li>HDD/SSD/USB/외장하드 복구</li>
               <li>논리/물리 손상 분석</li>
               <li>복구 불가 시 비용 청구 없음</li>
             </ul>
           </div>
-        </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">중고PC 매입</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">부품·노트북·법인 물량·고장품 포함</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <!-- 중고PC 매입 -->
+          <div class="service-card">
+            <h3>중고PC 매입</h3>
+            <p>부품·노트북·법인 물량·고장품 포함</p>
+            <ul>
               <li>실시간 시세 반영 · 즉시 결제</li>
               <li>데이터 완전삭제 · 영수증 발급</li>
-              <li>대량·철거 일괄 처리</li>
+              <li>관공서·학원·회사 대량 매입 / 철거</li>
             </ul>
           </div>
-        </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">중고PC 판매</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">업무용·학생용·게임용 맞춤 견적</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <!-- 중고PC 판매 -->
+          <div class="service-card">
+            <h3>중고PC 판매</h3>
+            <p>업무용·학생용·게임용 맞춤 견적</p>
+            <ul>
               <li>테스트 완료 후 출고 / 기본 보증</li>
               <li>사양 상담 및 견적 안내</li>
               <li>택배 · 방문 수령 가능</li>
             </ul>
           </div>
-        </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">네트워크 & 주변기기</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">가정/사무실 인터넷 및 장비 구성</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <ul class="list-disc ml-5 text-sm space-y-1 text-neutral-300">
+          <!-- 네트워크 & 주변기기 -->
+          <div class="service-card">
+            <h3>네트워크 &amp; 주변기기</h3>
+            <p>가정/사무실 인터넷 및 장비 구성</p>
+            <ul>
               <li>공유기, NAS, 프린터, CCTV 세팅</li>
               <li>사무실 네트워크 점검 · 배선 정리</li>
             </ul>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- 가격 안내 -->
+    <section id="price">
+      <div class="container">
+        <h2 class="section-title">가격 안내</h2>
 
-  <!-- Pricing (모바일 간결화) -->
-  <section id="pricing" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">가격 안내</h2>
-
-      <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">출장 점검비</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">대전 전지역 동일</p>
+        <div class="price-grid">
+          <!-- 출장 점검비 -->
+          <div class="price-card">
+            <div class="price-label">대전 전지역 동일</div>
+            <div class="price-title">출장 점검비</div>
+            <div class="price-sub">수리 진행 시 점검비 차감</div>
+            <div class="price-amount">₩30,000~</div>
+            <div class="price-note">
+              기본 증상 점검 및 현장 수리 가능 여부 확인 후<br>
+              작업 진행 전 비용을 먼저 안내드립니다.
+            </div>
           </div>
-          <div class="p-4 sm:p-5">
-            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩30,000~</div>
-            <p class="text-xs sm:text-sm text-neutral-400 mt-1">수리 진행 시 점검비 차감</p>
+
+          <!-- 윈도우 재설치 -->
+          <div class="price-card">
+            <div class="price-label">드라이버/최적화 포함</div>
+            <div class="price-title">윈도우 재설치</div>
+            <div class="price-sub">정품 인증 및 최신 업데이트 포함</div>
+            <div class="price-amount">₩40,000~</div>
+            <div class="price-note">
+              윈도우 설치, 주요 드라이버 셋팅, 기본 프로그램 설치까지<br>
+              바로 사용 가능한 상태로 맞춰드립니다.
+            </div>
+          </div>
+
+          <!-- SSD 업그레이드 -->
+          <div class="price-card">
+            <div class="price-label">데이터 이전 포함</div>
+            <div class="price-title">SSD 업그레이드</div>
+            <div class="price-sub">용량/부품가 별도</div>
+            <div class="price-amount">₩60,000~</div>
+            <div class="price-note">
+              기존 HDD 데이터 이전 후 SSD로 부팅 환경 구성,<br>
+              체감 속도를 크게 향상시켜 드립니다.
+            </div>
           </div>
         </div>
 
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">윈도우 재설치</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">드라이버/최적화 포함</p>
+        <p class="price-footnote">
+          ※ 실제 요금은 증상, 장비 상태, 부품 가격에 따라 달라질 수 있습니다.<br>
+          &nbsp;&nbsp;통화 또는 카카오채널 상담 시 대략적인 예상 비용을 먼저 안내해 드립니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 문의하기 -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">문의하기</h2>
+
+        <div class="contact-wrap">
+          <!-- 연락처 안내 -->
+          <div class="contact-box">
+            <h3>전화 · 카카오채널 · 이메일</h3>
+            <ul class="contact-list">
+              <li>
+                <span class="phone-icon"></span>
+                <a href="tel:01067064733">010-6706-4733</a>
+              </li>
+              <li>
+                💬
+                <a href="https://pf.kakao.com/_Cpacn" target="_blank">LongPC 카카오채널 바로가기</a>
+              </li>
+              <li>
+                📧
+                <a href="mailto:p1jj@naver.com">p1jj@naver.com</a>
+              </li>
+            </ul>
+            <div class="contact-actions">
+              <a href="tel:01067064733" class="btn btn-primary">바로 전화하기</a>
+              <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn btn-kakao">카카오채널 상담</a>
+            </div>
+            <small>
+              문의 시 <strong>사용 용도(사무용·게임용 등)와 현재 증상</strong>을 함께 알려주시면<br>
+              견적 및 방문 가능 시간을 더 정확하게 안내해 드릴 수 있습니다.
+            </small>
           </div>
-          <div class="p-4 sm:p-5">
-            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩40,000~</div>
-            <p class="text-xs sm:text-sm text-neutral-400 mt-1">정품 인증 및 최신 업데이트 포함</p>
+
+          <!-- 간단 문의 메모 (Formspree 연동) -->
+          <div class="contact-box">
+            <h3>간단 문의 메모</h3>
+            <p style="font-size:13px; color:#666; margin-bottom:8px;">
+              글로 남기고 싶은 문의는 아래에 편하게 남겨주세요.<br>
+              LongPC에서 확인 후 순차적으로 연락드리겠습니다.
+            </p>
+
+            <!-- ★ Formspree 폼 ★ -->
+            <form id="contactForm" action="https://formspree.io/f/mwparaaq" method="POST">
+              <!-- 답변 받을 이메일(선택) -->
+              <input
+                type="email"
+                name="email"
+                placeholder="답변 받으실 이메일 주소 (선택)"
+                style="width:100%; padding:8px; margin-bottom:8px; border-radius:6px; border:1px solid #ccc; font-size:13px; box-sizing:border-box;"
+              />
+
+              <!-- 문의 내용 -->
+              <textarea
+                name="message"
+                placeholder="예) 사무실 PC 4대가 느려져서 윈도우 재설치와 SSD 업그레이드 견적 문의드립니다. 사용 용도: 문서 작업, 인터넷, 유튜브 시청."
+              ></textarea>
+
+              <!-- 메일 제목 -->
+              <input type="hidden" name="_subject" value="LongPC 홈페이지 - 신규 문의 도착" />
+
+              <!-- 전송 버튼 -->
+              <button type="submit" class="btn btn-primary btn-full">문의 전송하기</button>
+            </form>
+            <!-- ★ Formspree 폼 끝 ★ -->
           </div>
         </div>
-
-        <div class="rounded-2xl border bg-neutral-900/60 border-neutral-800 text-neutral-100">
-          <div class="p-4 sm:p-5 border-b border-neutral-800">
-            <div class="text-base sm:text-lg font-semibold">SSD 업그레이드</div>
-            <p class="mt-1 text-xs sm:text-sm text-neutral-400">데이터 이전 포함</p>
-          </div>
-          <div class="p-4 sm:p-5">
-            <div class="text-2xl sm:text-3xl font-extrabold text-white">₩60,000~</div>
-            <p class="text-xs sm:text-sm text-neutral-400 mt-1">용량/부품가 별도</p>
-          </div>
-        </div>
       </div>
+    </section>
+  </main>
 
-    </div>
-  </section>
-
-  <!-- Contact (모바일 중앙정렬 + 44px 터치타겟) -->
-  <section id="contact" class="py-12 sm:py-16 border-t border-neutral-900 bg-neutral-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8">문의하기</h2>
-      <p class="text-base sm:text-lg text-neutral-300 mb-4 sm:mb-6">전화 · 카카오채널 · 이메일</p>
-      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-        <a href="tel:01067064733"
-           class="inline-flex items-center gap-2 rounded-full bg-white text-black px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold shadow-[0_8px_20px_-8px_rgba(255,255,255,.3)] hover:shadow-[0_10px_24px_-8px_rgba(255,255,255,.45)] hover:scale-[1.02] transition-all duration-300 min-h-[44px]">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.31 1.76.57 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.14a2 2 0 0 1 2.11-.45c.84.26 1.71.45 2.6.57A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="font-bold tracking-wide">바로 전화하기</span>
-        </a>
-        <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer"
-           class="inline-flex items-center gap-2 rounded-full border border-white text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-semibold hover:bg-white hover:text-black transition-all duration-300 min-h-[44px]">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          <span class="font-bold tracking-wide">카카오채널 상담</span>
-        </a>
-      </div>
-      <a href="mailto:p1jj@naver.com" class="block mt-3 hover:underline text-neutral-300 text-sm sm:text-base">p1jj@naver.com</a>
-    </div>
-  </section>
-
-  <!-- Floating Kakao (노치·안전영역 고려) -->
-  <a href="https://pf.kakao.com/_Cpacn" target="_blank" rel="noreferrer" aria-label="카카오채널 상담"
-     class="fixed right-4 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] h-12 w-12 sm:h-16 sm:w-16 rounded-full bg-white text-black shadow-xl grid place-items-center hover:scale-105 transition z-50">
-    💬
-  </a>
-
-  <!-- Footer -->
-  <footer class="py-10 border-t border-neutral-900 bg-neutral-950 text-neutral-300">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div>
-        <div class="font-semibold text-white">LongPC</div>
-        <div class="text-sm">컴퓨터 출장수리 · 중고PC 매입·판매 — 대전</div>
-      </div>
-      <div class="text-sm space-y-1 text-right">
-        <div><strong class="text-neutral-200">대표자</strong> 박종주</div>
-        <div><strong class="text-neutral-200">사업자등록번호</strong> 347-35-01536</div>
-        <div><strong class="text-neutral-200">주소</strong> 대전광역시 유성구 구암동 608-10 202호</div>
-        <div><strong class="text-neutral-200">전화</strong> 010-6706-4733</div>
-        <div><strong class="text-neutral-200">이메일</strong> p1jj@naver.com</div>
-      </div>
+  <!-- 푸터 : 사업자 정보 -->
+  <footer>
+    <div class="container">
+      <p class="biz-name">LongPC — 컴퓨터 출장수리 · 중고PC 매입·판매 — 대전</p>
+      <p>대표자 박종주&nbsp;&nbsp;|&nbsp;&nbsp;사업자등록번호 347-35-01536</p>
+      <p>주소 대전광역시 유성구 구암동 608-10 202호</p>
+      <p>전화 010-6706-4733&nbsp;&nbsp;|&nbsp;&nbsp;이메일 p1jj@naver.com</p>
     </div>
   </footer>
 
-  <!-- Hero 텍스트 자동 롤링 -->
+  <!-- 스크립트 -->
   <script>
-    const headlines = [
-      { h: "대전 컴퓨터 출장수리", s: "부품교체·윈도우 재설치·데이터복구" },
-      { h: "중고PC 매입·판매", s: "실시간 시세반영 · 즉시결제 · 데이터완전삭제" },
-      { h: "기업/관공서 정기점검", s: "맞춤 유지보수 · 네트워크 점검" },
-    ];
-    let idx = 0;
-    setInterval(() => {
-      idx = (idx + 1) % headlines.length;
-      const h = document.getElementById("hero-headline");
-      const s = document.getElementById("hero-sub");
-      if (h && s) {
-        h.style.opacity = 0; s.style.opacity = 0;
-        setTimeout(() => {
-          h.textContent = headlines[idx].h;
-          s.textContent = headlines[idx].s;
-          h.style.opacity = 1; s.style.opacity = 1;
-        }, 220);
-      }
-    }, 4200);
-  </script>
+    // 스무스 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.offsetTop - 60,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
 
-  <!-- LocalBusiness 구조화 데이터 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "LongPC",
-    "telephone": "010-6706-4733",
-    "email": "p1jj@naver.com",
-    "areaServed": "Daejeon, Korea",
-    "url": "https://longpc.co.kr",
-    "openingHours": "Mo-Su 09:00-21:00",
-    "address": { "@type": "PostalAddress", "addressLocality": "Daejeon" },
-    "sameAs": ["https://pf.kakao.com/_Cpacn"]
-  }
+    // Formspree 전송 후 알림 + 리셋 (LongPC 스타일 메시지)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault(); // 기본 폼 제출 막기
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            alert('문의가 정상적으로 접수되었습니다.\n\nLongPC에서 확인 후 순차적으로 연락드리겠습니다.');
+            form.reset();
+          } else {
+            alert('전송 중 오류가 발생했습니다.\n\n잠시 후 다시 시도해 주시거나,\n전화 010-6706-4733으로 연락 주시면 더 빠르게 도와드리겠습니다.');
+          }
+        } catch (err) {
+          alert('네트워크 문제로 문의 전송에 실패했습니다.\n\n인터넷 연결을 확인하신 후 다시 시도해 주세요.\n급한 문의는 010-6706-4733으로 연락 부탁드립니다.');
+        }
+      });
+    }
   </script>
 </body>
 </html>
