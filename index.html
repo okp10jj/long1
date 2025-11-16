@@ -65,13 +65,15 @@
     .brand {
       font-size: 18px;
       font-weight: 800;
+      white-space: nowrap;
     }
     .brand span {
-      color: #ffffff; /* 포인트 색 흰색 */
+      color: #ffffff;
     }
     nav ul {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
     nav a {
       padding: 4px 8px;
@@ -87,18 +89,20 @@
       display: flex;
       align-items: center;
       gap: 4px;
+      white-space: nowrap;
     }
     .header-phone a {
       color: #ffffff;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .header-inner {
         flex-wrap: wrap;
         gap: 6px;
       }
-      nav ul {
-        gap: 8px;
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
       }
       .header-phone {
         width: 100%;
@@ -163,6 +167,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
     .hero-caption {
       font-size: 12px;
@@ -183,6 +188,7 @@
       font-weight: 600;
       border: 1px solid transparent;
       cursor: pointer;
+      text-align: center;
     }
     .btn-primary {
       background: #000000;
@@ -200,7 +206,6 @@
     }
     .btn-outline:hover { background: #111; }
 
-    /* 카카오 버튼: 검정색 */
     .btn-kakao {
       background: #000;
       color: #fff;
@@ -224,21 +229,6 @@
     }
     .hero-box ul li {
       margin-bottom: 6px;
-    }
-
-    @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-      .hero-title {
-        font-size: 22px;
-      }
-      .hero-subtitle {
-        font-size: 16px;
-      }
-      .hero-phone {
-        font-size: 20px;
-      }
     }
 
     /* 서비스 상세 안내 */
@@ -271,12 +261,6 @@
       list-style: disc;
     }
 
-    @media (max-width: 768px) {
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     /* 가격 안내 섹션 배경 검은색 */
     #price {
       background: #000;
@@ -289,7 +273,7 @@
       gap: 14px;
     }
     .price-card {
-      background: #111;         /* 어두운 카드 */
+      background: #111;
       border-radius: 12px;
       padding: 18px;
       border: 1px solid #333;
@@ -324,17 +308,6 @@
       color: #aaa;
     }
 
-    @media (max-width: 900px) {
-      .price-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 640px) {
-      .price-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .price-footnote {
       font-size: 12px;
       color: #ccc;
@@ -359,19 +332,6 @@
       font-size: 16px;
       margin-bottom: 10px;
     }
-    .contact-list li {
-      margin-bottom: 6px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .contact-actions {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
     .contact-box small {
       display: block;
       margin-top: 10px;
@@ -395,13 +355,7 @@
       text-align: center;
     }
 
-    @media (max-width: 768px) {
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* 사업자 정보 푸터 */
+    /* 푸터 */
     footer {
       background: #111;
       color: #aaa;
@@ -414,6 +368,110 @@
     }
     footer p + p {
       margin-top: 4px;
+    }
+
+    /* 반응형 - 태블릿 이하 */
+    @media (max-width: 900px) {
+      .price-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 12px;
+      }
+      section {
+        padding: 40px 0;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .hero {
+        padding: 40px 0 44px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .hero-subtitle {
+        font-size: 15px;
+      }
+      .hero-phone {
+        font-size: 20px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* 작은 모바일 */
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .hero-title {
+        font-size: 22px;
+      }
+      .hero-subtitle {
+        font-size: 14px;
+      }
+      .hero-desc {
+        font-size: 13px;
+      }
+      .hero-phone {
+        font-size: 18px;
+      }
+      .header-inner {
+        padding: 8px 12px;
+      }
+      .brand {
+        font-size: 16px;
+      }
+      nav ul {
+        gap: 6px;
+      }
+      nav a {
+        font-size: 12px;
+        padding: 3px 6px;
+      }
+      .contact-box {
+        padding: 14px;
+      }
+      .price-card {
+        padding: 14px;
+      }
+      .contact-box h3 {
+        font-size: 15px;
+      }
+      .btn {
+        font-size: 13px;
+        padding: 9px 12px;
+      }
+      .hero-buttons .btn {
+        font-size: 14px;
+      }
+      /* 문의 버튼 3개 전체 폭 사용 */
+      .contact-box a {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -656,9 +714,7 @@
               LongPC에서 확인 후 순차적으로 연락드리겠습니다.
             </p>
 
-            <!-- ★ Vercel /api/sens 로 직접 전송하는 폼 ★ -->
             <form id="contactForm" action="/api/sens" method="POST">
-              <!-- 연락 받으실 전화번호(선택) -->
               <input
                  type="tel"
                  name="phone"
@@ -666,17 +722,14 @@
                  style="width:100%; padding:8px; margin-bottom:8px; border-radius:6px; border:1px solid #ccc; font-size:13px; box-sizing:border-box;"
                />
 
-              <!-- 문의 내용 -->
               <textarea
                 name="message"
                 placeholder="예) 사무실 PC 4대가 느려져서 윈도우 재설치와 SSD 업그레이드 견적 문의드립니다. 사용 용도: 문서 작업, 인터넷, 유튜브 시청."
                 required
               ></textarea>
 
-              <!-- 전송 버튼 -->
               <button type="submit" class="btn btn-primary btn-full">문의 전송하기</button>
             </form>
-            <!-- ★ 폼 끝 ★ -->
           </div>
         </div>
       </div>
@@ -693,7 +746,6 @@
     </div>
   </footer>
 
-  <!-- 스크립트 -->
   <script>
     // 스무스 스크롤
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
@@ -716,7 +768,7 @@
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function (e) {
-        e.preventDefault(); // 기본 폼 제출 막기
+        e.preventDefault();
 
         const form = e.target;
         const formData = new FormData(form);
@@ -741,7 +793,6 @@
             alert("문의가 정상적으로 전송되었습니다.\n\nLongPC에서 확인 후 순차적으로 연락드리겠습니다.");
             form.reset();
           } else {
-            // 어디서 막혔는지 안내
             alert(
               "문자 발송 중 문제가 발생했습니다.\n\n" +
               "단계: " + (data.step || "unknown") + "\n" +
