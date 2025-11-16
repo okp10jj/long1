@@ -13,6 +13,7 @@
       background: #f5f5f5;
       color: #222;
       line-height: 1.6;
+      text-align: center; /* 전체 텍스트 가운데 정렬 */
     }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -29,12 +30,15 @@
     h1,h2,h3 {
       font-weight: 800;
       letter-spacing: -0.02em;
+      text-align: center; /* 중앙 정렬 */
+      width: 100%;
     }
     .section-title {
       font-size: 24px;
       margin-bottom: 24px;
-      border-left: 4px solid #000;
-      padding-left: 10px;
+      border-left: none;     /* 좌측 포인트 제거 */
+      padding-left: 0;
+      display: inline-block;
     }
 
     /* 헤더 */
@@ -57,556 +61,303 @@
       justify-content: space-between;
       font-size: 14px;
     }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
+
     .brand {
       font-size: 18px;
       font-weight: 800;
-      white-space: nowrap;
+      text-align: center;
     }
-    .brand span {
-      color: #ffffff;
-    }
+
     nav ul {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
     }
-    nav a {
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background 0.15s;
-    }
+
     nav a:hover {
       background: #222;
     }
-    .header-phone {
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-    }
-    .header-phone a {
-      color: #ffffff;
-    }
 
-    @media (max-width: 768px) {
-      .header-inner {
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .header-left {
-        width: 100%;
-        justify-content: space-between;
-      }
-      .header-phone {
-        width: 100%;
-        justify-content: flex-end;
-      }
-    }
-
-    /* 전화기 아이콘 (흰색 SVG) */
+    /* 전화기 아이콘 */
     .phone-icon {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
+      width: 18px; height: 18px;
       background-size: contain;
-      background-repeat: no-repeat;
       background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.69.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.69 1 1 0 01-.24 1.01l-2.23 2.09z"/></svg>');
-      margin-right: 4px;
-      vertical-align: -3px;
+      display:inline-block;
+      vertical-align:-3px;
     }
 
-    /* 메인(히어로) — 대전 컴퓨터 출장수리 */
-    main {
-      padding-top: 64px; /* 헤더 높이 보정 */
-    }
+    /* HERO */
+    main { padding-top: 64px; }
+
     .hero {
       background: #000;
       color: #fff;
       padding: 56px 0 60px;
     }
+
     .hero-inner {
       display: grid;
-      grid-template-columns: 1.6fr 1.1fr;
-      gap: 32px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
+
     .hero-tag {
       display: inline-block;
       font-size: 11px;
-      background: #ffffff;
+      background: #fff;
       color: #000;
       padding: 4px 10px;
       border-radius: 999px;
       font-weight: 700;
-      margin-bottom: 12px;
     }
-    .hero-title {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-    .hero-subtitle {
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-    .hero-desc {
-      font-size: 14px;
-      opacity: 0.9;
-      margin-bottom: 16px;
-    }
-    .hero-phone {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .hero-caption {
-      font-size: 12px;
-      opacity: 0.8;
-    }
+
     .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:20px;
     }
 
     .btn {
       display: inline-block;
-      padding: 10px 14px;
+      padding: 12px 18px;
       border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-align: center;
-    }
-    .btn-primary {
-      background: #000000;
-      color: #ffffff;
-      border-color: #000000;
-    }
-    .btn-primary:hover {
-      background: #222222;
-      border-color: #222222;
-    }
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border-color: #444;
-    }
-    .btn-outline:hover { background: #111; }
-
-    .btn-kakao {
-      background: #000;
-      color: #fff;
-      border: 1px solid #000;
-    }
-    .btn-kakao:hover {
-      background: #222;
-      border-color: #222;
+      font-size: 15px;
+      font-weight: 700;
+      background:#000;
+      color:#fff;
+      border:1px solid #000;
+      text-align:center;
+      width: 240px;
     }
 
+    .btn:hover { background:#222; }
+
+    /* HERO 오른쪽 박스 */
     .hero-box {
       background: #111;
       border-radius: 12px;
       padding: 18px;
       border: 1px solid #222;
-      font-size: 13px;
+      font-size: 14px;
+      text-align:center;
     }
-    .hero-box h3 {
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
-    .hero-box ul li {
+    .hero-box ul { padding:0; }
+    .hero-box li {
       margin-bottom: 6px;
+      text-align:center;
     }
 
-    /* 서비스 상세 안내 */
+    /* 서비스 */
     .service-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
     .service-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      font-size: 14px;
-    }
-    .service-card h3 {
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-    .service-card p {
-      font-size: 13px;
-      margin-bottom: 8px;
-      color: #555;
-    }
-    .service-card ul {
-      padding-left: 12px;
-      font-size: 13px;
-      color: #444;
-      list-style: disc;
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      border:1px solid #e2e2e2;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      text-align:center;
     }
 
-    /* 가격 안내 섹션 배경 검은색 */
-    #price {
-      background: #000;
-      color: #fff;
-    }
+    /* 가격 안내 */
+    #price { background:#000; color:#fff; }
 
     .price-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:16px;
     }
     .price-card {
-      background: #111;
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #333;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-      font-size: 13px;
-    }
-    .price-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #bbb;
-      margin-bottom: 4px;
-    }
-    .price-title {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 4px;
-      color: #fff;
-    }
-    .price-sub {
-      font-size: 13px;
-      color: #ddd;
-      margin-bottom: 6px;
-    }
-    .price-amount {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 2px;
-      color: #ffffff;
-    }
-    .price-note {
-      font-size: 11px;
-      color: #aaa;
-    }
-
-    .price-footnote {
-      font-size: 12px;
-      color: #ccc;
-      margin-top: 12px;
+      background:#111;
+      border-radius:12px;
+      padding:20px;
+      border:1px solid #333;
+      box-shadow:0 2px 6px rgba(0,0,0,0.5);
+      text-align:center;
     }
 
     /* 문의하기 */
     .contact-wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 20px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
     }
     .contact-box {
-      background: #fff;
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-      font-size: 14px;
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      border:1px solid #e2e2e2;
+      box-shadow:0 2px 6px rgba(0,0,0,0.04);
+      text-align:center;
     }
-    .contact-box h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-    .contact-box small {
-      display: block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #666;
-    }
+
     textarea {
-      width: 100%;
-      min-height: 120px;
-      resize: vertical;
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-family: inherit;
-      font-size: 13px;
-      box-sizing: border-box;
+      width:100%;
+      min-height:120px;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:14px;
+      margin-top:10px;
+      text-align:center;
     }
+
     .btn-full {
-      width: 100%;
-      margin-top: 8px;
-      text-align: center;
+      width:100%;
+      margin-top:10px;
     }
 
     /* 푸터 */
     footer {
-      background: #111;
-      color: #aaa;
-      font-size: 12px;
-      padding: 20px 0;
-    }
-    footer .biz-name {
-      color: #fff;
-      font-weight: 700;
-    }
-    footer p + p {
-      margin-top: 4px;
+      background:#111;
+      color:#aaa;
+      padding:20px 0;
+      text-align:center;
+      font-size:12px;
     }
 
-    /* 반응형 - 태블릿 이하 */
-    @media (max-width: 900px) {
-      .price-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    /* 반응형 */
+    @media(max-width:900px){
+      .price-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:768px){
+      .service-grid { grid-template-columns:1fr; }
+      .contact-wrap { grid-template-columns:1fr; }
+      .price-grid   { grid-template-columns:1fr; }
     }
 
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 12px;
-      }
-      section {
-        padding: 40px 0;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .hero {
-        padding: 40px 0 44px;
-      }
-      .hero-title {
-        font-size: 24px;
-      }
-      .hero-subtitle {
-        font-size: 15px;
-      }
-      .hero-phone {
-        font-size: 20px;
-      }
-      .hero-buttons {
-        flex-direction: column;
-      }
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .price-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* 작은 모바일 */
-    @media (max-width: 480px) {
-      .section-title {
-        font-size: 20px;
-        margin-bottom: 20px;
-      }
-      .hero-title {
-        font-size: 22px;
-      }
-      .hero-subtitle {
-        font-size: 14px;
-      }
-      .hero-desc {
-        font-size: 13px;
-      }
-      .hero-phone {
-        font-size: 18px;
-      }
-      .header-inner {
-        padding: 8px 12px;
-      }
-      .brand {
-        font-size: 16px;
-      }
-      nav ul {
-        gap: 6px;
-      }
-      nav a {
-        font-size: 12px;
-        padding: 3px 6px;
-      }
-      .contact-box {
-        padding: 14px;
-      }
-      .price-card {
-        padding: 14px;
-      }
-      .contact-box h3 {
-        font-size: 15px;
-      }
-      .btn {
-        font-size: 13px;
-        padding: 9px 12px;
-      }
-      .hero-buttons .btn {
-        font-size: 14px;
-      }
-      /* 문의 버튼 3개 전체 폭 사용 */
-      .contact-box a {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
-  <!-- 헤더 -->
+
+  <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <div class="header-left">
-        <div class="brand">LongPC <span>컴퓨터</span></div>
-        <nav>
-          <ul>
-            <li><a href="#top">LongPC</a></li>
-            <li><a href="#service">서비스</a></li>
-            <li><a href="#price">요금</a></li>
-            <li><a href="#contact">문의</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="header-phone">
-        <span>서비스 요금 문의</span>
-        <span class="phone-icon"></span>
-        <a href="tel:01067064733">010-6706-4733</a>
-      </div>
+      <div class="brand">LongPC <span>컴퓨터</span></div>
+      <nav>
+        <ul>
+          <li><a href="#top">LongPC</a></li>
+          <li><a href="#service">서비스</a></li>
+          <li><a href="#price">요금</a></li>
+          <li><a href="#contact">문의</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO : 대전 컴퓨터 출장수리 -->
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
+
         <div>
           <div class="hero-tag">당일 출장 · 합리적 비용 · 친절 상담</div>
           <h1 class="hero-title"># 대전 컴퓨터 출장수리</h1>
-          <h2 class="hero-subtitle">부품교체·윈도우 재설치·데이터복구</h2>
+          <h2 class="hero-subtitle">부품교체 · 윈도우 재설치 · 데이터복구</h2>
           <p class="hero-desc">
-            대전 전지역(유성·서구·중구·동구·대덕) 컴퓨터·노트북 출장수리,
-            윈도우 재설치, 데이터 복구, 중고PC 매입·판매까지 한 번에 해결해 드립니다.
+            대전 전지역 컴퓨터·노트북 출장수리, 윈도우 설치, 데이터 복구,<br>
+            중고PC 매입·판매까지 One-Stop으로 해결해드립니다.
           </p>
+
           <p class="hero-phone">
-            <span class="phone-icon"></span>
-            <span>010-6706-4733</span>
+            <span class="phone-icon"></span> 010-6706-4733
           </p>
-          <p class="hero-caption">연중무휴 09:00–21:00 (통화 후 방문 시간 안내)</p>
 
           <div class="hero-buttons">
-            <a href="tel:01067064733" class="btn btn-primary">바로 전화하기</a>
-            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn btn-kakao">카카오채널 상담</a>
+            <a href="tel:01067064733" class="btn">📞 바로 전화하기</a>
+            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn">💬 카카오채널 상담</a>
           </div>
         </div>
 
         <aside class="hero-box">
-          <h3>이런 문제, LongPC가 해결합니다</h3>
+          <h3>이런 문제 해결합니다</h3>
           <ul>
-            <li>· 부팅 불가, 전원 문제, 블루스크린</li>
-            <li>· SSD/메모리/메인보드 등 부품 교체</li>
-            <li>· 소음·발열 관리 및 팬/먼지 청소</li>
-            <li>· 실수로 삭제·포맷한 데이터 복구</li>
-            <li>· 사용 안 하는 중고PC·노트북 매입</li>
-            <li>· 사무실·학원·관공서 정기점검 계약</li>
+            <li>부팅 불가 / 파란 화면</li>
+            <li>SSD/메모리/메인보드 교체</li>
+            <li>소음 및 발열 문제 해결</li>
+            <li>삭제·포맷 데이터 복구</li>
+            <li>중고PC · 노트북 매입</li>
+            <li>기업/관공서 정기점검</li>
           </ul>
         </aside>
+
       </div>
     </section>
 
-    <!-- 서비스 상세 안내 -->
+    <!-- 서비스 -->
     <section id="service">
       <div class="container">
         <h2 class="section-title">서비스 상세 안내</h2>
 
         <div class="service-grid">
-          <!-- 컴퓨터 출장수리 -->
+
           <div class="service-card">
             <h3>컴퓨터 출장수리</h3>
-            <p>대전 전지역 출장 / 즉시 점검 및 수리</p>
+            <p>대전 전지역 출장 / 당일 수리 가능</p>
             <ul>
-              <li>부팅 불가 · 전원 문제 · 블루스크린</li>
-              <li>SSD/메모리/메인보드 교체</li>
-              <li>소음·발열 관리 및 팬 청소</li>
-              <li>기업/관공서 정기점검 계약</li>
+              <li>부팅불가 / 블루스크린</li>
+              <li>SSD·메모리 교체</li>
+              <li>기업/학원 정기점검</li>
             </ul>
           </div>
 
-          <!-- 속도 개선 & 최적화 -->
           <div class="service-card">
-            <h3>속도 개선 &amp; 최적화</h3>
-            <p>체감 속도 향상 / 쾌적한 사용 환경</p>
+            <h3>속도 개선 & 최적화</h3>
+            <p>체감 성능 확실한 속도 개선</p>
             <ul>
-              <li>SSD 업그레이드 · 데이터 이전</li>
-              <li>윈도우/드라이버 재설치 및 정품 인증</li>
-              <li>불필요 프로그램 제거 · 시스템 최적화</li>
+              <li>SSD 업그레이드</li>
+              <li>드라이버/윈도우 재설치</li>
+              <li>시스템 최적화</li>
             </ul>
           </div>
 
-          <!-- 데이터 복구 -->
           <div class="service-card">
             <h3>데이터 복구</h3>
-            <p>삭제·포맷·인식불가 데이터 복원</p>
+            <p>삭제, 포맷, 인식불가 복구</p>
             <ul>
-              <li>HDD/SSD/USB/외장하드 복구</li>
+              <li>HDD/SSD/USB 복구</li>
               <li>논리/물리 손상 분석</li>
-              <li>복구 불가 시 비용 청구 없음</li>
+              <li>복구 불가 시 비용 없음</li>
             </ul>
           </div>
 
-          <!-- 중고PC 매입 -->
           <div class="service-card">
             <h3>중고PC 매입</h3>
-            <p>부품·노트북·법인 물량·고장품 포함</p>
+            <p>고장품 · 법인 물량 OK</p>
             <ul>
-              <li>실시간 시세 반영 · 즉시 결제</li>
-              <li>데이터 완전삭제 · 영수증 발급</li>
-              <li>관공서·학원·회사 대량 매입 / 철거</li>
+              <li>실시간 시세 반영</li>
+              <li>영수증 발급</li>
+              <li>데이터 완전삭제</li>
             </ul>
           </div>
 
-          <!-- 중고PC 판매 -->
           <div class="service-card">
             <h3>중고PC 판매</h3>
-            <p>업무용·학생용·게임용 맞춤 견적</p>
+            <p>사무용/학생용/게임용 맞춤</p>
             <ul>
-              <li>테스트 완료 후 출고 / 기본 보증</li>
-              <li>사양 상담 및 견적 안내</li>
-              <li>택배 · 방문 수령 가능</li>
+              <li>출고 전 테스트 완료</li>
+              <li>기본 보증 제공</li>
+              <li>택배/방문 수령 가능</li>
             </ul>
           </div>
 
-          <!-- 네트워크 & 주변기기 -->
           <div class="service-card">
-            <h3>네트워크 &amp; 주변기기</h3>
-            <p>가정/사무실 인터넷 및 장비 구성</p>
+            <h3>네트워크 & 주변기기</h3>
+            <p>사무실·가정 네트워크 구성</p>
             <ul>
-              <li>공유기, NAS, 프린터, CCTV 세팅</li>
-              <li>사무실 네트워크 점검 · 배선 정리</li>
+              <li>공유기/NAS/CCTV</li>
+              <li>배선 정리/점검</li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
@@ -617,47 +368,31 @@
         <h2 class="section-title">가격 안내</h2>
 
         <div class="price-grid">
-          <!-- 출장 점검비 -->
+
           <div class="price-card">
-            <div class="price-label">대전 전지역 동일</div>
-            <div class="price-title">출장 점검비</div>
-            <div class="price-sub">수리 진행 시 점검비 차감</div>
-            <div class="price-amount">₩30,000~</div>
-            <div class="price-note">
-              기본 증상 점검 및 현장 수리 가능 여부 확인 후<br>
-              작업 진행 전 비용을 먼저 안내드립니다.
-            </div>
+            <h3>출장 점검비</h3>
+            <p>수리 시 점검비 차감</p>
+            <h2>₩30,000~</h2>
           </div>
 
-          <!-- 윈도우 재설치 -->
           <div class="price-card">
-            <div class="price-label">드라이버/최적화 포함</div>
-            <div class="price-title">윈도우 재설치</div>
-            <div class="price-sub">정품 인증 및 최신 업데이트 포함</div>
-            <div class="price-amount">₩40,000~</div>
-            <div class="price-note">
-              윈도우 설치, 주요 드라이버 셋팅, 기본 프로그램 설치까지<br>
-              바로 사용 가능한 상태로 맞춰드립니다.
-            </div>
+            <h3>윈도우 재설치</h3>
+            <p>드라이버/최적화 포함</p>
+            <h2>₩40,000~</h2>
           </div>
 
-          <!-- SSD 업그레이드 -->
           <div class="price-card">
-            <div class="price-label">데이터 이전 포함</div>
-            <div class="price-title">SSD 업그레이드</div>
-            <div class="price-sub">용량/부품가 별도</div>
-            <div class="price-amount">₩60,000~</div>
-            <div class="price-note">
-              기존 HDD 데이터 이전 후 SSD로 부팅 환경 구성,<br>
-              체감 속도를 크게 향상시켜 드립니다.
-            </div>
+            <h3>SSD 업그레이드</h3>
+            <p>데이터 이전 포함</p>
+            <h2>₩60,000~</h2>
           </div>
+
         </div>
 
-        <p class="price-footnote">
-          ※ 실제 요금은 증상, 장비 상태, 부품 가격에 따라 달라질 수 있습니다.<br>
-          &nbsp;&nbsp;통화 또는 카카오채널 상담 시 대략적인 예상 비용을 먼저 안내해 드립니다.
+        <p style="margin-top:16px; font-size:12px; color:#ccc;">
+          ※ 실제 비용은 증상 및 장비 상태에 따라 달라질 수 있습니다.
         </p>
+
       </div>
     </section>
 
@@ -667,149 +402,98 @@
         <h2 class="section-title">문의하기</h2>
 
         <div class="contact-wrap">
-          <!-- 연락처 안내 (버튼 3개) -->
+
+          <!-- 버튼 3개 -->
           <div class="contact-box">
-            <h3>전화 · 카카오채널 · 이메일</h3>
-            <p style="font-size:13px; color:#666; margin-bottom:10px;">
-              문의하실 방법을 선택해주세요. 빠르게 응대해드립니다.
+            <h3>바로 문의하기</h3>
+
+            <a href="tel:01067064733" class="btn">📞 전화 문의</a>
+            <br><br>
+            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn">💬 카카오채널 상담</a>
+            <br><br>
+            <a href="mailto:p1jj@naver.com" class="btn">✉ 이메일 문의</a>
+
+            <p style="font-size:12px; color:#666; margin-top:12px;">
+              증상/사용 용도를 알려주시면 더 정확한 견적 안내가 가능합니다.
             </p>
-
-            <div style="display:flex; flex-direction:column; gap:10px;">
-              <!-- 전화 버튼 -->
-              <a href="tel:01067064733"
-                 style="display:flex; align-items:center; justify-content:center;
-                        background:#000; color:#fff; padding:12px; border-radius:8px;
-                        font-size:15px; font-weight:700; text-decoration:none;">
-                📞 전화 문의 (010-6706-4733)
-              </a>
-
-              <!-- 카카오채널 버튼 -->
-              <a href="https://pf.kakao.com/_Cpacn" target="_blank"
-                 style="display:flex; align-items:center; justify-content:center;
-                        background:#000; color:#fff; padding:12px; border-radius:8px;
-                        font-size:15px; font-weight:700; text-decoration:none;">
-                💬 카카오채널 상담하기
-              </a>
-
-              <!-- 이메일 버튼 -->
-              <a href="mailto:p1jj@naver.com"
-                 style="display:flex; align-items:center; justify-content:center;
-                        background:#000; color:#fff; padding:12px; border-radius:8px;
-                        font-size:15px; font-weight:700; text-decoration:none;">
-                ✉ 이메일 문의 (p1jj@naver.com)
-              </a>
-            </div>
-
-            <small>
-              문의 시 <strong>사용 용도</strong>와 <strong>현재 증상</strong>을 알려주시면<br>
-              예상 비용 및 방문 가능 시간을 더 정확히 안내해드립니다.
-            </small>
           </div>
 
-          <!-- 간단 문의 메모 (Vercel API 직접 호출) -->
+          <!-- 메모 문의 -->
           <div class="contact-box">
             <h3>간단 문의 메모</h3>
-            <p style="font-size:13px; color:#666; margin-bottom:8px;">
-              글로 남기고 싶은 문의는 아래에 편하게 남겨주세요.<br>
-              LongPC에서 확인 후 순차적으로 연락드리겠습니다.
-            </p>
-
             <form id="contactForm" action="/api/sens" method="POST">
-              <input
-                 type="tel"
-                 name="phone"
-                 placeholder="연락 받으실 전화번호 (선택)"
-                 style="width:100%; padding:8px; margin-bottom:8px; border-radius:6px; border:1px solid #ccc; font-size:13px; box-sizing:border-box;"
-               />
 
-              <textarea
-                name="message"
-                placeholder="예) 사무실 PC 4대가 느려져서 윈도우 재설치와 SSD 업그레이드 견적 문의드립니다. 사용 용도: 문서 작업, 인터넷, 유튜브 시청."
-                required
-              ></textarea>
+              <input type="tel"
+                     name="phone"
+                     placeholder="연락처 (선택)"
+                     style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; text-align:center;" />
 
-              <button type="submit" class="btn btn-primary btn-full">문의 전송하기</button>
+              <textarea name="message"
+                placeholder="예) 사무실 PC 느림 / 윈도우 재설치 문의"
+                required></textarea>
+
+              <button type="submit" class="btn btn-full">문의 전송하기</button>
             </form>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- 푸터 : 사업자 정보 -->
   <footer>
-    <div class="container">
-      <p class="biz-name">LongPC — 컴퓨터 출장수리 · 중고PC 매입·판매 — 대전</p>
-      <p>대표자 박종주&nbsp;&nbsp;|&nbsp;&nbsp;사업자등록번호 347-35-01536</p>
-      <p>주소 대전광역시 유성구 구암동 608-10 202호</p>
-      <p>전화 010-6706-4733&nbsp;&nbsp;|&nbsp;&nbsp;이메일 p1jj@naver.com</p>
-    </div>
+    <p>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</p>
+    <p>대표자 박종주 | 사업자등록번호 347-35-01536</p>
+    <p>대전 유성구 구암동 608-10 202호</p>
+    <p>전화 010-6706-4733 | 이메일 p1jj@naver.com</p>
   </footer>
+
 
   <script>
     // 스무스 스크롤
     document.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId && targetId !== '#') {
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            window.scrollTo({
-              top: target.offsetTop - 60,
-              behavior: 'smooth'
-            });
-          }
+        const id = this.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.offsetTop - 60, behavior:'smooth' });
         }
       });
     });
 
-    // Vercel 서버리스 함수(/api/sens)로 직접 전송
+    // 문의 메모 API
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        const form = e.target;
-        const formData = new FormData(form);
-        const jsonData = {};
-        formData.forEach((value, key) => {
-          jsonData[key] = value;
-        });
+        const formData = new FormData(contactForm);
+        const json = {};
+        formData.forEach((v, k)=> json[k]=v);
 
         try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(jsonData)
+          const res = await fetch("/api/sens", {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify(json)
           });
-
-          const data = await response.json();
-          console.log("API 응답:", data);
+          const data = await res.json();
 
           if (data.ok) {
-            alert("문의가 정상적으로 전송되었습니다.\n\nLongPC에서 확인 후 순차적으로 연락드리겠습니다.");
-            form.reset();
+            alert("문의가 정상적으로 전송되었습니다.\nLongPC에서 확인 후 연락드리겠습니다.");
+            contactForm.reset();
           } else {
-            alert(
-              "문자 발송 중 문제가 발생했습니다.\n\n" +
-              "단계: " + (data.step || "unknown") + "\n" +
-              "메시지: " + (data.message || "알 수 없는 오류") + "\n\n" +
-              "자세한 내용은 개발자 도구 콘솔(API 응답 로그)을 확인해 주세요."
-            );
+            alert("문자 발송 오류: " + (data.message || "알 수 없는 오류"));
           }
-        } catch (err) {
-          console.error("fetch 에러:", err);
-          alert(
-            "네트워크 문제로 문의 전송에 실패했습니다.\n\n" +
-            "인터넷 연결을 확인하신 후 다시 시도해 주세요.\n" +
-            "급한 문의는 010-6706-4733으로 연락 부탁드립니다."
-          );
+        } catch(err) {
+          alert("네트워크 오류로 전송 실패.\n급한 문의는 전화 부탁드립니다.");
         }
+
       });
     }
   </script>
+
 </body>
 </html>
