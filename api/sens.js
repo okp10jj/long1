@@ -1,13 +1,22 @@
-// api/sens.js  (Vercel Node.js Serverless Function)
+// api/sens.js
+// Vercel Node.js Serverless Function
 
 const crypto = require("crypto");
 
 module.exports = async (req, res) => {
+  // 🔹 GET으로 직접 열었을 때는 안내만 하고 종료
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
+    return res
+      .status(200)
+      .json({
+        ok: false,
+        step: "method",
+        message:
+          "이 주소는 브라우저에서 직접 여는 대신, 홈페이지 문의 폼을 통해 전송될 때만 동작합니다.(POST 전용)"
+      });
   }
 
-  // Formspree Webhook에서 넘어오는 데이터 파싱
+  // 🔹 body 파싱 (문자열/객체 모두 대응)
   let bodyData = req.body;
   if (typeof bodyData === "string") {
     try {
@@ -17,13 +26,23 @@ module.exports = async (req, res) => {
     }
   }
 
-  const email = bodyData.email || "미입력";
-  const message = bodyData.message || "(내용 없음)";
+  const email = bodyData?.email || "미입력";
+  const message = bodyData?.message || "(내용 없음)";
 
   const serviceId = process.env.NCP_SENS_SERVICE_ID;
   const accessKey = process.env.NCP_ACCESS_KEY;
   const secretKey = process.env.NCP_SECRET_KEY;
-  const toPhoneNumber = "01067064733"; // 문자 받을 번호 (본인 번호)
+  const toPhoneNumber = "01067064733"; // 받을 번호
+
+  // 🔹 환경변수 체크 (빠뜨렸으면 바로 알려주기)
+  if (!serviceId || !accessKey || !secretKey) {
+    return res.status(200).json({
+      ok: false,
+      step: "env",
+      message:
+        "NCP_SENS_SERVICE_ID / NCP_ACCESS_KEY / NCP_SECRET_KEY 환경변수를 확인해주세요."
+    });
+  }
 
   const method = "POST";
   const space = " ";
@@ -31,12 +50,12 @@ module.exports = async (req, res) => {
   const urlPath = `/sms/v2/services/${serviceId}/messages`;
   const timestamp = Date.now().toString();
 
-  // ------------ 서명(Signature) 생성 ------------
+  // 🔹 서명(Signature) 생성
   const hmac = crypto.createHmac("sha256", secretKey);
   hmac.update(method + space + urlPath + newLine + timestamp + newLine + accessKey);
   const signature = hmac.digest("base64");
 
-  // ------------ SMS 내용 구성 ------------
+  // 🔹 문자 내용
   const smsContent =
     `[LongPC 홈페이지 문의]\n\n` +
     `이메일: ${email}\n\n` +
@@ -44,7 +63,7 @@ module.exports = async (req, res) => {
 
   const body = {
     type: "SMS",
-    from: "01067064733", // NCP SENS에 등록한 발신번호
+    from: "01067064733", // NCP SENS에 등록된 발신번호 그대로
     content: smsContent,
     messages: [{ to: toPhoneNumber }]
   };
@@ -53,7 +72,7 @@ module.exports = async (req, res) => {
     const response = await fetch(
       `https://sens.apigw.ntruss.com${urlPath}`,
       {
-        method: method,
+        method,
         headers: {
           "Content-Type": "application/json; charset=utf-8",
           "x-ncp-iam-access-key": accessKey,
@@ -66,18 +85,30 @@ module.exports = async (req, res) => {
 
     const result = await response.json();
 
-    if (!response.ok) {
+    // 🔹 NCP SENS 응답 그대로 내려보내서 프론트에서 보이게
+    if (!response.ok || result.status === "fail") {
       console.error("SENS Error:", result);
-      return res.status(500).json({ ok: false, error: "SENS API Error", detail: result });
+      return res.status(200).json({
+        ok: false,
+        step: "sens",
+        message: "NCP SENS 문자 발송 중 오류가 발생했습니다.",
+        result
+      });
     }
 
-    return res.status(200).json({ ok: true, result });
+    return res.status(200).json({
+      ok: true,
+      step: "done",
+      message: "문자 발송 성공",
+      result
+    });
   } catch (error) {
     console.error("SENS Exception:", error);
-    return res.status(500).json({
+    return res.status(200).json({
       ok: false,
-      error: "SMS Send Failed",
-      detail: error.message
+      step: "exception",
+      message: "서버에서 예외가 발생했습니다.",
+      error: error.message
     });
   }
 };
