@@ -277,44 +277,51 @@
       }
     }
 
-    /* 가격 안내 */
+    /* 가격 안내 섹션 배경 검은색 */
+    #price {
+      background: #000;
+      color: #fff;
+    }
+
     .price-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
     .price-card {
-      background: #fff;
+      background: #111;         /* 어두운 카드 */
       border-radius: 12px;
       padding: 18px;
-      border: 1px solid #e2e2e2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      border: 1px solid #333;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
       font-size: 13px;
     }
     .price-label {
       font-size: 13px;
       font-weight: 700;
-      color: #555;
+      color: #bbb;
       margin-bottom: 4px;
     }
     .price-title {
       font-size: 16px;
       font-weight: 800;
       margin-bottom: 4px;
+      color: #fff;
     }
     .price-sub {
       font-size: 13px;
-      color: #666;
+      color: #ddd;
       margin-bottom: 6px;
     }
     .price-amount {
       font-size: 18px;
       font-weight: 800;
       margin-bottom: 2px;
+      color: #ffffff;
     }
     .price-note {
       font-size: 11px;
-      color: #777;
+      color: #aaa;
     }
 
     @media (max-width: 900px) {
@@ -330,7 +337,7 @@
 
     .price-footnote {
       font-size: 12px;
-      color: #666;
+      color: #ccc;
       margin-top: 12px;
     }
 
@@ -602,40 +609,44 @@
         <h2 class="section-title">문의하기</h2>
 
         <div class="contact-wrap">
-          <!-- 연락처 안내 -->
-          <div style="display:flex; flex-direction:column; gap:10px;">
+          <!-- 연락처 안내 (버튼 3개) -->
+          <div class="contact-box">
+            <h3>전화 · 카카오채널 · 이메일</h3>
+            <p style="font-size:13px; color:#666; margin-bottom:10px;">
+              문의하실 방법을 선택해주세요. 빠르게 응대해드립니다.
+            </p>
 
-  <!-- 전화 버튼 -->
-  <a href="tel:01067064733"
-     style="display:flex; align-items:center; justify-content:center;
-            background:#000; color:#fff; padding:12px; border-radius:8px;
-            font-size:15px; font-weight:700; text-decoration:none;">
-    📞 전화 문의 (010-6706-4733)
-  </a>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <!-- 전화 버튼 -->
+              <a href="tel:01067064733"
+                 style="display:flex; align-items:center; justify-content:center;
+                        background:#000; color:#fff; padding:12px; border-radius:8px;
+                        font-size:15px; font-weight:700; text-decoration:none;">
+                📞 전화 문의 (010-6706-4733)
+              </a>
 
-  <!-- 카카오채널 버튼 -->
-  <a href="https://pf.kakao.com/_Cpacn" target="_blank"
-     style="display:flex; align-items:center; justify-content:center;
-            background:#000; color:#fff; padding:12px; border-radius:8px;
-            font-size:15px; font-weight:700; text-decoration:none;">
-    💬 카카오채널 상담하기
-  </a>
+              <!-- 카카오채널 버튼 -->
+              <a href="https://pf.kakao.com/_Cpacn" target="_blank"
+                 style="display:flex; align-items:center; justify-content:center;
+                        background:#000; color:#fff; padding:12px; border-radius:8px;
+                        font-size:15px; font-weight:700; text-decoration:none;">
+                💬 카카오채널 상담하기
+              </a>
 
-  <!-- 이메일 버튼 -->
-  <a href="mailto:p1jj@naver.com"
-     style="display:flex; align-items:center; justify-content:center;
-            background:#000; color:#fff; padding:12px; border-radius:8px;
-            font-size:15px; font-weight:700; text-decoration:none;">
-    ✉ 이메일 문의 (p1jj@naver.com)
-  </a>
+              <!-- 이메일 버튼 -->
+              <a href="mailto:p1jj@naver.com"
+                 style="display:flex; align-items:center; justify-content:center;
+                        background:#000; color:#fff; padding:12px; border-radius:8px;
+                        font-size:15px; font-weight:700; text-decoration:none;">
+                ✉ 이메일 문의 (p1jj@naver.com)
+              </a>
+            </div>
 
-</div>
-   
-  <small style="display:block; margin-top:12px; font-size:12px; color:#666;">
-    문의 시 <strong>사용 용도</strong>와 <strong>현재 증상</strong>을 알려주시면<br>
-    예상 비용 및 방문 가능 시간을 더 정확히 안내해드립니다.
-  </small>
-</div>
+            <small>
+              문의 시 <strong>사용 용도</strong>와 <strong>현재 증상</strong>을 알려주시면<br>
+              예상 비용 및 방문 가능 시간을 더 정확히 안내해드립니다.
+            </small>
+          </div>
 
           <!-- 간단 문의 메모 (Vercel API 직접 호출) -->
           <div class="contact-box">
@@ -647,7 +658,7 @@
 
             <!-- ★ Vercel /api/sens 로 직접 전송하는 폼 ★ -->
             <form id="contactForm" action="/api/sens" method="POST">
-              <!-- 답변 받을 이메일(선택) -->
+              <!-- 연락 받으실 전화번호(선택) -->
               <input
                  type="tel"
                  name="phone"
@@ -684,70 +695,70 @@
 
   <!-- 스크립트 -->
   <script>
-  // 스무스 스크롤
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - 60,
-            behavior: 'smooth'
-          });
+    // 스무스 스크롤
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.offsetTop - 60,
+              behavior: 'smooth'
+            });
+          }
         }
-      }
-    });
-  });
-
-  // Vercel 서버리스 함수(/api/sens)로 직접 전송
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', async function (e) {
-      e.preventDefault(); // 기본 폼 제출 막기
-
-      const form = e.target;
-      const formData = new FormData(form);
-      const jsonData = {};
-      formData.forEach((value, key) => {
-        jsonData[key] = value;
       });
+    });
 
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(jsonData)
+    // Vercel 서버리스 함수(/api/sens)로 직접 전송
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault(); // 기본 폼 제출 막기
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const jsonData = {};
+        formData.forEach((value, key) => {
+          jsonData[key] = value;
         });
 
-        const data = await response.json();
-        console.log("API 응답:", data);
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(jsonData)
+          });
 
-        if (data.ok) {
-          alert("문의가 정상적으로 전송되었습니다.\n\nLongPC에서 확인 후 순차적으로 연락드리겠습니다.");
-          form.reset();
-        } else {
-          // 어디서 막혔는지 안내
+          const data = await response.json();
+          console.log("API 응답:", data);
+
+          if (data.ok) {
+            alert("문의가 정상적으로 전송되었습니다.\n\nLongPC에서 확인 후 순차적으로 연락드리겠습니다.");
+            form.reset();
+          } else {
+            // 어디서 막혔는지 안내
+            alert(
+              "문자 발송 중 문제가 발생했습니다.\n\n" +
+              "단계: " + (data.step || "unknown") + "\n" +
+              "메시지: " + (data.message || "알 수 없는 오류") + "\n\n" +
+              "자세한 내용은 개발자 도구 콘솔(API 응답 로그)을 확인해 주세요."
+            );
+          }
+        } catch (err) {
+          console.error("fetch 에러:", err);
           alert(
-            "문자 발송 중 문제가 발생했습니다.\n\n" +
-            "단계: " + (data.step || "unknown") + "\n" +
-            "메시지: " + (data.message || "알 수 없는 오류") + "\n\n" +
-            "자세한 내용은 개발자 도구 콘솔(API 응답 로그)을 확인해 주세요."
+            "네트워크 문제로 문의 전송에 실패했습니다.\n\n" +
+            "인터넷 연결을 확인하신 후 다시 시도해 주세요.\n" +
+            "급한 문의는 010-6706-4733으로 연락 부탁드립니다."
           );
         }
-      } catch (err) {
-        console.error("fetch 에러:", err);
-        alert(
-          "네트워크 문제로 문의 전송에 실패했습니다.\n\n" +
-          "인터넷 연결을 확인하신 후 다시 시도해 주세요.\n" +
-          "급한 문의는 010-6706-4733으로 연락 부탁드립니다."
-        );
-      }
-    });
-  }
-</script>
+      });
+    }
+  </script>
 </body>
 </html>
