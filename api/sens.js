@@ -26,7 +26,9 @@ module.exports = async (req, res) => {
     }
   }
 
-  const email = bodyData?.email || "미입력";
+  // ✅ 폼에서 넘어온 값들
+  // 현재 HTML 폼에는 email 필드가 없으니 phone + message만 사용
+  const phone = bodyData?.phone || "미입력";
   const message = bodyData?.message || "(내용 없음)";
 
   const serviceId = process.env.NCP_SENS_SERVICE_ID;
@@ -55,10 +57,10 @@ module.exports = async (req, res) => {
   hmac.update(method + space + urlPath + newLine + timestamp + newLine + accessKey);
   const signature = hmac.digest("base64");
 
-  // 🔹 문자 내용
+  // 🔹 문자 내용 (연락처 + 문의내용)
   const smsContent =
     `[LongPC 홈페이지 문의]\n\n` +
-    `이메일: ${email}\n\n` +
+    `연락처: ${phone}\n\n` +
     `내용:\n${message}`;
 
   const body = {
