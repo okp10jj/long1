@@ -1,499 +1,309 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="대전 컴퓨터 출장수리, 윈도우 재설치, 데이터 복구, 중고PC 매입·판매 전문 LongPC. 당일 출장, 합리적 비용, 친절 상담." />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      line-height: 1.6;
-      text-align: center; /* 전체 텍스트 가운데 정렬 */
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-
-    /* 공통 레이아웃 */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    section {
-      padding: 60px 0;
-    }
-    h1,h2,h3 {
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-align: center; /* 중앙 정렬 */
-      width: 100%;
-    }
-    .section-title {
-      font-size: 24px;
-      margin-bottom: 24px;
-      border-left: none;     /* 좌측 포인트 제거 */
-      padding-left: 0;
-      display: inline-block;
-    }
-
-    /* 헤더 */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #000;
-      color: #fff;
-      z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-    .header-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 14px;
-    }
-
-    .brand {
-      font-size: 18px;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    nav ul {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a:hover {
-      background: #222;
-    }
-
-    /* 전화기 아이콘 */
-    .phone-icon {
-      width: 18px; height: 18px;
-      background-size: contain;
-      background-image: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.69.59 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.69 1 1 0 01-.24 1.01l-2.23 2.09z"/></svg>');
-      display:inline-block;
-      vertical-align:-3px;
-    }
-
-    /* HERO */
-    main { padding-top: 64px; }
-
-    .hero {
-      background: #000;
-      color: #fff;
-      padding: 56px 0 60px;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 11px;
-      background: #fff;
-      color: #000;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 700;
-    }
-
-    .hero-buttons {
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: 700;
-      background:#000;
-      color:#fff;
-      border:1px solid #000;
-      text-align:center;
-      width: 240px;
-    }
-
-    .btn:hover { background:#222; }
-
-    /* HERO 오른쪽 박스 */
-    .hero-box {
-      background: #111;
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #222;
-      font-size: 14px;
-      text-align:center;
-    }
-    .hero-box ul { padding:0; }
-    .hero-box li {
-      margin-bottom: 6px;
-      text-align:center;
-    }
-
-    /* 서비스 */
-    .service-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-    .service-card {
-      background:#fff;
-      border-radius:12px;
-      padding:20px;
-      border:1px solid #e2e2e2;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-      text-align:center;
-    }
-
-    /* 가격 안내 */
-    #price { background:#000; color:#fff; }
-
-    .price-grid {
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:16px;
-    }
-    .price-card {
-      background:#111;
-      border-radius:12px;
-      padding:20px;
-      border:1px solid #333;
-      box-shadow:0 2px 6px rgba(0,0,0,0.5);
-      text-align:center;
-    }
-
-    /* 문의하기 */
-    .contact-wrap {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-    .contact-box {
-      background:#fff;
-      border-radius:12px;
-      padding:20px;
-      border:1px solid #e2e2e2;
-      box-shadow:0 2px 6px rgba(0,0,0,0.04);
-      text-align:center;
-    }
-
-    textarea {
-      width:100%;
-      min-height:120px;
-      padding:10px;
-      border-radius:8px;
-      border:1px solid #ccc;
-      font-size:14px;
-      margin-top:10px;
-      text-align:center;
-    }
-
-    .btn-full {
-      width:100%;
-      margin-top:10px;
-    }
-
-    /* 푸터 */
-    footer {
-      background:#111;
-      color:#aaa;
-      padding:20px 0;
-      text-align:center;
-      font-size:12px;
-    }
-
-    /* 반응형 */
-    @media(max-width:900px){
-      .price-grid { grid-template-columns:1fr 1fr; }
-    }
-    @media(max-width:768px){
-      .service-grid { grid-template-columns:1fr; }
-      .contact-wrap { grid-template-columns:1fr; }
-      .price-grid   { grid-template-columns:1fr; }
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LONGPC - 대전·충청 학교·관공서·기업 전산 유지보수 전문 파트너">
+<title>LONGPC - 학교·관공서·기업 전산 유지보수 전문 파트너</title>
+<style>
+:root{
+  --bg:#070b12;--panel:#0f1724;--panel2:#121c2b;--line:#243247;
+  --gold:#f5b942;--gold2:#ffcf68;--white:#f8fafc;--muted:#9aa8bb;
+  --success:#41d17d;--danger:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+html{background:var(--bg)}
+body{
+  font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 80% 0%,rgba(245,185,66,.10),transparent 28rem),
+    linear-gradient(180deg,#070b12 0%,#0a1019 100%);
+  color:var(--white);line-height:1.65;padding-top:76px;
+}
+a{color:inherit}
+.container{max-width:1180px;margin:auto;padding:0 22px}
+header{
+  position:fixed;z-index:1000;top:0;left:0;width:100%;
+  background:rgba(7,11,18,.82);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav-container{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;gap:26px}
+.logo{font-size:24px;font-weight:950;letter-spacing:-.8px;cursor:pointer;white-space:nowrap}
+.logo span{color:var(--gold)}
+.nav-menu{display:flex;gap:25px;align-items:center;list-style:none;margin-left:auto}
+.nav-menu a{text-decoration:none;color:#aeb9c9;font-size:14px;font-weight:750;transition:.2s}
+.nav-menu a:hover{color:var(--gold2)}
+.btn-top-call{
+  text-decoration:none;border:1px solid rgba(245,185,66,.7);color:var(--gold2);
+  padding:8px 14px;border-radius:999px;font-size:13px;font-weight:850;
+  transition:.2s;white-space:nowrap
+}
+.btn-top-call:hover{background:var(--gold);color:#10141b}
+section{padding:82px 0 20px;scroll-margin-top:80px}
+.hero-box{
+  position:relative;overflow:hidden;text-align:center;margin:34px 0 5px;padding:90px 28px 82px;
+  border:1px solid rgba(255,255,255,.09);border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(245,185,66,.14),transparent 24rem),
+    linear-gradient(145deg,#111b2a,#0c131f);
+  box-shadow:0 30px 90px rgba(0,0,0,.35)
+}
+.hero-box:after{
+  content:"";position:absolute;inset:auto 12% -70px 12%;height:140px;
+  background:rgba(245,185,66,.12);filter:blur(55px);pointer-events:none
+}
+.hero-box h1{position:relative;z-index:1;font-size:clamp(30px,4.2vw,52px);line-height:1.27;margin-bottom:22px;font-weight:950;letter-spacing:-2.2px}
+.hero-box h1 span{color:var(--gold2)}
+.hero-box p{position:relative;z-index:1;color:#aeb9c9;font-size:16px;font-weight:550}
+.hero-actions{position:relative;z-index:1;display:flex;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;
+  min-width:145px;border-radius:999px;text-decoration:none;font-weight:850;font-size:14px;
+  transition:.25s
+}
+.hero-btn.primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#12151b;box-shadow:0 10px 28px rgba(245,185,66,.18)}
+.hero-btn.secondary{border:1px solid #34445b;background:#162131;color:#fff}
+.hero-btn:hover{transform:translateY(-2px)}
+.section-title{font-size:28px;margin-bottom:10px;font-weight:900;letter-spacing:-1px}
+.section-title:before{content:"";display:inline-block;width:5px;height:24px;background:var(--gold);border-radius:5px;margin:0 12px -2px 0}
+.section-desc{color:#8492a6;margin:0 0 25px;font-size:14px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{
+  background:linear-gradient(145deg,#111b2a,#0d1521);padding:28px;border-radius:18px;
+  border:1px solid var(--line);min-height:190px;transition:.25s
+}
+.service-card:hover{transform:translateY(-5px);border-color:rgba(245,185,66,.45);box-shadow:0 18px 40px rgba(0,0,0,.2)}
+.service-card h3{font-size:18px;color:var(--gold2);margin-bottom:12px;letter-spacing:-.4px}
+.service-card p{color:#aeb9c9;font-size:14px}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feature-item{
+  background:#0f1826;padding:24px;border-radius:16px;border:1px solid var(--line);
+  border-top:2px solid var(--gold);min-height:170px
+}
+.feature-item h4{font-size:16px;margin-bottom:9px}
+.feature-item p{color:#9aa8bb;font-size:13px}
+.price-wrapper{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:#0e1622}
+.price-table{width:100%;border-collapse:collapse;text-align:center;min-width:860px}
+.price-table th,.price-table td{padding:17px 13px;border:1px solid var(--line);font-size:13px}
+.price-table th{background:#172234;font-size:14px}
+.price-table td.feature-title{background:#0c131e;font-weight:800;text-align:left;width:22%;color:#dce4ef}
+.highlight{background:rgba(245,185,66,.075);color:#f7d98c;font-weight:750}
+.price-table th.highlight{color:var(--gold2);box-shadow:inset 0 3px 0 var(--gold)}
+.gold-text{color:var(--gold2)!important;font-weight:900}
+.price-note{color:#77869b;font-size:12px;margin-top:12px}
+.contact-box{
+  background:linear-gradient(145deg,#111b2a,#0d1521);padding:34px;border-radius:20px;
+  border:1px solid var(--line);box-shadow:0 18px 55px rgba(0,0,0,.2)
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:21px}
+.form-group{display:flex;flex-direction:column}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-weight:800;margin-bottom:7px;font-size:13px;color:#dbe4ef}
+.form-group label span{color:#ff6b6b;margin-right:3px}
+.form-group input,.form-group textarea,.form-group select{
+  width:100%;padding:14px 15px;background:#f8fafc;border:2px solid #d5dce5;
+  border-radius:11px;font-size:14px;color:#111827;font-weight:500;transition:.2s
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+  border-color:var(--gold);outline:none;box-shadow:0 0 0 4px rgba(245,185,66,.13)
+}
+.form-group textarea{min-height:145px;resize:vertical}
+.privacy-title{font-weight:850;font-size:13px;margin-top:7px;margin-bottom:7px}
+.privacy-text{background:#0a111c;padding:13px;border-radius:10px;font-size:12px;color:#8997aa;margin-bottom:13px;border:1px solid var(--line)}
+.agree-row{display:flex;align-items:center;gap:8px;color:#cbd5e1;font-size:13px;margin-bottom:20px}
+.agree-row input{width:17px;height:17px;accent-color:var(--gold)}
+.btn-submit{
+  width:100%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#10141b;
+  padding:16px;border:0;border-radius:12px;font-size:17px;font-weight:950;cursor:pointer;
+  box-shadow:0 10px 28px rgba(245,185,66,.16);transition:.25s
+}
+.btn-submit:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.btn-submit:disabled{opacity:.65;cursor:wait;transform:none}
+.contact-direct{margin-top:16px;text-align:center;color:#94a3b8;font-size:13px}
+.contact-direct a{color:var(--gold2);font-weight:850;text-decoration:none}
+#quoteStatus{
+  margin-top:16px;padding:0;transition:.25s
+}
+footer{
+  margin-top:72px;padding:34px 10px 25px;border-top:1px solid var(--line);
+  text-align:center;font-size:12px;color:#728096;line-height:2
+}
+footer strong{color:#f5f7fa;font-size:18px}
+@media(max-width:980px){
+  body{padding-top:112px}
+  .nav-container{flex-wrap:wrap;padding:11px 16px}
+  .logo{margin-right:auto}.btn-top-call{margin-left:auto}
+  .nav-menu{order:3;width:100%;justify-content:center;gap:17px}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  body{padding-top:128px}.container{padding:0 14px}
+  .nav-menu{gap:10px;flex-wrap:wrap}.nav-menu a{font-size:11px}
+  .btn-top-call{font-size:11px;padding:6px 10px}
+  section{padding-top:62px}.hero-box{padding:62px 18px 58px;margin-top:20px;border-radius:22px}
+  .hero-box h1{font-size:27px;letter-spacing:-1.3px}.hero-box p{font-size:13px}
+  .services-grid,.features-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}.form-group.full{grid-column:auto}
+  .contact-box{padding:21px 16px}.section-title{font-size:23px}
+  .service-card{padding:22px}.btn-submit{font-size:16px}
+}
+</style>
 </head>
 <body>
+<header>
+  <div class="nav-container">
+    <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">LONG<span>PC</span></div>
+    <ul class="nav-menu">
+      <li><a href="#section-services">서비스 안내</a></li>
+      <li><a href="#section-features">우리의 강점</a></li>
+      <li><a href="#section-pricing">유지보수 요금표</a></li>
+      <li><a href="#section-contact">견적 문의</a></li>
+    </ul>
+    <a href="tel:010-6706-4733" class="btn-top-call">상담 010-6706-4733</a>
+  </div>
+</header>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="brand">LongPC <span>컴퓨터</span></div>
-      <nav>
-        <ul>
-          <li><a href="#top">LongPC</a></li>
-          <li><a href="#service">서비스</a></li>
-          <li><a href="#price">요금</a></li>
-          <li><a href="#contact">문의</a></li>
-        </ul>
-      </nav>
+<main class="container">
+  <div class="hero-box">
+    <h1>선생님은 교육에만 전념하세요.<br>학교 전산 관리는 <span>LONGPC</span>가 확실히 책임집니다.</h1>
+    <p>대전·충청 지역 초·중·고등학교 및 공공기관 전문 원스톱 실시간 케어 시스템</p>
+    <div class="hero-actions">
+      <a class="hero-btn primary" href="#section-contact">무료 견적 문의</a>
+      <a class="hero-btn secondary" href="tel:010-6706-4733">전화 상담하기</a>
     </div>
-  </header>
+  </div>
 
-  <main id="top">
+  <section id="section-services">
+    <div class="section-title">서비스 안내</div>
+    <div class="services-grid">
+      <div class="service-card"><h3>💻 학교 PC & 노트북 케어</h3><p>• 교무실·행정실·컴퓨터실 단체 PC 및 노트북 정기 점검<br>• 교육용 소프트웨어 세팅 및 OS(윈도우) 최적화 포맷 작업<br>• 교육청 보안 지침에 준하는 악성코드 및 바이러스 방역</p></div>
+      <div class="service-card"><h3>🖨️ 프린터 & 복합기 관리</h3><p>• 하드웨어 정기 예방점검 및 잉크/토너 소모품 적시 공급<br>• 용지 걸림, 드라이버 연결 불량, 인쇄 장애 긴급 복구<br>• 고장 발생 시 부품 교체 및 기술공임 케어</p></div>
+      <div class="service-card"><h3>🌐 컴퓨터실 구축 & 전산망</h3><p>• 컴퓨터실 신학기 단체 마스터 복구 솔루션 구축<br>• 학내 무선 AP(Wi-Fi) 전산망 점검 및 LAN 포트 케이블 정리<br>• 노후 장비 철거 및 중고 PC 자산 폐기/매입 일괄 대행</p></div>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-inner">
+  <section id="section-features">
+    <div class="section-title">LONGPC만의 차별화된 강점</div>
+    <div class="features-grid">
+      <div class="feature-item"><h4>🚀 대전 2시간 내 긴급 출동</h4><p>행정 공백과 수업 지연을 최소화하기 위해 장애 접수 후 신속하게 현장 대응합니다.</p></div>
+      <div class="feature-item"><h4>📄 국가 계약 행정서류 지원</h4><p>견적서, 비교견적서, 지출결의용 통장사본 등 행정실 업무에 필요한 서류를 지원합니다.</p></div>
+      <div class="feature-item"><h4>🛠️ 전담 지정 엔지니어제</h4><p>학교의 망 구조와 자산 특성을 파악한 지정 엔지니어가 연속성 있게 관리합니다.</p></div>
+      <div class="feature-item"><h4>🤝 S2B 학교장터 수의계약</h4><p>학교장터 예산 집행 절차에 맞춰 분기별·연간 예산 조율과 계약 업무를 지원합니다.</p></div>
+    </div>
+  </section>
 
-        <div>
-          <div class="hero-tag">당일 출장 · 합리적 비용 · 친절 상담</div>
-          <h1 class="hero-title"># 대전 컴퓨터 출장수리</h1>
-          <h2 class="hero-subtitle">부품교체 · 윈도우 재설치 · 데이터복구</h2>
-          <p class="hero-desc">
-            대전 전지역 컴퓨터·노트북 출장수리, 윈도우 설치, 데이터 복구,<br>
-            중고PC 매입·판매까지 One-Stop으로 해결해드립니다.
-          </p>
+  <section id="section-pricing">
+    <div class="section-title">공식 전산 유지보수 요금표</div>
+    <p class="section-desc">기관의 장비 수량과 지원 범위에 따라 최종 견적은 조정될 수 있습니다.</p>
+    <div class="price-wrapper">
+      <table class="price-table">
+        <thead><tr><th>세부 정밀 항목</th><th>알뜰형 요금제</th><th class="highlight">표준형 요금제 (추천)</th><th>맞춤형 요금제</th></tr></thead>
+        <tbody>
+          <tr><td class="feature-title">정기 현장방문 주기</td><td>월 1회 정기방문 케어</td><td class="highlight">월 2회 정기방문 + 신학기 정밀점검</td><td>주 1회 이상 상시 방문 및 상주 협의</td></tr>
+          <tr><td class="feature-title">긴급출동 보장시간</td><td>장애 접수 후 24시간 이내</td><td class="highlight gold-text">장애 접수 후 2시간 이내 현장도착</td><td>장애 발생 즉시 현장 출동 협의</td></tr>
+          <tr><td class="feature-title">긴급출동 횟수 제한</td><td>회당 출장 기술비 별도 산정</td><td class="highlight">월 제한 없음 (긴급출동 기술비 포함)</td><td>월 제한 없음 (1:1 메인 전담기사 배치)</td></tr>
+          <tr><td class="feature-title">원격 제어 지원범위</td><td>일반 단순 전산오류 원격</td><td class="highlight">실시간 원격 + 화상수업 긴급백업</td><td>기관 전용 암호화 원격 관제망 구축</td></tr>
+          <tr><td class="feature-title">네트워크 및 망 제어</td><td>IP 충돌 등 기본 제어</td><td class="highlight">학내 AP망 점검 + 전산자산 대장 관리</td><td>서버 백업 시스템 연동 및 네트워크 신설공사</td></tr>
+          <tr><td class="feature-title">하드웨어 엔지니어 공임</td><td>부품비 및 조립공임 별도</td><td class="highlight">현장 정비 부품교체 공임 지원</td><td>렌탈 결합 계약 시 부품·소모품 조건 협의</td></tr>
+          <tr><td class="feature-title">행정 감사 보고서 발급</td><td>미제공</td><td class="highlight">월간 점검 마스터 리포트 발급 (증빙용)</td><td>분기별 종합 전산 자산 실태 리포트 발급</td></tr>
+          <tr><td class="feature-title">국가 계약 서류 지원</td><td>일반 세금계산서 발행</td><td class="highlight">S2B 학교장터·조달 수의계약 서류 지원</td><td>기관 예산 배정에 맞춰 지출 증빙 조율</td></tr>
+          <tr><td class="feature-title">월 고정 유지보수 비용</td><td>보유 자산별 맞춤 산정</td><td class="highlight gold-text">학교 예산에 맞춤 특화 적용</td><td>별도 견적 및 연간 예산 조율 협의</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">※ 실제 계약 조건과 부품비 포함 여부는 기관별 자산 현황 및 계약 범위에 따라 달라질 수 있습니다.</p>
+  </section>
 
-          <p class="hero-phone">
-            <span class="phone-icon"></span> 010-6706-4733
-          </p>
-
-          <div class="hero-buttons">
-            <a href="tel:01067064733" class="btn">📞 바로 전화하기</a>
-            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn">💬 카카오채널 상담</a>
-          </div>
+  <section id="section-contact">
+    <div class="section-title">유지보수 및 견적 문의</div>
+    <div class="contact-box">
+      <form id="quoteForm" action="https://formsubmit.co/ajax/P1JJ@NAVER.COM" method="POST">
+        <input type="hidden" name="_subject" value="[LONGPC] 학교유지보수 신규 견적제안서 요청 건">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-grid">
+          <div class="form-group"><label><span>*</span>학교 또는 기관명</label><input type="text" name="기관명" placeholder="예: 대전구암초등학교" required></div>
+          <div class="form-group"><label><span>*</span>담당자 성함 및 직책</label><input type="text" name="담당자명" placeholder="예: 홍길동 정보부장 교사" required></div>
+          <div class="form-group"><label><span>*</span>연락처</label><input type="tel" name="연락처" placeholder="예: 010-1234-5678" required></div>
+          <div class="form-group"><label>이메일</label><input type="email" name="email" placeholder="예: teacher@school.kr"></div>
+          <div class="form-group"><label>희망 요금제</label><select name="희망요금제"><option value="상담 후 결정">상담 후 결정</option><option>알뜰형 요금제</option><option>표준형 요금제</option><option>맞춤형 요금제</option></select></div>
+          <div class="form-group"><label>관리 PC/장비 수량</label><input type="text" name="장비수량" placeholder="예: PC 60대 / 노트북 20대"></div>
+          <div class="form-group full"><label><span>*</span>문의 내용</label><textarea name="문의내용" placeholder="현재 전산 환경, 필요한 유지보수 범위, 방문 희망 일정 등을 입력해 주세요." required></textarea></div>
         </div>
-
-        <aside class="hero-box">
-          <h3>이런 문제 해결합니다</h3>
-          <ul>
-            <li>부팅 불가 / 파란 화면</li>
-            <li>SSD/메모리/메인보드 교체</li>
-            <li>소음 및 발열 문제 해결</li>
-            <li>삭제·포맷 데이터 복구</li>
-            <li>중고PC · 노트북 매입</li>
-            <li>기업/관공서 정기점검</li>
-          </ul>
-        </aside>
-
-      </div>
-    </section>
-
-    <!-- 서비스 -->
-    <section id="service">
-      <div class="container">
-        <h2 class="section-title">서비스 상세 안내</h2>
-
-        <div class="service-grid">
-
-          <div class="service-card">
-            <h3>컴퓨터 출장수리</h3>
-            <p>대전 전지역 출장 / 당일 수리 가능</p>
-            <ul>
-              <li>부팅불가 / 블루스크린</li>
-              <li>SSD·메모리 교체</li>
-              <li>기업/학원 정기점검</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <h3>속도 개선 & 최적화</h3>
-            <p>체감 성능 확실한 속도 개선</p>
-            <ul>
-              <li>SSD 업그레이드</li>
-              <li>드라이버/윈도우 재설치</li>
-              <li>시스템 최적화</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <h3>데이터 복구</h3>
-            <p>삭제, 포맷, 인식불가 복구</p>
-            <ul>
-              <li>HDD/SSD/USB 복구</li>
-              <li>논리/물리 손상 분석</li>
-              <li>복구 불가 시 비용 없음</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <h3>중고PC 매입</h3>
-            <p>고장품 · 법인 물량 OK</p>
-            <ul>
-              <li>실시간 시세 반영</li>
-              <li>영수증 발급</li>
-              <li>데이터 완전삭제</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <h3>중고PC 판매</h3>
-            <p>사무용/학생용/게임용 맞춤</p>
-            <ul>
-              <li>출고 전 테스트 완료</li>
-              <li>기본 보증 제공</li>
-              <li>택배/방문 수령 가능</li>
-            </ul>
-          </div>
-
-          <div class="service-card">
-            <h3>네트워크 & 주변기기</h3>
-            <p>사무실·가정 네트워크 구성</p>
-            <ul>
-              <li>공유기/NAS/CCTV</li>
-              <li>배선 정리/점검</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 가격 안내 -->
-    <section id="price">
-      <div class="container">
-        <h2 class="section-title">가격 안내</h2>
-
-        <div class="price-grid">
-
-          <div class="price-card">
-            <h3>출장 점검비</h3>
-            <p>수리 시 점검비 차감</p>
-            <h2>₩30,000~</h2>
-          </div>
-
-          <div class="price-card">
-            <h3>윈도우 재설치</h3>
-            <p>드라이버/최적화 포함</p>
-            <h2>₩40,000~</h2>
-          </div>
-
-          <div class="price-card">
-            <h3>SSD 업그레이드</h3>
-            <p>데이터 이전 포함</p>
-            <h2>₩60,000~</h2>
-          </div>
-
-        </div>
-
-        <p style="margin-top:16px; font-size:12px; color:#ccc;">
-          ※ 실제 비용은 증상 및 장비 상태에 따라 달라질 수 있습니다.
-        </p>
-
-      </div>
-    </section>
-
-    <!-- 문의하기 -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">문의하기</h2>
-
-        <div class="contact-wrap">
-
-          <!-- 버튼 3개 -->
-          <div class="contact-box">
-            <h3>바로 문의하기</h3>
-
-            <a href="tel:01067064733" class="btn">📞 전화 문의</a>
-            <br><br>
-            <a href="https://pf.kakao.com/_Cpacn" target="_blank" class="btn">💬 카카오채널 상담</a>
-            <br><br>
-            <a href="mailto:p1jj@naver.com" class="btn">✉ 이메일 문의</a>
-
-            <p style="font-size:12px; color:#666; margin-top:12px;">
-              증상/사용 용도를 알려주시면 더 정확한 견적 안내가 가능합니다.
-            </p>
-          </div>
-
-          <!-- 메모 문의 -->
-          <div class="contact-box">
-            <h3>간단 문의 메모</h3>
-            <form id="contactForm" action="/api/sens" method="POST">
-
-              <input type="tel"
-                     name="phone"
-                     placeholder="연락처 (선택)"
-                     style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc; text-align:center;" />
-
-              <textarea name="message"
-                placeholder="예) 사무실 PC 느림 / 윈도우 재설치 문의"
-                required></textarea>
-
-              <button type="submit" class="btn btn-full">문의 전송하기</button>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
+        <div class="privacy-title">개인정보 수집 및 이용 안내</div>
+        <div class="privacy-text">견적 상담을 위해 기관명, 담당자명, 연락처, 이메일 등 입력 정보를 수집하며 상담 및 견적 안내 목적으로만 이용합니다.</div>
+        <label class="agree-row"><input type="checkbox" name="개인정보동의" value="동의함" required> 개인정보 수집 및 이용에 동의합니다.</label>
+        <button type="submit" class="btn-submit">LONGPC 견적 문의 보내기</button>
+        <div id="quoteStatus" class="contact-direct" aria-live="polite"></div>
+        <div class="contact-direct">빠른 상담이 필요하시면 <a href="tel:010-6706-4733">010-6706-4733</a>으로 전화해 주세요.</div>
+      </form>
+    </div>
+  </section>
 
   <footer>
-    <p>LongPC — 대전 컴퓨터 출장수리 · 중고PC 매입·판매</p>
-    <p>대표자 박종주 | 사업자등록번호 347-35-01536</p>
-    <p>대전 유성구 구암동 608-10 202호</p>
-    <p>전화 010-6706-4733 | 이메일 p1jj@naver.com</p>
+    <strong>LONGPC</strong><br>
+    학교 · 관공서 · 기업 전산 유지보수 전문 파트너<br>
+    상담전화 010-6706-4733 · 이메일 P1JJ@NAVER.COM<br>
+    사업자등록번호 347-35-01536 · 대전광역시 유성구 계룡로52번길 84, 202호<br>
+    <span>© LONGPC. All rights reserved.</span>
   </footer>
+</main>
 
 
-  <script>
-    // 스무스 스크롤
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        const id = this.getAttribute('href');
-        const target = document.querySelector(id);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({ top: target.offsetTop - 60, behavior:'smooth' });
-        }
-      });
-    });
 
-    // 문의 메모 API
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const json = {};
-        formData.forEach((v, k)=> json[k]=v);
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("quoteForm");
+  const status = document.getElementById("quoteStatus");
+  const button = form.querySelector(".btn-submit");
 
-        try {
-          const res = await fetch("/api/sens", {
-            method:"POST",
-            headers:{ "Content-Type":"application/json" },
-            body:JSON.stringify(json)
-          });
-          const data = await res.json();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-          if (data.ok) {
-            alert("문의가 정상적으로 전송되었습니다.\nLongPC에서 확인 후 연락드리겠습니다.");
-            contactForm.reset();
-          } else {
-            alert("문자 발송 오류: " + (data.message || "알 수 없는 오류"));
-          }
-        } catch(err) {
-          alert("네트워크 오류로 전송 실패.\n급한 문의는 전화 부탁드립니다.");
-        }
-
-      });
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
     }
-  </script>
+
+    const originalText = button.textContent;
+    button.disabled = true;
+    button.textContent = "접수 중입니다...";
+    status.textContent = "";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      let result = {};
+      try { result = await response.json(); } catch (_) {}
+
+      if (response.ok && result.success !== false) {
+        status.innerHTML =
+          '<div style="padding:18px 20px;border:1px solid rgba(65,209,125,.28);background:rgba(65,209,125,.07);border-radius:12px;">' +
+          '<strong style="color:#41d17d;font-size:19px;">✓ 접수완료</strong><br>' +
+          '<span style="display:inline-block;margin-top:4px;color:#cbd5e1;">견적 문의가 정상적으로 접수되었습니다.<br>확인 후 빠르게 연락드리겠습니다.</span></div>';
+        form.reset();
+        button.textContent = "접수완료";
+        setTimeout(function(){ button.disabled = false; button.textContent = originalText; }, 3000);
+      } else {
+        throw new Error(result.message || "전송에 실패했습니다.");
+      }
+    } catch (error) {
+      status.innerHTML =
+        '<strong style="color:#ef4444;">접수에 실패했습니다.</strong><br>' +
+        '<span style="color:#cbd5e1;">잠시 후 다시 시도해 주세요.</span>';
+      button.disabled = false;
+      button.textContent = originalText;
+      console.error(error);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
