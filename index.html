@@ -38,7 +38,6 @@
         {"@type":"City","name":"대전광역시"},
         {"@type":"AdministrativeArea","name":"충청권"}
       ],
-      "priceRange":"₩₩",
       "sameAs":["https://pf.kakao.com/_Cpacn"]
     },
     {
@@ -188,6 +187,13 @@ section{padding-top:94px}
 .feature-item h4{color:#fff;font-size:17px;text-shadow:none}.feature-item p{color:#cbd9e8;line-height:1.75;text-shadow:none}
 
 .price-wrapper{border-radius:24px!important;box-shadow:0 18px 48px rgba(9,45,88,.1)!important}.price-table th{padding:20px 14px!important;background:#eaf2fa!important;color:#153b64!important}.price-table th.highlight{position:relative;background:linear-gradient(145deg,#146ee8,#0754b8)!important;color:#fff!important}.price-table td{padding:18px 14px!important}.price-table td.highlight{background:#edf6ff!important}.price-table td.feature-title{background:#f4f8fc!important}.price-table th,.price-table td{text-shadow:none!important}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.process-card{position:relative;min-height:188px;padding:27px 24px 24px;border:1px solid var(--line);border-radius:21px;background:linear-gradient(160deg,#fff,#f3f8fe);box-shadow:0 14px 38px rgba(15,73,130,.08)}
+.process-number{display:inline-flex;align-items:center;justify-content:center;width:43px;height:43px;margin-bottom:18px;border-radius:13px;background:linear-gradient(145deg,#146ee8,#0754b8);color:#fff;font-size:14px;font-weight:950;box-shadow:0 9px 20px rgba(7,84,184,.2)}
+.process-card h3{margin-bottom:9px;color:var(--navy);font-size:18px;letter-spacing:-.5px}.process-card p{color:#5e6f82;font-size:13px;line-height:1.75}
+.contract-types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.contract-type{padding:20px 17px;border:1px solid #d6e5f5;border-radius:17px;background:#fff;text-align:center;color:#24415f;font-size:13px;font-weight:850;box-shadow:0 9px 25px rgba(15,73,130,.06)}
+.process-note{margin-top:17px;color:#728195;font-size:12px}
 
 .contact-box{padding:42px;border-radius:26px;background:#fff;box-shadow:0 24px 70px rgba(9,45,88,.11)}
 .form-group input,.form-group textarea,.form-group select{min-height:52px;border-color:#d5e1ed;background:#fbfdff}.form-group textarea{min-height:150px}.privacy-text{background:#f3f7fb}.btn-submit{min-height:56px;border-radius:14px!important}
@@ -205,6 +211,7 @@ footer{margin-left:-22px;margin-right:-22px;border-radius:32px 32px 0 0;backgrou
   .section-title{font-size:25px;line-height:1.32}.section-desc{font-size:13px}.services-grid,.features-grid{grid-template-columns:1fr}.service-photo{height:185px}.service-card h3{white-space:normal!important;font-size:18px}
   #section-features{padding-left:16px;padding-right:16px}#section-features:before{top:40px;width:calc(100vw - 18px);height:calc(100% - 4px);border-radius:24px}.feature-item{min-height:auto}
   .price-wrapper{margin-right:-16px;border-radius:18px 0 0 18px!important}.price-table{min-width:780px}.price-table th,.price-table td{font-size:12px!important;padding:14px 10px!important}
+  .process-grid{grid-template-columns:1fr;gap:13px}.process-card{min-height:auto;padding:22px}.contract-types{grid-template-columns:1fr 1fr;gap:10px}.contract-type{padding:16px 10px;font-size:12px}
   .contact-box{padding:23px 17px}.form-grid{gap:14px}.privacy-text{font-size:11px}
   footer{margin-left:-16px;margin-right:-16px;margin-top:58px;border-radius:24px 24px 0 0}
   .mobile-quick{position:fixed;z-index:1200;display:grid;grid-template-columns:1fr 1fr;gap:8px;left:0;right:0;bottom:0;padding:9px 12px calc(9px + env(safe-area-inset-bottom));border-top:1px solid #d7e3ef;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 -8px 30px rgba(9,45,88,.1)}
@@ -549,7 +556,7 @@ body{
     <ul class="nav-menu">
       <li><a href="#section-services">서비스 안내</a></li>
       <li><a href="#section-features">우리의 강점</a></li>
-      <li><a href="#section-pricing">유지보수 요금표</a></li>
+      <li><a href="#section-process">진행 절차</a></li>
       <li><a href="#section-contact">견적 문의</a></li>
     </ul>
     <a href="tel:010-6706-4733" class="btn-top-call">상담 010-6706-4733</a>
@@ -569,8 +576,8 @@ body{
     </div>
 
     <div class="trust-strip" aria-label="LONGPC 핵심 서비스 강점">
-      <div class="trust-item"><span class="trust-value">2시간 이내</span><span class="trust-label">대전 긴급출동 목표</span></div>
-      <div class="trust-item"><span class="trust-value">월 제한 없음</span><span class="trust-label">표준형 긴급출동</span></div>
+      <div class="trust-item"><span class="trust-value">신속한 대응</span><span class="trust-label">일정 협의 후 현장 지원</span></div>
+      <div class="trust-item"><span class="trust-value">맞춤 관리</span><span class="trust-label">계약 범위별 지원</span></div>
       <div class="trust-item"><span class="trust-value">전담 엔지니어</span><span class="trust-label">기관별 연속 관리</span></div>
       <div class="trust-item"><span class="trust-value">S2B 지원</span><span class="trust-label">학교장터 계약서류</span></div>
     </div>
@@ -591,35 +598,33 @@ body{
       <h2 class="section-title">LONGPC만의 차별화된 전산 유지보수 강점</h2>
       <p class="section-desc">학교 업무 흐름을 이해하는 전담 관리와 신속한 현장 대응을 제공합니다.</p>
     <div class="features-grid">
-      <div class="feature-item"><h4>🚀 대전 2시간 내 긴급 출동</h4><p>행정 공백과 수업 지연을 최소화하기 위해 장애 접수 후 신속하게 현장 대응합니다.</p></div>
+      <div class="feature-item"><h4>🚀 대전 지역 신속 대응</h4><p>장애 상황과 학교 일정을 확인하고 협의된 대응 기준에 따라 현장을 지원합니다.</p></div>
       <div class="feature-item"><h4>📄 국가 계약 행정서류 지원</h4><p>견적서, 비교견적서, 지출결의용 통장사본 등 행정실 업무에 필요한 서류를 지원합니다.</p></div>
       <div class="feature-item"><h4>🛠️ 전담 지정 엔지니어제</h4><p>학교의 망 구조와 자산 특성을 파악한 지정 엔지니어가 연속성 있게 관리합니다.</p></div>
       <div class="feature-item"><h4>🤝 S2B 학교장터 수의계약</h4><p>학교장터 예산 집행 절차에 맞춰 분기별·연간 예산 조율과 계약 업무를 지원합니다.</p></div>
     </div>
   </section>
 
-    <section id="section-pricing">
-      <span class="section-kicker">Maintenance Plans</span>
-      <h2 class="section-title">학교 전산 유지보수 요금표</h2>
-    <p class="section-desc">기관의 장비 수량과 지원 범위에 따라 최종 견적은 조정될 수 있습니다.</p>
-    <div class="price-wrapper">
-      <table class="price-table">
-        <thead><tr><th>세부 정밀 항목</th><th>알뜰형 요금제</th><th class="highlight">표준형 요금제 (추천)</th><th>맞춤형 요금제</th></tr></thead>
-        <tbody>
-          <tr><td class="feature-title">정기 현장방문 주기</td><td>월 1회 정기방문 케어</td><td class="highlight">월 2회 정기방문 + 신학기 정밀점검</td><td>주 1회 이상 상시 방문 및 상주 협의</td></tr>
-          <tr><td class="feature-title">긴급출동 보장시간</td><td>장애 접수 후 24시간 이내</td><td class="highlight gold-text">장애 접수 후 2시간 이내 현장도착</td><td>장애 발생 즉시 현장 출동 협의</td></tr>
-          <tr><td class="feature-title">긴급출동 횟수 제한</td><td>회당 출장 기술비 별도 산정</td><td class="highlight">월 제한 없음 (긴급출동 기술비 포함)</td><td>월 제한 없음 (1:1 메인 전담기사 배치)</td></tr>
-          <tr><td class="feature-title">원격 제어 지원범위</td><td>일반 단순 전산오류 원격</td><td class="highlight">실시간 원격 + 화상수업 긴급백업</td><td>기관 전용 암호화 원격 관제망 구축</td></tr>
-          <tr><td class="feature-title">네트워크 및 망 제어</td><td>IP 충돌 등 기본 제어</td><td class="highlight">학내 AP망 점검 + 전산자산 대장 관리</td><td>서버 백업 시스템 연동 및 네트워크 신설공사</td></tr>
-          <tr><td class="feature-title">하드웨어 엔지니어 공임</td><td>부품비 및 조립공임 별도</td><td class="highlight">현장 정비 부품교체 공임 지원</td><td>렌탈 결합 계약 시 부품·소모품 조건 협의</td></tr>
-          <tr><td class="feature-title">행정 감사 보고서 발급</td><td>미제공</td><td class="highlight">월간 점검 마스터 리포트 발급 (증빙용)</td><td>분기별 종합 전산 자산 실태 리포트 발급</td></tr>
-          <tr><td class="feature-title">국가 계약 서류 지원</td><td>일반 세금계산서 발행</td><td class="highlight">S2B 학교장터·조달 수의계약 서류 지원</td><td>기관 예산 배정에 맞춰 지출 증빙 조율</td></tr>
-          <tr><td class="feature-title">월 고정 유지보수 비용</td><td>보유 자산별 맞춤 산정</td><td class="highlight gold-text">학교 예산에 맞춤 특화 적용</td><td>별도 견적 및 연간 예산 조율 협의</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="price-note">※ 실제 계약 조건과 부품비 포함 여부는 기관별 자산 현황 및 계약 범위에 따라 달라질 수 있습니다.</p>
-  </section>
+    <section id="section-process">
+      <span class="section-kicker">Service Process</span>
+      <h2 class="section-title">학교 전산 유지보수 진행 절차</h2>
+      <p class="section-desc">학교별 장비 현황과 필요한 지원 범위를 확인한 후 맞춤형 유지보수 계획과 견적을 제공합니다.</p>
+      <div class="process-grid">
+        <article class="process-card"><span class="process-number">01</span><h3>상담 접수</h3><p>학교 규모와 장비 수량, 현재 발생하는 불편사항과 필요한 지원 내용을 확인합니다.</p></article>
+        <article class="process-card"><span class="process-number">02</span><h3>현장 점검</h3><p>PC·프린터·컴퓨터실·네트워크 상태를 확인하고 관리가 필요한 범위를 정리합니다.</p></article>
+        <article class="process-card"><span class="process-number">03</span><h3>맞춤 제안</h3><p>방문 횟수, 장애 대응 범위, 부품비 포함 여부 등 학교에 맞는 조건을 협의합니다.</p></article>
+        <article class="process-card"><span class="process-number">04</span><h3>견적 및 계약</h3><p>견적서와 계약 관련 서류를 제출하고 S2B 학교장터 절차를 지원합니다.</p></article>
+        <article class="process-card"><span class="process-number">05</span><h3>정기 관리</h3><p>협의한 일정에 따라 정기점검과 장애처리를 진행하고 작업 결과를 안내합니다.</p></article>
+        <article class="process-card"><span class="process-number">06</span><h3>관리 기록</h3><p>점검 내용과 조치 결과, 교체를 권장하는 장비를 담당자에게 전달합니다.</p></article>
+      </div>
+      <div class="contract-types" aria-label="계약 형태">
+        <div class="contract-type">연간 유지보수</div>
+        <div class="contract-type">방학 중 일괄점검</div>
+        <div class="contract-type">건별 장애 및 설치</div>
+        <div class="contract-type">전산장비 납품</div>
+      </div>
+      <p class="process-note">※ 방문 횟수와 지원 범위, 부품비 포함 여부는 현장 확인과 협의를 거쳐 견적서 및 계약서에 명확히 표시합니다.</p>
+    </section>
 
     <section id="section-contact">
       <span class="section-kicker">Contact</span>
@@ -635,7 +640,7 @@ body{
           <div class="form-group"><label><span>*</span>담당자 성함 및 직책</label><input type="text" name="담당자명" placeholder="예: 홍길동 정보부장 교사" required></div>
           <div class="form-group"><label><span>*</span>연락처</label><input type="tel" name="연락처" placeholder="예: 010-1234-5678" required></div>
           <div class="form-group"><label>이메일</label><input type="email" name="email" placeholder="예: teacher@school.kr"></div>
-          <div class="form-group"><label>희망 요금제</label><select name="희망요금제"><option value="상담 후 결정">상담 후 결정</option><option>알뜰형 요금제</option><option>표준형 요금제</option><option>맞춤형 요금제</option></select></div>
+          <div class="form-group"><label>희망 서비스</label><select name="희망서비스"><option value="상담 후 결정">상담 후 결정</option><option>연간 유지보수</option><option>방학 중 일괄점검</option><option>긴급 장애처리</option><option>전산장비 납품 및 설치</option></select></div>
           <div class="form-group"><label>관리 PC/장비 수량</label><input type="text" name="장비수량" placeholder="예: PC 60대 / 노트북 20대"></div>
           <div class="form-group full"><label><span>*</span>문의 내용</label><textarea name="문의내용" placeholder="현재 전산 환경, 필요한 유지보수 범위, 방문 희망 일정 등을 입력해 주세요." required></textarea></div>
         </div>
