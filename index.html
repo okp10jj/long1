@@ -603,6 +603,11 @@ footer{margin-top:90px;padding:44px 18px 34px;border-radius:26px 26px 0 0;line-h
   .contact-box{padding:22px 16px;border-radius:17px}.form-grid{gap:13px}.form-group input,.form-group textarea,.form-group select{font-size:16px}.btn-submit{font-size:15px}
   footer{margin-top:64px;padding-top:36px;border-radius:21px 21px 0 0;font-size:11px}
 }
+
+/* 일반 방문자의 텍스트 선택 및 이미지 끌어가기 제한 */
+body,.copy-protected{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select,option,label[for],[contenteditable="true"]{-webkit-user-select:text;-moz-user-select:text;user-select:text;-webkit-touch-callout:default}
+img{-webkit-user-drag:none;user-drag:none}
 </style>
 </head>
 <body>
@@ -732,6 +737,40 @@ footer{margin-top:90px;padding:44px 18px 34px;border-radius:26px 26px 0 0;line-h
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  document.body.classList.add("copy-protected");
+
+  const isEditableTarget = function (target) {
+    return Boolean(target && target.closest('input, textarea, select, [contenteditable="true"]'));
+  };
+
+  document.querySelectorAll("img").forEach(function (image) {
+    image.setAttribute("draggable", "false");
+  });
+
+  document.addEventListener("contextmenu", function (e) {
+    if (!isEditableTarget(e.target)) e.preventDefault();
+  });
+
+  document.addEventListener("copy", function (e) {
+    if (!isEditableTarget(e.target)) e.preventDefault();
+  });
+
+  document.addEventListener("cut", function (e) {
+    if (!isEditableTarget(e.target)) e.preventDefault();
+  });
+
+  document.addEventListener("dragstart", function (e) {
+    if (e.target && e.target.tagName === "IMG") e.preventDefault();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (isEditableTarget(e.target)) return;
+    const key = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && ["a", "c", "s", "u"].includes(key)) {
+      e.preventDefault();
+    }
+  });
+
   const form = document.getElementById("quoteForm");
   const status = document.getElementById("quoteStatus");
   const button = form.querySelector(".btn-submit");
