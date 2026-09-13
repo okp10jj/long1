@@ -142,6 +142,76 @@ footer > *{position:relative;z-index:1}
   .service-photo{height:170px}
 }
 
+/* ===== 2026 LONGPC premium redesign ===== */
+:root{
+  --blue:#146ee8;--blue2:#0754b8;--navy:#092d58;--ink:#132238;
+  --muted:#64748b;--soft:#f2f7fd;--line:#dbe7f3;--white:#fff;
+  --shadow:0 22px 60px rgba(10,52,101,.11);
+}
+body{background:linear-gradient(180deg,#f8fbff 0,#fff 34%,#f6f9fd 100%);color:var(--ink)}
+.container{max-width:1240px}
+header{border-bottom:1px solid rgba(210,225,241,.82)!important;box-shadow:0 10px 38px rgba(9,45,88,.07)!important}
+.nav-container{max-width:1240px;padding-top:8px;padding-bottom:8px}
+.logo-image-wrap{width:76px;height:76px;flex-basis:76px}
+.brand-logo-image{width:70px;height:70px}
+.nav-menu{gap:30px}
+.nav-menu a{position:relative;color:#40536b;font-size:14px;letter-spacing:-.2px}
+.nav-menu a:after{content:"";position:absolute;left:50%;right:50%;bottom:-8px;height:2px;background:var(--blue);transition:.22s}
+.nav-menu a:hover:after{left:0;right:0}
+.btn-top-call{padding:11px 18px;border-radius:12px!important}
+
+section{padding-top:94px}
+.hero-box{min-height:560px;margin-top:36px;padding:76px 58px;border-radius:32px;border:1px solid rgba(201,220,240,.9);box-shadow:var(--shadow)}
+.hero-box:after{content:"DAEJEON · CHUNGCHEONG\A SCHOOL IT CARE";line-height:1.8;letter-spacing:3px;opacity:.72}
+.hero-eyebrow{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;width:max-content;margin-bottom:18px;padding:8px 13px;border:1px solid #c9ddf4;border-radius:999px;background:rgba(255,255,255,.82);color:#0b5fc7;font-size:12px;font-weight:900;letter-spacing:.4px;box-shadow:0 8px 22px rgba(13,86,171,.08)}
+.hero-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 5px rgba(34,197,94,.13)}
+.hero-box h1{max-width:670px;font-size:clamp(38px,4.4vw,62px);line-height:1.13;letter-spacing:-3.2px;text-shadow:0 2px 0 #fff,0 14px 32px rgba(9,45,88,.12)}
+.hero-box h1 span{text-shadow:0 2px 0 #fff,0 8px 24px rgba(20,110,232,.2)}
+.hero-box p{font-size:16px;line-height:1.78}.seo-intro{font-size:14px!important;color:#6a7a8f!important}
+.hero-actions{margin-top:34px}.hero-btn{min-width:166px;padding:14px 24px;border-radius:13px!important}
+
+.trust-strip{position:relative;z-index:3;display:grid;grid-template-columns:repeat(4,1fr);margin:-30px 28px 16px;padding:22px 16px;border:1px solid #dbe7f3;border-radius:22px;background:rgba(255,255,255,.96);box-shadow:0 18px 45px rgba(9,45,88,.1);backdrop-filter:blur(14px)}
+.trust-item{padding:3px 20px;text-align:center;border-right:1px solid #e2ebf5}.trust-item:last-child{border-right:0}.trust-value{display:block;color:var(--navy);font-size:21px;font-weight:950;letter-spacing:-.8px}.trust-label{display:block;margin-top:2px;color:#738196;font-size:12px;font-weight:750}
+
+.section-kicker{display:block;margin-bottom:7px;color:var(--blue);font-size:12px;font-weight:950;letter-spacing:1.4px;text-transform:uppercase}
+.section-title{font-size:clamp(26px,3vw,36px);letter-spacing:-1.5px}.section-title:before{display:none}
+.section-desc{max-width:720px;margin-bottom:30px;font-size:15px}
+.services-grid{gap:22px}.service-card{border-radius:23px;box-shadow:0 14px 42px rgba(15,73,130,.08)}
+.service-photo{height:190px;transition:transform .45s ease}.service-card:hover .service-photo{transform:scale(1.035)}
+.service-card h3{justify-content:flex-start!important;gap:11px!important;padding:22px 24px 0!important;text-align:left!important;color:var(--navy);font-size:19px;text-shadow:none}
+.service-card p{line-height:1.85;color:#596a80;text-shadow:none}
+.icon-badge{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;flex:0 0 38px;border:1px solid #cce0f7;border-radius:11px;background:linear-gradient(145deg,#eff7ff,#dcecff);color:#0d63ca;font-size:11px;font-weight:950;box-shadow:inset 0 1px #fff,0 7px 14px rgba(13,99,202,.11)}
+
+#section-features:before{background:linear-gradient(135deg,#092d58,#0a4c91);box-shadow:0 26px 70px rgba(5,43,86,.2)}
+#section-features .section-kicker{color:#8dc7ff}#section-features .section-title{color:#fff}#section-features .section-desc{color:#c8d9ea}
+.features-grid{gap:18px}.feature-item{border:1px solid rgba(255,255,255,.18);border-top:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);backdrop-filter:blur(10px);box-shadow:inset 0 1px rgba(255,255,255,.1);min-height:190px}
+.feature-item h4{color:#fff;font-size:17px;text-shadow:none}.feature-item p{color:#cbd9e8;line-height:1.75;text-shadow:none}
+
+.price-wrapper{border-radius:24px!important;box-shadow:0 18px 48px rgba(9,45,88,.1)!important}.price-table th{padding:20px 14px!important;background:#eaf2fa!important;color:#153b64!important}.price-table th.highlight{position:relative;background:linear-gradient(145deg,#146ee8,#0754b8)!important;color:#fff!important}.price-table td{padding:18px 14px!important}.price-table td.highlight{background:#edf6ff!important}.price-table td.feature-title{background:#f4f8fc!important}.price-table th,.price-table td{text-shadow:none!important}
+
+.contact-box{padding:42px;border-radius:26px;background:#fff;box-shadow:0 24px 70px rgba(9,45,88,.11)}
+.form-group input,.form-group textarea,.form-group select{min-height:52px;border-color:#d5e1ed;background:#fbfdff}.form-group textarea{min-height:150px}.privacy-text{background:#f3f7fb}.btn-submit{min-height:56px;border-radius:14px!important}
+footer{margin-left:-22px;margin-right:-22px;border-radius:32px 32px 0 0;background:linear-gradient(135deg,#071f3c,#074b8d);padding:48px 18px 36px}
+
+.mobile-quick{display:none}
+@media(max-width:980px){
+  .trust-strip{grid-template-columns:repeat(2,1fr);margin-top:-22px}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid #e2ebf5}
+  .hero-box{padding:62px 38px}.hero-box h1{font-size:45px}.features-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  body{padding-top:78px!important;padding-bottom:74px}.container{padding:0 16px}.nav-container{min-height:78px;flex-wrap:nowrap;padding:8px 16px}.logo-image-wrap{width:54px;height:54px;flex-basis:54px}.brand-logo-image{width:50px;height:50px}.nav-menu{display:none}.btn-top-call{margin-left:auto;font-size:12px;padding:9px 12px}
+  section{padding-top:72px}.hero-box{min-height:610px;margin-top:16px;padding:294px 23px 38px;border-radius:24px}.hero-box:after{display:none}.hero-eyebrow{font-size:10px}.hero-box h1{font-size:32px;letter-spacing:-1.8px}.hero-box p{font-size:14px}.seo-intro{display:none}.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.hero-btn{min-width:0;padding:13px 8px;font-size:13px}
+  .trust-strip{grid-template-columns:1fr 1fr;margin:-1px 0 0;padding:18px 8px;border-radius:18px}.trust-item{padding:2px 7px}.trust-value{font-size:17px}.trust-label{font-size:10px}
+  .section-title{font-size:25px;line-height:1.32}.section-desc{font-size:13px}.services-grid,.features-grid{grid-template-columns:1fr}.service-photo{height:185px}.service-card h3{white-space:normal!important;font-size:18px}
+  #section-features{padding-left:16px;padding-right:16px}#section-features:before{top:40px;width:calc(100vw - 18px);height:calc(100% - 4px);border-radius:24px}.feature-item{min-height:auto}
+  .price-wrapper{margin-right:-16px;border-radius:18px 0 0 18px!important}.price-table{min-width:780px}.price-table th,.price-table td{font-size:12px!important;padding:14px 10px!important}
+  .contact-box{padding:23px 17px}.form-grid{gap:14px}.privacy-text{font-size:11px}
+  footer{margin-left:-16px;margin-right:-16px;margin-top:58px;border-radius:24px 24px 0 0}
+  .mobile-quick{position:fixed;z-index:1200;display:grid;grid-template-columns:1fr 1fr;gap:8px;left:0;right:0;bottom:0;padding:9px 12px calc(9px + env(safe-area-inset-bottom));border-top:1px solid #d7e3ef;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);box-shadow:0 -8px 30px rgba(9,45,88,.1)}
+  .mobile-quick a{display:flex;align-items:center;justify-content:center;min-height:46px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:950}.mobile-quick .call{border:1px solid #bfd4ea;color:#0b4f96;background:#f4f9ff}.mobile-quick .quote{color:#fff;background:linear-gradient(145deg,#1677f2,#0754b8);box-shadow:0 7px 18px rgba(20,110,232,.22)}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
 
 /* ===== 입체 타이포그래피 강화 ===== */
 body{
@@ -455,6 +525,19 @@ body{
   }
 }
 
+/* Final cascade alignment for the premium layout */
+.service-card h3{justify-content:flex-start!important;text-align:left!important;padding:22px 24px 0!important;white-space:normal!important;text-shadow:none!important}
+.service-card p,.feature-item p{ text-shadow:none!important }
+#section-features .feature-item h4{color:#fff!important;text-shadow:none!important}
+.price-table th,.price-table td{ text-shadow:none!important }
+@media(max-width:760px){
+  body{padding-top:78px!important;padding-bottom:74px!important}
+  .nav-container{min-height:78px!important;flex-wrap:nowrap!important}
+  .logo-image-wrap{width:54px!important;height:54px!important;flex-basis:54px!important}
+  .brand-logo-image{width:50px!important;height:50px!important}
+  .nav-menu{display:none!important}
+  .hero-box{min-height:610px!important;padding:294px 23px 38px!important}
+}
 </style>
 </head>
 <body>
@@ -473,28 +556,40 @@ body{
   </div>
 </header>
 
-<main class="container">
-  <div class="hero-box">
-    <h1>선생님은 교육에만 전념하세요.<br>학교 전산 관리는 <span>LONGPC</span>가 확실히 책임집니다.</h1>
+  <main class="container">
+    <div class="hero-box">
+      <div class="hero-eyebrow">대전·충청 학교 전문 IT 파트너</div>
+      <h1>선생님은 교육에만 전념하세요.<br>학교 전산 관리는 <span>LONGPC</span>가 확실히 책임집니다.</h1>
     <p>대전·충청 지역 초·중·고등학교 및 공공기관 전문 원스톱 실시간 케어 시스템</p>
     <p class="seo-intro">대전 학교 전산 유지보수, 관공서 전산관리, 기업 PC 유지보수까지 PC·노트북·프린터·복합기·네트워크를 한 곳에서 관리합니다.</p>
     <div class="hero-actions">
       <a class="hero-btn primary" href="#section-contact">무료 견적 문의</a>
       <a class="hero-btn secondary" href="tel:010-6706-4733">전화 상담하기</a>
+      </div>
     </div>
-  </div>
 
-  <section id="section-services">
-    <h2 class="section-title">대전 학교·관공서·기업 전산 유지보수 서비스</h2>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-photo pc" role="img" aria-label="학교 PC 및 컴퓨터실 이미지"></div><h3>💻 학교 PC & 노트북 케어</h3><p>• 교무실·행정실·컴퓨터실 단체 PC 및 노트북 정기 점검<br>• 교육용 소프트웨어 세팅 및 OS(윈도우) 최적화 포맷 작업<br>• 교육청 보안 지침에 준하는 악성코드 및 바이러스 방역</p></div>
-      <div class="service-card"><div class="service-photo printer" role="img" aria-label="프린터 및 복합기 이미지"></div><h3>🖨️ 프린터 & 복합기 관리</h3><p>• 하드웨어 정기 예방점검 및 잉크/토너 소모품 적시 공급<br>• 용지 걸림, 드라이버 연결 불량, 인쇄 장애 긴급 복구<br>• 고장 발생 시 부품 교체 및 기술공임 케어</p></div>
-      <div class="service-card"><div class="service-photo network" role="img" aria-label="학내망 및 네트워크 장비 이미지"></div><h3>🌐 컴퓨터실 구축 & 전산망</h3><p>• 컴퓨터실 신학기 단체 마스터 복구 솔루션 구축<br>• 학내 무선 AP(Wi-Fi) 전산망 점검 및 LAN 포트 케이블 정리<br>• 노후 장비 철거 및 중고 PC 자산 폐기/매입 일괄 대행</p></div>
+    <div class="trust-strip" aria-label="LONGPC 핵심 서비스 강점">
+      <div class="trust-item"><span class="trust-value">2시간 이내</span><span class="trust-label">대전 긴급출동 목표</span></div>
+      <div class="trust-item"><span class="trust-value">월 제한 없음</span><span class="trust-label">표준형 긴급출동</span></div>
+      <div class="trust-item"><span class="trust-value">전담 엔지니어</span><span class="trust-label">기관별 연속 관리</span></div>
+      <div class="trust-item"><span class="trust-value">S2B 지원</span><span class="trust-label">학교장터 계약서류</span></div>
+    </div>
+
+    <section id="section-services">
+      <span class="section-kicker">Core Services</span>
+      <h2 class="section-title">대전 학교·관공서·기업 전산 유지보수 서비스</h2>
+      <p class="section-desc">점검부터 장애 대응, 전산망 구축까지 학교 현장에 필요한 업무를 한 곳에서 관리합니다.</p>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-photo pc" role="img" aria-label="학교 PC 및 컴퓨터실 이미지"></div><h3><span class="icon-badge">PC</span>학교 PC & 노트북 케어</h3><p>• 교무실·행정실·컴퓨터실 단체 PC 및 노트북 정기 점검<br>• 교육용 소프트웨어 세팅 및 OS(윈도우) 최적화 포맷 작업<br>• 교육청 보안 지침에 준하는 악성코드 및 바이러스 방역</p></div>
+        <div class="service-card"><div class="service-photo printer" role="img" aria-label="프린터 및 복합기 이미지"></div><h3><span class="icon-badge">PR</span>프린터 & 복합기 관리</h3><p>• 하드웨어 정기 예방점검 및 잉크/토너 소모품 적시 공급<br>• 용지 걸림, 드라이버 연결 불량, 인쇄 장애 긴급 복구<br>• 고장 발생 시 부품 교체 및 기술공임 케어</p></div>
+        <div class="service-card"><div class="service-photo network" role="img" aria-label="학내망 및 네트워크 장비 이미지"></div><h3><span class="icon-badge">NET</span>컴퓨터실 구축 & 전산망</h3><p>• 컴퓨터실 신학기 단체 마스터 복구 솔루션 구축<br>• 학내 무선 AP(Wi-Fi) 전산망 점검 및 LAN 포트 케이블 정리<br>• 노후 장비 철거 및 중고 PC 자산 폐기/매입 일괄 대행</p></div>
     </div>
   </section>
 
-  <section id="section-features">
-    <h2 class="section-title">LONGPC만의 차별화된 전산 유지보수 강점</h2>
+    <section id="section-features">
+      <span class="section-kicker">Why LONGPC</span>
+      <h2 class="section-title">LONGPC만의 차별화된 전산 유지보수 강점</h2>
+      <p class="section-desc">학교 업무 흐름을 이해하는 전담 관리와 신속한 현장 대응을 제공합니다.</p>
     <div class="features-grid">
       <div class="feature-item"><h4>🚀 대전 2시간 내 긴급 출동</h4><p>행정 공백과 수업 지연을 최소화하기 위해 장애 접수 후 신속하게 현장 대응합니다.</p></div>
       <div class="feature-item"><h4>📄 국가 계약 행정서류 지원</h4><p>견적서, 비교견적서, 지출결의용 통장사본 등 행정실 업무에 필요한 서류를 지원합니다.</p></div>
@@ -503,8 +598,9 @@ body{
     </div>
   </section>
 
-  <section id="section-pricing">
-    <h2 class="section-title">학교 전산 유지보수 요금표</h2>
+    <section id="section-pricing">
+      <span class="section-kicker">Maintenance Plans</span>
+      <h2 class="section-title">학교 전산 유지보수 요금표</h2>
     <p class="section-desc">기관의 장비 수량과 지원 범위에 따라 최종 견적은 조정될 수 있습니다.</p>
     <div class="price-wrapper">
       <table class="price-table">
@@ -525,8 +621,9 @@ body{
     <p class="price-note">※ 실제 계약 조건과 부품비 포함 여부는 기관별 자산 현황 및 계약 범위에 따라 달라질 수 있습니다.</p>
   </section>
 
-  <section id="section-contact">
-    <h2 class="section-title">대전 학교 전산 유지보수 견적 문의</h2>
+    <section id="section-contact">
+      <span class="section-kicker">Contact</span>
+      <h2 class="section-title">대전 학교 전산 유지보수 견적 문의</h2>
     <div class="contact-box">
       <form id="quoteForm" aria-label="LONGPC 학교 전산 유지보수 견적 문의" action="https://formsubmit.co/ajax/P1JJ@NAVER.COM" method="POST">
         <input type="hidden" name="_subject" value="[LONGPC] 학교유지보수 신규 견적제안서 요청 건">
@@ -560,7 +657,12 @@ body{
     사업자등록번호 347-35-01536 · 대전광역시 유성구 계룡로52번길 84, 202호<br>
     <span>© LONGPC. All rights reserved.</span>
   </footer>
-</main>
+  </main>
+
+  <nav class="mobile-quick" aria-label="모바일 빠른 상담">
+    <a class="call" href="tel:010-6706-4733">전화 상담</a>
+    <a class="quote" href="#section-contact">무료 견적</a>
+  </nav>
 
 
 
