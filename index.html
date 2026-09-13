@@ -545,6 +545,64 @@ body{
   .nav-menu{display:none!important}
   .hero-box{min-height:610px!important;padding:294px 23px 38px!important}
 }
+
+/* ===== LONGPC readability and visual refinement ===== */
+:root{
+  --blue:#1268d8;
+  --blue2:#084fae;
+  --navy:#0a2e57;
+  --ink:#152235;
+  --muted:#617084;
+  --soft:#f2f7fc;
+  --line:#dce6f1;
+}
+body{background:#f6f9fc;color:var(--ink);font-size:16px;line-height:1.72;letter-spacing:-.15px}
+.container{max-width:1200px;padding-left:28px;padding-right:28px}
+header{background:rgba(255,255,255,.92)!important;backdrop-filter:blur(18px) saturate(150%)}
+.nav-container{max-width:1200px;min-height:72px;padding:7px 28px}
+.logo-image-wrap{width:64px;height:64px;flex-basis:64px}.brand-logo-image{width:58px;height:58px}
+.nav-menu{gap:34px}.nav-menu a{color:#415269;font-size:14px;font-weight:800}.nav-menu a:hover{color:var(--blue)}
+.btn-top-call{padding:11px 19px!important;border-radius:11px!important;box-shadow:0 8px 20px rgba(18,104,216,.18)}
+section{padding-top:108px;scroll-margin-top:76px}
+.hero-box{min-height:520px;margin-top:34px;padding:72px 62px 66px;border-radius:28px;background-color:#eaf3fb;box-shadow:0 24px 70px rgba(14,52,91,.12)}
+.hero-box h1{max-width:720px;margin-bottom:24px;font-size:clamp(38px,4.3vw,60px);line-height:1.16;letter-spacing:-3px;text-shadow:none}
+.hero-box h1 span{text-shadow:none}.hero-box p{max-width:690px;color:#415269;font-size:17px;line-height:1.72}.seo-intro{max-width:660px!important;font-size:14px!important;line-height:1.7!important}
+.hero-eyebrow{margin-bottom:20px;background:rgba(255,255,255,.9);box-shadow:none}
+.hero-actions{margin-top:30px}.hero-btn{padding:14px 25px;border-radius:11px!important;box-shadow:none}.hero-btn.primary{box-shadow:0 10px 24px rgba(18,104,216,.2)}
+.trust-strip{margin:-26px 34px 10px;padding:24px 12px;border-radius:18px;box-shadow:0 16px 40px rgba(14,52,91,.09)}
+.trust-value{font-size:19px;letter-spacing:-.55px}.trust-label{margin-top:4px;font-size:12px}
+.section-kicker{margin-bottom:9px;font-size:11px;letter-spacing:1.8px}
+.section-title{max-width:850px;margin-bottom:13px;font-size:clamp(27px,3vw,36px);line-height:1.28;letter-spacing:-1.45px}
+.section-desc{max-width:760px;margin-bottom:34px;color:var(--muted);font-size:15px;line-height:1.72}
+.services-grid{gap:24px}.service-card{overflow:hidden;min-height:0;padding:0 0 27px;border-radius:20px;box-shadow:0 12px 34px rgba(14,52,91,.07)}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(14,52,91,.11)}
+.service-photo{height:205px}.service-card h3{margin-bottom:12px;padding:23px 25px 0!important;font-size:18px;line-height:1.42}
+.service-card p{padding:0 25px;color:#52647a;font-size:14px;line-height:1.85}
+#section-features{margin-top:100px;padding-top:82px;padding-bottom:74px}
+#section-features:before{top:32px;border-radius:28px;background:linear-gradient(135deg,#0a294b,#0a4784)}
+.features-grid{gap:16px}.feature-item{min-height:184px;padding:25px 23px;border-radius:17px}.feature-item h4{margin-bottom:12px;font-size:16px;line-height:1.45}.feature-item p{font-size:13px;line-height:1.78}
+.process-grid{gap:17px}.process-card{min-height:180px;padding:25px 24px;border-radius:18px;box-shadow:0 10px 30px rgba(14,52,91,.065);transition:transform .22s,box-shadow .22s}
+.process-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(14,52,91,.1)}
+.process-number{width:40px;height:40px;margin-bottom:16px;border-radius:11px;box-shadow:none}.process-card h3{font-size:17px}.process-card p{font-size:13px;line-height:1.78}
+.contract-types{gap:12px;margin-top:20px}.contract-type{padding:18px 14px;border-radius:14px;box-shadow:none}.process-note{margin-top:15px;line-height:1.65}
+.contact-box{padding:40px;border-radius:22px;border:1px solid var(--line);box-shadow:0 18px 52px rgba(14,52,91,.09)}
+.form-grid{gap:17px 20px}.form-group label{margin-bottom:8px;color:#2d425b;font-size:13px}.form-group input,.form-group textarea,.form-group select{min-height:50px;padding:13px 14px;border:1px solid #cfdae7;border-radius:10px;font-size:14px}.form-group textarea{min-height:136px}
+.privacy-text{line-height:1.65}.btn-submit{min-height:54px;border-radius:11px!important;font-size:16px;box-shadow:0 9px 22px rgba(18,104,216,.17)}
+footer{margin-top:90px;padding:44px 18px 34px;border-radius:26px 26px 0 0;line-height:1.95}
+@media(max-width:980px){
+  .container{padding-left:22px;padding-right:22px}.nav-container{padding-left:22px;padding-right:22px}.nav-menu{gap:18px}
+  .hero-box{padding:62px 40px}.hero-box h1{font-size:44px}.process-grid{grid-template-columns:repeat(2,1fr)}.contract-types{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  body{font-size:15px}.container{padding-left:16px;padding-right:16px}.nav-container{padding-left:15px;padding-right:15px}
+  section{padding-top:78px}.hero-box{min-height:590px!important;padding:278px 22px 36px!important;border-radius:21px}.hero-box h1{font-size:31px;line-height:1.22;letter-spacing:-1.7px}.hero-box p{font-size:14px;line-height:1.68}.hero-actions{margin-top:24px}.hero-btn{font-size:13px}
+  .trust-strip{margin:-1px 0 0;padding:17px 7px;border-radius:16px}.trust-item{padding-left:5px;padding-right:5px}.trust-value{font-size:16px}.trust-label{font-size:10px;line-height:1.45}
+  .section-title{font-size:25px;letter-spacing:-1px}.section-desc{margin-bottom:25px;font-size:13px}.service-photo{height:180px}.service-card h3{padding:20px 20px 0!important;font-size:17px}.service-card p{padding:0 20px;font-size:13px}
+  #section-features{margin-top:74px;padding-top:66px;padding-bottom:52px}#section-features:before{top:26px;border-radius:21px}.feature-item{padding:22px;min-height:0}
+  .process-grid{grid-template-columns:1fr;gap:12px}.process-card{min-height:0;padding:20px}.process-number{margin-bottom:13px}.contract-types{grid-template-columns:1fr 1fr;gap:9px}.contract-type{padding:14px 8px;font-size:12px}
+  .contact-box{padding:22px 16px;border-radius:17px}.form-grid{gap:13px}.form-group input,.form-group textarea,.form-group select{font-size:16px}.btn-submit{font-size:15px}
+  footer{margin-top:64px;padding-top:36px;border-radius:21px 21px 0 0;font-size:11px}
+}
 </style>
 </head>
 <body>
