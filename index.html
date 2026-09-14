@@ -622,9 +622,35 @@ img{-webkit-user-drag:none;user-drag:none}
 .faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(15,73,130,.06)}.faq-item h3{font-size:16px;color:#123b68;margin-bottom:10px}.faq-item p{font-size:14px;color:#5c6877}.headline-nowrap{display:inline-block;white-space:nowrap;font-size:clamp(32px,3.8vw,50px)}
 .hero-btn.download-profile{position:relative;overflow:hidden;border:1px solid #f4b52f;background:linear-gradient(135deg,#ffca4b,#f29418);color:#1f2937;box-shadow:0 11px 26px rgba(222,137,18,.3);font-weight:950}.hero-btn.download-profile:before{content:"PDF ↓";display:inline-flex;align-items:center;justify-content:center;margin-right:8px;padding:3px 7px;border-radius:6px;background:#fff;color:#c86d00;font-size:10px;line-height:1.2;box-shadow:0 2px 7px rgba(115,65,0,.15)}.hero-btn.download-profile:after{content:"";position:absolute;top:-60%;left:-35%;width:28%;height:220%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:profile-shine 3.8s ease-in-out infinite}.hero-btn.download-profile:hover{color:#111827;transform:translateY(-3px);box-shadow:0 16px 34px rgba(222,137,18,.38)}@keyframes profile-shine{0%,65%{left:-35%}100%{left:125%}}@media(prefers-reduced-motion:reduce){.hero-btn.download-profile:after{animation:none}}
 @media(max-width:760px){.faq-grid{grid-template-columns:1fr}.headline-nowrap{font-size:clamp(22px,7.2vw,27px);letter-spacing:-1.8px}.hero-btn.download-profile{flex-basis:100%;margin-top:3px}}
+
+/* LONGPC remote support buttons */
+.btn-top-remote{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,#0b4e96,#0767d9);color:#fff;text-decoration:none;padding:9px 15px;border-radius:999px;font-size:13px;font-weight:900;border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 20px rgba(7,82,184,.20);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;white-space:nowrap}
+.btn-top-remote:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(7,82,184,.28);filter:brightness(1.04)}
+.hero-btn.remote-support{color:#fff;border:1px solid rgba(7,103,217,.28);background:linear-gradient(135deg,#0b4e96 0%,#0767d9 55%,#2f8df3 100%);box-shadow:0 10px 26px rgba(7,82,184,.22);position:relative;overflow:hidden}
+.hero-btn.remote-support:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.22) 48%,transparent 70%);transform:translateX(-120%);transition:transform .55s ease}
+.hero-btn.remote-support:hover:before{transform:translateX(120%)}
+.hero-btn.remote-support:hover{color:#fff;box-shadow:0 15px 34px rgba(7,82,184,.30)}
+.remote-icon{font-size:15px;line-height:1}
+@media(max-width:980px){.btn-top-remote{font-size:12px;padding:8px 12px}}
+@media(max-width:760px){.btn-top-remote{font-size:11px;padding:6px 9px}.btn-top-remote .remote-label{display:none}.hero-btn.remote-support{flex-basis:100%}}
+
+
+/* Fixed remote-control quick button */
+.remote-float{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:1200;display:flex;flex-direction:column;align-items:center;justify-content:center;width:92px;min-height:92px;padding:13px 10px;border-radius:22px;background:linear-gradient(145deg,#0875e8,#004da9);color:#fff;text-decoration:none;font-size:14px;font-weight:950;line-height:1.25;text-align:center;border:1px solid rgba(255,255,255,.35);box-shadow:0 14px 34px rgba(0,71,157,.32),inset 0 1px 0 rgba(255,255,255,.28);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.remote-float .remote-float-icon{font-size:29px;line-height:1;margin-bottom:7px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))}
+.remote-float .remote-float-sub{display:block;margin-top:3px;font-size:10px;font-weight:750;opacity:.86}
+.remote-float:hover{transform:translateY(-50%) translateX(-4px) scale(1.04);box-shadow:0 18px 42px rgba(0,71,157,.42),inset 0 1px 0 rgba(255,255,255,.3);filter:brightness(1.06)}
+@media(max-width:760px){.remote-float{right:10px;width:72px;min-height:72px;padding:10px 7px;border-radius:18px;font-size:12px}.remote-float .remote-float-icon{font-size:23px;margin-bottom:5px}.remote-float .remote-float-sub{font-size:9px}}
+
 </style>
 </head>
 <body>
+<a class="remote-float" href="http://757.co.kr/LongPC" target="_blank" rel="noopener noreferrer" aria-label="LONGPC 원격제어 접속">
+  <span class="remote-float-icon" aria-hidden="true">🖥</span>
+  <span>원격제어</span>
+  <span class="remote-float-sub">바로 접속</span>
+</a>
+
 <header>
   <div class="nav-container">
     <div class="logo logo-image-wrap" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="LongPC 홈으로">
