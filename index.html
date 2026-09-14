@@ -619,7 +619,9 @@ footer{margin-top:90px;padding:44px 18px 34px;border-radius:26px 26px 0 0;line-h
 body,.copy-protected{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select,option,label[for],[contenteditable="true"]{-webkit-user-select:text;-moz-user-select:text;user-select:text;-webkit-touch-callout:default}
 img{-webkit-user-drag:none;user-drag:none}
-.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(15,73,130,.06)}.faq-item h3{font-size:16px;color:#123b68;margin-bottom:10px}.faq-item p{font-size:14px;color:#5c6877}@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+.faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 10px 30px rgba(15,73,130,.06)}.faq-item h3{font-size:16px;color:#123b68;margin-bottom:10px}.faq-item p{font-size:14px;color:#5c6877}.headline-nowrap{display:inline-block;white-space:nowrap;font-size:clamp(32px,3.8vw,50px)}
+.hero-btn.download-profile{position:relative;overflow:hidden;border:1px solid #f4b52f;background:linear-gradient(135deg,#ffca4b,#f29418);color:#1f2937;box-shadow:0 11px 26px rgba(222,137,18,.3);font-weight:950}.hero-btn.download-profile:before{content:"PDF ↓";display:inline-flex;align-items:center;justify-content:center;margin-right:8px;padding:3px 7px;border-radius:6px;background:#fff;color:#c86d00;font-size:10px;line-height:1.2;box-shadow:0 2px 7px rgba(115,65,0,.15)}.hero-btn.download-profile:after{content:"";position:absolute;top:-60%;left:-35%;width:28%;height:220%;transform:rotate(24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:profile-shine 3.8s ease-in-out infinite}.hero-btn.download-profile:hover{color:#111827;transform:translateY(-3px);box-shadow:0 16px 34px rgba(222,137,18,.38)}@keyframes profile-shine{0%,65%{left:-35%}100%{left:125%}}@media(prefers-reduced-motion:reduce){.hero-btn.download-profile:after{animation:none}}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr}.headline-nowrap{font-size:clamp(22px,7.2vw,27px);letter-spacing:-1.8px}.hero-btn.download-profile{flex-basis:100%;margin-top:3px}}
 </style>
 </head>
 <body>
@@ -641,12 +643,13 @@ img{-webkit-user-drag:none;user-drag:none}
   <main class="container">
     <div class="hero-box">
       <div class="hero-eyebrow">대전·충청 학교 전문 IT 파트너</div>
-      <h1>선생님은 교육에만 전념하세요.<br>학교 전산 관리는 <span>LONGPC</span>가 확실히 책임집니다.</h1>
+      <h1><span class="headline-nowrap">선생님은 교육에만 전념하세요.</span><br>학교 전산 관리는 <span>LONGPC</span>가 확실히 책임집니다.</h1>
     <p>대전·충청 지역 초·중·고등학교 및 공공기관 전문 원스톱 실시간 케어 시스템</p>
     <p class="seo-intro">대전 학교 전산 유지보수, 관공서 전산관리, 기업 PC 유지보수까지 PC·노트북·프린터·복합기·네트워크를 한 곳에서 관리합니다.</p>
     <div class="hero-actions">
       <a class="hero-btn primary" href="#section-contact">무료 견적 문의</a>
       <a class="hero-btn secondary" href="tel:010-6706-4733">전화 상담하기</a>
+      <a class="hero-btn download-profile" href="LONGPC_company_profile.pdf" download="LONGPC_업체소개서.pdf" aria-label="LONGPC 업체소개서 PDF 다운로드">회사소개서 다운로드</a>
       </div>
     </div>
 
