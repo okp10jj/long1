@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LONGPC 중고 컴퓨터 부품 안심구매·검수대행. 당근 등 중고 매물 탐색부터 구매, 상태검수, 테스트 후 인계까지 한 번에 도와드립니다." />
+  <meta name="keywords" content="중고 컴퓨터 부품, 당근 구매대행, 그래픽카드 검수, 중고 PC 구매대행, LONGPC, 대전 컴퓨터" />
+  <meta name="theme-color" content="#08111f" />
+  <title>중고 PC 부품 구매·검수대행 | LONGPC</title>
+  <style>
+    :root{
+      --bg:#07101d;
+      --bg2:#0b1727;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:#f6f8fb;
+      --muted:#aeb9c9;
+      --primary:#4cc2ff;
+      --primary2:#7c68ff;
+      --good:#54e3a4;
+      --warn:#ffd36a;
+      --danger:#ff7c8b;
+      --shadow:0 20px 60px rgba(0,0,0,.28);
+      --radius:22px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(76,194,255,.16), transparent 35%),
+        radial-gradient(circle at 85% 12%, rgba(124,104,255,.18), transparent 30%),
+        linear-gradient(180deg,var(--bg) 0%, #081523 48%, #07101d 100%);
+      line-height:1.65;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(calc(100% - 34px),var(--max));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(18px);
+      background:rgba(7,16,29,.72);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-in{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:20px}
+    .brand{display:flex;align-items:center;gap:0;font-weight:900;letter-spacing:-.03em}.brand-logo-only{padding:0 4px}
+    .brand-logo-wrap{
+      width:70px;height:70px;flex:0 0 70px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .brand-logo-image{
+      width:66px;height:66px;display:block;object-fit:contain;border-radius:50%;
+      filter:drop-shadow(0 7px 14px rgba(0,0,0,.22));
+      transition:transform .2s ease,filter .2s ease;
+    }
+    .brand:hover .brand-logo-image{
+      transform:translateY(-1px) scale(1.025);
+      filter:drop-shadow(0 9px 18px rgba(76,194,255,.22));
+    }
+    .brand small{display:block;color:var(--muted);font-weight:600;font-size:11px;letter-spacing:.08em;margin-top:-2px}
+    .nav-links{display:flex;gap:22px;align-items:center;color:#d9e1eb;font-size:14px}
+    .nav-cta{
+      padding:10px 16px;border-radius:13px;font-weight:800;
+      border:1px solid rgba(76,194,255,.35);
+      background:rgba(76,194,255,.11);
+    }
+    .hero{padding:92px 0 64px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:46px;align-items:center}
+    .badge{
+      display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border-radius:999px;
+      color:#dff6ff;background:rgba(76,194,255,.10);border:1px solid rgba(76,194,255,.25);
+      font-size:13px;font-weight:800;margin-bottom:18px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 5px rgba(84,227,164,.08)}
+    h1{font-size:clamp(40px,6.4vw,72px);line-height:1.06;letter-spacing:-.055em;margin:0 0 22px}
+    h1 .accent{
+      background:linear-gradient(90deg,var(--primary),#8b8cff 72%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero p{font-size:19px;color:#c6d0dc;max-width:720px;margin:0 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border-radius:14px;padding:14px 19px;font-weight:900;border:1px solid transparent;cursor:pointer;
+      transition:.2s transform,.2s background,.2s border-color;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),#6ca8ff 55%,var(--primary2));color:#06111e}
+    .btn-ghost{background:rgba(255,255,255,.05);border-color:var(--line);color:#eef3f7}
+    .mini{margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;color:#9fb0c3;font-size:13px}
+    .mini span{display:inline-flex;align-items:center;gap:7px}
+    .check{color:var(--good);font-weight:900}
+    .hero-card{
+      position:relative;padding:26px;border-radius:28px;
+      background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035));
+      border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow);overflow:hidden
+    }
+    .hero-card:before{
+      content:"";position:absolute;inset:-100px auto auto -80px;width:280px;height:280px;border-radius:50%;
+      background:radial-gradient(circle,rgba(76,194,255,.18),transparent 70%);
+    }
+    .screen{
+      position:relative;background:#060c15;border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:18px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)
+    }
+    .screen-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;color:#aeb8c8;font-size:12px}
+    .lights{display:flex;gap:6px}.lights i{width:8px;height:8px;border-radius:50%;background:#334154}.lights i:nth-child(1){background:#ff7f8a}.lights i:nth-child(2){background:#ffd46a}.lights i:nth-child(3){background:#58dfa2}
+    .product-card{padding:17px;border-radius:16px;background:linear-gradient(135deg,#0b1a2b,#0a1524);border:1px solid rgba(255,255,255,.09)}
+    .gpu{height:110px;border-radius:14px;margin-bottom:14px;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,rgba(76,194,255,.2),transparent 55%),linear-gradient(135deg,#111f31,#07121f);border:1px solid rgba(76,194,255,.18)}
+    .gpu svg{width:210px;max-width:90%;height:auto;filter:drop-shadow(0 14px 20px rgba(0,0,0,.25))}
+    .row{display:flex;justify-content:space-between;gap:14px;align-items:center}
+    .label{color:#8fa0b4;font-size:12px}
+    .value{font-weight:900}
+    .meter{height:8px;border-radius:999px;background:#101c29;overflow:hidden;margin-top:8px}
+    .meter span{display:block;height:100%;width:86%;background:linear-gradient(90deg,var(--good),var(--primary))}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .stat{background:#0c1725;border:1px solid rgba(255,255,255,.07);padding:12px;border-radius:12px;text-align:center}
+    .stat strong{display:block;font-size:18px}.stat small{color:#8fa0b4}
+    section{padding:72px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:28px}
+    .eyebrow{font-size:13px;letter-spacing:.16em;color:var(--primary);font-weight:900;text-transform:uppercase}
+    h2{font-size:clamp(30px,4.5vw,48px);line-height:1.15;letter-spacing:-.04em;margin:8px 0 0}
+    .section-head p{color:var(--muted);max-width:540px;margin:0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      padding:24px;border-radius:var(--radius);background:var(--card);
+      border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.12)
+    }
+    .icon{
+      width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;
+      background:linear-gradient(135deg,rgba(76,194,255,.18),rgba(124,104,255,.18));
+      border:1px solid rgba(76,194,255,.20);font-size:22px
+    }
+    .card h3{margin:0 0 8px;font-size:20px;letter-spacing:-.02em}.card p{margin:0;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .step{position:relative;padding:22px 18px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid var(--line)}
+    .step .num{font-size:12px;font-weight:900;color:var(--primary);letter-spacing:.12em}
+    .step strong{display:block;margin:8px 0 7px;font-size:18px}.step p{font-size:14px;color:var(--muted);margin:0}
+    .price-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .price-table{overflow:hidden;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .price-row{display:grid;grid-template-columns:1.6fr .7fr;gap:18px;padding:17px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .price-row:last-child{border-bottom:0}.price-row b{text-align:right;color:#fff}.price-row span{color:#c8d1dc}
+    .highlight{background:linear-gradient(135deg,rgba(76,194,255,.12),rgba(124,104,255,.10))}
+    .price-note{padding:26px;border-radius:22px;background:linear-gradient(145deg,rgba(76,194,255,.11),rgba(124,104,255,.09));border:1px solid rgba(76,194,255,.20)}
+    .price-note h3{margin-top:0}.price-note ul{padding-left:20px;color:#cad3df;margin-bottom:0}
+    .tests{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .test{display:flex;gap:15px;padding:19px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    .test strong{display:block;margin-bottom:4px}.test p{margin:0;color:var(--muted);font-size:14px}
+    .pill{flex:0 0 auto;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(84,227,164,.10);border:1px solid rgba(84,227,164,.20)}
+    .notice{
+      padding:28px;border-radius:22px;background:rgba(255,211,106,.07);border:1px solid rgba(255,211,106,.18)
+    }
+    .notice strong{color:#ffe398}.notice p{margin:8px 0 0;color:#c9d1dc}
+    .faq{display:grid;gap:12px}
+    details{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:16px;padding:17px 18px}
+    summary{cursor:pointer;font-weight:850}.faq p{color:var(--muted);margin:10px 0 0}
+    .cta{
+      padding:38px;border-radius:28px;background:
+      radial-gradient(circle at 10% 15%,rgba(76,194,255,.20),transparent 32%),
+      radial-gradient(circle at 95% 5%,rgba(124,104,255,.22),transparent 36%),
+      linear-gradient(135deg,#0d2033,#0d1829);
+      border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow)
+    }
+    .cta-grid{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .cta h2{margin:0 0 10px}.cta p{margin:0;color:#b9c4d1}
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    footer{padding:34px 0 42px;border-top:1px solid rgba(255,255,255,.08);color:#8fa0b4;font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .floating{
+      position:fixed;right:18px;bottom:18px;z-index:30;display:flex;flex-direction:column;gap:10px
+    }
+    .float-btn{
+      border:1px solid rgba(255,255,255,.14);background:rgba(11,23,39,.90);backdrop-filter:blur(14px);
+      color:#fff;border-radius:16px;padding:12px 15px;font-weight:900;box-shadow:0 14px 38px rgba(0,0,0,.26)
+    }
+    .float-btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#06111e;border:0}
+    @media(max-width:980px){
+      .hero-grid,.price-wrap{grid-template-columns:1fr}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .nav-links a:not(.nav-cta){display:none}
+      .hero{padding-top:66px}
+    }
+    @media(max-width:660px){
+      .wrap{width:min(calc(100% - 22px),var(--max))}
+      .nav-in{min-height:64px}
+      .brand small{display:none}
+      .brand-logo-wrap{width:58px;height:58px;flex-basis:58px}
+      .brand-logo-image{width:54px;height:54px}
+      .brand-logo-wrap{width:58px;height:58px;flex-basis:58px}
+      .brand-logo-image{width:54px;height:54px}
+      .hero{padding:52px 0 42px}
+      h1{font-size:42px}
+      .hero p{font-size:17px}
+      .grid-3,.tests,.steps{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .cta-grid{grid-template-columns:1fr}
+      .contact-actions{justify-content:flex-start}
+      .price-row{grid-template-columns:1fr auto;padding:15px}
+      section{padding:56px 0}
+      .hero-card{padding:14px;border-radius:20px}
+      .stats{gap:7px}.stat{padding:10px 6px}.stat strong{font-size:16px}
+      .floating{right:12px;bottom:12px}
+      .float-btn{font-size:13px;padding:10px 12px}
+    }
+
+    /* Inquiry form */
+    .inquiry-shell{margin-top:22px;padding:30px;border-radius:24px;background:rgba(255,255,255,.055);border:1px solid var(--line);box-shadow:0 18px 48px rgba(0,0,0,.16)}
+    .inquiry-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}
+    .inquiry-head h3{margin:0 0 6px;font-size:25px;letter-spacing:-.03em}.inquiry-head p{margin:0;color:var(--muted);font-size:14px}
+    .inquiry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+    .field label{font-size:13px;font-weight:850;color:#dbe6f1}.field label em{color:#ff9aa5;font-style:normal}
+    .field input,.field select,.field textarea{width:100%;border:1px solid rgba(255,255,255,.14);background:#081522;color:#f4f7fb;border-radius:13px;padding:13px 14px;font:inherit;outline:none;transition:.2s border-color,.2s box-shadow}
+    .field input::placeholder,.field textarea::placeholder{color:#75879a}.field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(76,194,255,.7);box-shadow:0 0 0 4px rgba(76,194,255,.09)}
+    .field textarea{min-height:126px;resize:vertical}.field select option{background:#081522;color:#fff}
+    .privacy-check{display:flex;align-items:flex-start;gap:9px;margin-top:16px;color:#aeb9c9;font-size:12px}.privacy-check input{margin-top:3px;accent-color:#4cc2ff}
+    .inquiry-submit{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:18px;flex-wrap:wrap}.inquiry-submit small{color:#8496aa;max-width:600px}
+    .form-status{display:none;margin-top:13px;padding:11px 13px;border-radius:11px;background:rgba(84,227,164,.08);border:1px solid rgba(84,227,164,.22);color:#bff5dc;font-size:13px}
+    @media(max-width:660px){.inquiry-shell{padding:20px 15px}.inquiry-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.inquiry-head{display:block}.inquiry-head p{margin-top:5px}.inquiry-submit .btn{width:100%}}
+  
+/* ===== LONGPC horizontal header logo - final override ===== */
+.brand-logo-only{
+  padding:0 !important;
+  min-width:205px;
+}
+.brand-logo-wrap{
+  width:205px !important;
+  height:58px !important;
+  flex:0 0 205px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  overflow:visible !important;
+}
+.brand-logo-image{
+  display:block !important;
+  width:195px !important;
+  height:56px !important;
+  max-width:none !important;
+  object-fit:contain !important;
+  object-position:left center !important;
+  border-radius:10px !important;
+  background:#000 !important;
+  filter:none !important;
+  box-shadow:0 5px 18px rgba(0,0,0,.28) !important;
+  transform:none !important;
+}
+.brand:hover .brand-logo-image{
+  transform:translateY(-1px) !important;
+  filter:none !important;
+  box-shadow:0 7px 22px rgba(0,0,0,.34) !important;
+}
+.nav-in{
+  min-height:78px !important;
+}
+@media(max-width:980px){
+  .brand-logo-only{min-width:174px}
+  .brand-logo-wrap{
+    width:174px !important;
+    height:52px !important;
+    flex-basis:174px !important;
+  }
+  .brand-logo-image{
+    width:168px !important;
+    height:50px !important;
+  }
+}
+@media(max-width:660px){
+  .brand-logo-only{min-width:142px}
+  .brand-logo-wrap{
+    width:142px !important;
+    height:44px !important;
+    flex-basis:142px !important;
+  }
+  .brand-logo-image{
+    width:138px !important;
+    height:42px !important;
+    border-radius:8px !important;
+  }
+  .nav-in{
+    min-height:62px !important;
+    gap:10px !important;
+  }
+}
+
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-in">
+      <a class="brand brand-logo-only" href="index.html" aria-label="LONGPC 메인 홈페이지">
+        <span class="brand-logo-wrap"><img class="brand-logo-image" src="longpc-logo-header.png" alt="LONGPC PC TOTAL SOLUTION 로고"></span>
+      </a>
+      <div class="nav-links">
+        <a href="#service">서비스</a>
+        <a href="#process">진행절차</a>
+        <a href="#price">가격</a>
+        <a href="#test">검수항목</a>
+        <a href="index.html">LONGPC 메인</a>
+        <a class="nav-cta" href="#contact">구매대행 문의</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="badge"><span class="dot"></span> 중고 PC 부품, 검수하고 안전하게</div>
+          <h1>중고 부품은<br><span class="accent">가격보다 검수가 중요합니다.</span></h1>
+          <p>당근 등 중고거래 매물을 대신 찾아보고, 고객 승인 후 구매한 뒤 실제 테스트까지 진행합니다. 정상 확인된 제품만 고객님께 인계하는 LONGPC 안심구매·검수대행 서비스입니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">구매대행 상담하기</a>
+            <a class="btn btn-ghost" href="#price">가격표 보기</a>
+          </div>
+          <div class="mini">
+            <span><b class="check">✓</b> 고객 승인 후 구매</span>
+            <span><b class="check">✓</b> 부품별 실사용 테스트</span>
+            <span><b class="check">✓</b> 테스트 결과 안내</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="screen">
+            <div class="screen-top">
+              <span>LONGPC TEST REPORT</span>
+              <span class="lights"><i></i><i></i><i></i></span>
+            </div>
+            <div class="product-card">
+              <div class="gpu" aria-label="그래픽카드 일러스트">
+                <svg viewBox="0 0 460 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="25" width="380" height="125" rx="18" fill="#111f31" stroke="#4CC2FF" stroke-opacity=".45"/>
+                  <rect x="400" y="62" width="40" height="56" rx="8" fill="#19283A" stroke="#FFFFFF" stroke-opacity=".15"/>
+                  <circle cx="140" cy="88" r="45" fill="#0B1625" stroke="#7C68FF" stroke-opacity=".55" stroke-width="4"/>
+                  <circle cx="140" cy="88" r="18" fill="#24384D"/>
+                  <circle cx="285" cy="88" r="45" fill="#0B1625" stroke="#4CC2FF" stroke-opacity=".55" stroke-width="4"/>
+                  <circle cx="285" cy="88" r="18" fill="#24384D"/>
+                  <path d="M58 65H91M58 83H91M58 101H91" stroke="#4CC2FF" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+                  <rect x="92" y="150" width="220" height="11" rx="4" fill="#D7B452"/>
+                </svg>
+              </div>
+              <div class="row"><span class="label">테스트 상태</span><span class="value" style="color:var(--good)">정상</span></div>
+              <div class="meter"><span></span></div>
+              <div class="stats">
+                <div class="stat"><strong>71℃</strong><small>최대온도</small></div>
+                <div class="stat"><strong>PASS</strong><small>부하테스트</small></div>
+                <div class="stat"><strong>정상</strong><small>팬/출력</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">SERVICE</div>
+            <h2>단순 구매대행이 아닙니다</h2>
+          </div>
+          <p>좋아 보이는 매물을 대신 사는 데서 끝나지 않고, 시세·호환·상태·작동 여부까지 확인해 중고거래의 불확실성을 줄입니다.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="icon">🔎</div><h3>매물 탐색</h3><p>예산과 원하는 사양을 기준으로 조건에 맞는 중고 매물을 찾아 비교합니다.</p></div>
+          <div class="card"><div class="icon">🧩</div><h3>호환성 확인</h3><p>현재 PC 사양을 확인해 CPU, RAM, 그래픽카드, 파워 등 부품 호환 여부를 점검합니다.</p></div>
+          <div class="card"><div class="icon">🧪</div><h3>실물 검수</h3><p>구매 후 실제 장비에서 인식, 온도, 성능, 포트, 팬, 저장장치 상태 등을 테스트합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">PROCESS</div><h2>이렇게 진행됩니다</h2></div>
+          <p>고객 승인 없이 임의로 구매하지 않습니다. 매물과 비용을 먼저 확인한 뒤 진행합니다.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="num">STEP 01</span><strong>상담</strong><p>원하는 부품, 모델, 예산, 현재 PC 사양을 확인합니다.</p></div>
+          <div class="step"><span class="num">STEP 02</span><strong>매물 검색</strong><p>중고 매물의 가격과 상태, 판매정보를 비교합니다.</p></div>
+          <div class="step"><span class="num">STEP 03</span><strong>고객 승인</strong><p>제품가격과 대행료를 안내하고 고객 확인 후 구매합니다.</p></div>
+          <div class="step"><span class="num">STEP 04</span><strong>검수·테스트</strong><p>부품 종류에 맞는 테스트를 진행하고 이상 여부를 확인합니다.</p></div>
+          <div class="step"><span class="num">STEP 05</span><strong>결과 안내·인계</strong><p>검수 결과를 안내하고 정상 확인된 제품을 인계합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">PRICE</div><h2>구매대행·기본검수 요금</h2></div>
+          <p>실제 제품 구매금액은 별도이며, 원거리 직거래나 추가 정밀검수는 사전 안내 후 진행합니다.</p>
+        </div>
+        <div class="price-wrap">
+          <div class="price-table">
+            <div class="price-row"><span>10만원 이하 부품</span><b>20,000원</b></div>
+            <div class="price-row highlight"><span>10~30만원 부품</span><b>30,000원</b></div>
+            <div class="price-row"><span>30~50만원 부품</span><b>40,000원</b></div>
+            <div class="price-row"><span>50만원 이상</span><b>구매가의 8%</b></div>
+            <div class="price-row"><span>PC 본체 전체 구매대행</span><b>70,000원~</b></div>
+            <div class="price-row"><span>PC 조립 및 세팅</span><b>+40,000원~</b></div>
+          </div>
+          <div class="price-note">
+            <h3>추가 검수 옵션</h3>
+            <ul>
+              <li>그래픽카드 정밀검수 +15,000원</li>
+              <li>SSD 상태·수명검사 +5,000원</li>
+              <li>RAM 오류검사 +10,000원</li>
+              <li>CPU 기본검수 +10,000원</li>
+              <li>Windows 설치·드라이버 세팅 +30,000원</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="test">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">INSPECTION</div><h2>부품별 검수 항목</h2></div>
+          <p>제품 종류와 상태에 따라 테스트 항목은 달라질 수 있으며, 모든 검수 결과는 가능한 범위 내에서 안내드립니다.</p>
+        </div>
+        <div class="tests">
+          <div class="test"><div class="pill">🎮</div><div><strong>그래픽카드</strong><p>모델·메모리 확인, 출력포트, 팬 소음, 온도, 3D 부하, 화면 깨짐·아티팩트 확인</p></div></div>
+          <div class="test"><div class="pill">💾</div><div><strong>SSD / HDD</strong><p>모델·용량, 건강상태, 사용시간, 총 기록량, 경고항목, 기본 속도 확인</p></div></div>
+          <div class="test"><div class="pill">🧠</div><div><strong>RAM</strong><p>용량·클럭, 슬롯 인식, 메모리 오류검사, 부팅 안정성 확인</p></div></div>
+          <div class="test"><div class="pill">⚙️</div><div><strong>CPU</strong><p>모델·코어·스레드, 유휴/부하 온도, 간단 벤치마크, 다운·재부팅 여부 확인</p></div></div>
+          <div class="test"><div class="pill">🧩</div><div><strong>메인보드</strong><p>CPU/RAM 인식, SATA/M.2, USB, LAN, 사운드, PCIe, BIOS, 팬 커넥터 확인</p></div></div>
+          <div class="test"><div class="pill">💻</div><div><strong>노트북</strong><p>LCD, 키보드, 터치패드, 배터리, 충전, Wi-Fi, 포트, 카메라, SSD, 온도 확인</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="notice">
+          <strong>중고제품 서비스 안내</strong>
+          <p>LONGPC의 검수는 제품 인계 시점의 정상 작동 여부와 확인 가능한 상태를 검사하는 서비스입니다. 중고제품의 향후 수명이나 미래의 고장까지 보증하는 서비스는 아닙니다. 판매자 반품·환불 가능 여부도 판매자의 거래조건에 따라 달라질 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">FAQ</div><h2>자주 묻는 질문</h2></div>
+        </div>
+        <div class="faq">
+          <details open><summary>제가 찾은 당근 매물도 대신 확인해 주나요?</summary><p>네. 매물 링크 또는 캡처를 보내주시면 가격, 사양, 판매내용, 현재 PC와의 호환 여부 등을 먼저 확인할 수 있습니다.</p></details>
+          <details><summary>구매 후 문제가 발견되면 어떻게 하나요?</summary><p>검수 중 이상이 확인되면 고객에게 즉시 안내하고, 가능한 경우 판매자와 반품 또는 환불 협의를 진행합니다. 단, 중고거래 특성상 판매자의 환불을 보장할 수는 없습니다.</p></details>
+          <details><summary>그래픽카드 채굴 여부도 알 수 있나요?</summary><p>외관, 온도, 팬 상태, 성능 이상 등을 통해 상태를 판단할 수는 있지만 과거 사용이력을 100% 확정할 수는 없습니다.</p></details>
+          <details><summary>부품을 사서 조립까지 해줄 수 있나요?</summary><p>가능합니다. 구매대행 후 조립, Windows 설치, 드라이버 세팅까지 한 번에 요청하실 수 있습니다.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta">
+          <div class="cta-grid">
+            <div>
+              <h2>원하는 부품과 예산만 알려주세요.</h2>
+              <p>아래 문의양식을 작성하면 홈페이지에서 바로 상담 접수가 가능합니다.</p>
+            </div>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="tel:010-6706-4733">전화 상담 010-6706-4733</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="inquiry-shell" id="partsInquiryForm" action="https://formsubmit.co/ajax/P1JJ@NAVER.COM" method="POST">
+          <div class="inquiry-head">
+            <div>
+              <h3>중고부품 구매·검수대행 문의</h3>
+              <p>필수 항목만 입력해도 상담이 가능합니다.</p>
+            </div>
+          </div>
+
+          <div class="inquiry-grid">
+            <div class="field">
+              <label for="inqName">성함 <em>*</em></label>
+              <input id="inqName" name="name" type="text" autocomplete="name" placeholder="예: 홍길동" required>
+            </div>
+            <div class="field">
+              <label for="inqPhone">연락처 <em>*</em></label>
+              <input id="inqPhone" name="phone" type="tel" autocomplete="tel" placeholder="예: 010-1234-5678" required>
+            </div>
+            <div class="field">
+              <label for="inqPart">원하는 부품 <em>*</em></label>
+              <select id="inqPart" name="part" required>
+                <option value="">선택해 주세요</option>
+                <option>그래픽카드</option><option>CPU</option><option>메인보드</option><option>RAM</option><option>SSD / HDD</option><option>파워서플라이</option><option>노트북</option><option>PC 본체</option><option>기타</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="inqModel">원하는 모델</label>
+              <input id="inqModel" name="model" type="text" placeholder="예: RTX 4060, Ryzen 5600">
+            </div>
+            <div class="field">
+              <label for="inqBudget">최대 예산 <em>*</em></label>
+              <input id="inqBudget" name="budget" type="text" inputmode="numeric" placeholder="예: 250,000원" required>
+            </div>
+            <div class="field">
+              <label for="inqArea">구매 희망지역</label>
+              <input id="inqArea" name="area" type="text" placeholder="예: 대전 유성구 / 지역 무관">
+            </div>
+            <div class="field full">
+              <label for="inqPc">현재 PC 사양</label>
+              <input id="inqPc" name="pc" type="text" placeholder="예: i5-12400 / B660 / RAM 16GB / 600W">
+            </div>
+            <div class="field">
+              <label for="inqInstall">조립·장착 필요 여부</label>
+              <select id="inqInstall" name="install"><option>필요 없음</option><option>부품 장착 필요</option><option>PC 전체 조립 필요</option><option>상담 후 결정</option></select>
+            </div>
+            <div class="field">
+              <label for="inqWindows">Windows 설치</label>
+              <select id="inqWindows" name="windows"><option>필요 없음</option><option>설치 필요</option><option>상담 후 결정</option></select>
+            </div>
+            <div class="field full">
+              <label for="inqMessage">기타 요청사항</label>
+              <textarea id="inqMessage" name="message" placeholder="찾아본 당근 매물이 있다면 링크나 판매글 내용을 함께 적어주세요."></textarea>
+            </div>
+          </div>
+
+          <label class="privacy-check">
+            <input id="inqAgree" type="checkbox" required>
+            <span>상담을 위한 개인정보(성함·연락처) 수집 및 이용에 동의합니다. 입력정보는 상담 목적으로만 사용합니다.</span>
+          </label>
+
+          <div class="inquiry-submit">
+            <small>작성하신 내용은 홈페이지에서 바로 접수되며, 확인 후 입력하신 연락처로 연락드립니다.</small>
+            <button class="btn btn-primary" type="submit">문의 접수하기</button>
+          </div>
+          <div class="form-status" id="formStatus" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div><strong>LONGPC</strong> · 중고 컴퓨터 부품 구매·검수대행</div>
+      <div>010-6706-4733 · LONGPC.CO.KR</div>
+    </div>
+  </footer>
+
+  <div class="floating">
+    <a class="float-btn" href="#price">가격표</a>
+    <a class="float-btn primary" href="#contact">구매대행 문의</a>
+  </div>
+
+  <script>
+    const inquiryForm = document.getElementById('partsInquiryForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitButton = inquiryForm.querySelector('button[type="submit"]');
+
+    inquiryForm.addEventListener('submit', async function(event){
+      event.preventDefault();
+
+      if(!inquiryForm.checkValidity()){
+        inquiryForm.reportValidity();
+        return;
+      }
+
+      const originalText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = '접수 중입니다...';
+      formStatus.style.display = 'none';
+      formStatus.innerHTML = '';
+
+      try{
+        const data = new FormData(inquiryForm);
+        data.append('_subject', '[LONGPC] 중고부품 구매·검수대행 문의');
+        data.append('_template', 'table');
+        data.append('_captcha', 'false');
+
+        const response = await fetch(inquiryForm.action, {
+          method: 'POST',
+          body: data,
+          headers: {'Accept':'application/json'}
+        });
+
+        let result = {};
+        try{ result = await response.json(); }catch(_){ }
+
+        if(response.ok && result.success !== false){
+          formStatus.style.display = 'block';
+          formStatus.innerHTML = '<strong style="color:var(--good)">✓ 문의가 접수되었습니다.</strong><br><span style="color:#b7c5d6">확인 후 입력하신 연락처로 연락드리겠습니다.</span>';
+          inquiryForm.reset();
+          submitButton.textContent = '접수완료';
+          setTimeout(function(){
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }, 2500);
+        }else{
+          throw new Error(result.message || '전송 실패');
+        }
+      }catch(err){
+        formStatus.style.display = 'block';
+        formStatus.innerHTML = '<strong style="color:#ff9aa8">문의 접수에 실패했습니다.</strong><br><span style="color:#b7c5d6">잠시 후 다시 시도하거나 전화 상담을 이용해 주세요.</span>';
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    });
+  </script>
+</body>
+</html>
