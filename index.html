@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>대전 학교 전산 유지보수 전문 | LONGPC</title>
-<meta name="description" content="대전·충청 학교 전산 유지보수 전문 LONGPC. PC·노트북, 프린터·복합기, 컴퓨터실과 네트워크 점검부터 장애 대응, S2B 학교장터 계약서류까지 지원합니다.">
+<meta name="description" content="대전·충청 학교 전산 유지보수 전문 LONGPC. PC·노트북, 프린터·복합기, 컴퓨터실·네트워크 관리와 중고 컴퓨터 부품 구매·검수대행까지 지원합니다.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://www.longpc.co.kr/">
 <link rel="alternate" hreflang="ko-KR" href="https://www.longpc.co.kr/">
@@ -58,6 +58,16 @@
       "serviceType":"전산 유지보수",
       "areaServed":{"@type":"AdministrativeArea","name":"대전광역시 및 충청권"},
       "description":"학교 PC·노트북, 프린터·복합기, 컴퓨터실, 네트워크의 정기점검과 장애 대응, 전산 자산 및 행정 지원"
+    },
+    {
+      "@type":"Service",
+      "@id":"https://www.longpc.co.kr/used-parts.html#service",
+      "name":"중고 컴퓨터 부품 구매·검수대행",
+      "provider":{"@id":"https://www.longpc.co.kr/#business"},
+      "serviceType":"중고 컴퓨터 부품 구매대행 및 검수",
+      "areaServed":{"@type":"City","name":"대전광역시"},
+      "url":"https://www.longpc.co.kr/used-parts.html",
+      "description":"중고 PC 부품 매물 탐색, 호환성 확인, 구매대행, 실물 검수와 테스트 후 인계를 지원하는 서비스"
     },
     {
       "@type":"FAQPage",
@@ -642,6 +652,161 @@ img{-webkit-user-drag:none;user-drag:none}
 .remote-float:hover{transform:translateY(-50%) translateX(-4px) scale(1.04);box-shadow:0 18px 42px rgba(0,71,157,.42),inset 0 1px 0 rgba(255,255,255,.3);filter:brightness(1.06)}
 @media(max-width:760px){.remote-float{right:10px;width:72px;min-height:72px;padding:10px 7px;border-radius:18px;font-size:12px}.remote-float .remote-float-icon{font-size:23px;margin-bottom:5px}.remote-float .remote-float-sub{font-size:9px}}
 
+
+/* ===== 중고 PC 부품 구매·검수대행 연결 ===== */
+.used-parts-nav{
+  position:relative;
+  color:#075fc5!important;
+}
+.used-parts-nav:after{
+  content:"NEW";
+  position:absolute;
+  top:-13px;
+  right:-14px;
+  padding:1px 5px;
+  border-radius:999px;
+  background:#10a36d;
+  color:#fff;
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:.3px;
+  box-shadow:0 4px 10px rgba(16,163,109,.2);
+}
+.hero-btn.used-parts{
+  border:1px solid #9edcc6;
+  background:linear-gradient(145deg,#f2fff9,#dbf7eb);
+  color:#08734e;
+  box-shadow:0 10px 24px rgba(16,163,109,.14);
+}
+.hero-btn.used-parts:before{
+  content:"검수";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:7px;
+  padding:3px 7px;
+  border-radius:6px;
+  background:#0b9c69;
+  color:#fff;
+  font-size:10px;
+  line-height:1.2;
+}
+.hero-btn.used-parts:hover{
+  border-color:#61cda7;
+  color:#065f41;
+  box-shadow:0 15px 30px rgba(16,163,109,.2);
+}
+.used-parts-section{padding-top:84px}
+.used-parts-panel{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:42px;
+  align-items:center;
+  overflow:hidden;
+  padding:42px;
+  border:1px solid #cfe8df;
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(14,165,109,.13),transparent 34%),
+    linear-gradient(145deg,#ffffff,#f1fbf7);
+  box-shadow:0 18px 55px rgba(23,91,68,.09);
+}
+.used-parts-panel .section-title{color:#103f34}
+.used-parts-panel .section-desc{margin-bottom:22px;color:#587168}
+.used-parts-points{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px 18px;
+  margin:0 0 25px;
+}
+.used-parts-points span{
+  color:#315e50;
+  font-size:14px;
+  font-weight:850;
+}
+.used-parts-actions{display:flex;gap:10px;flex-wrap:wrap}
+.used-parts-main-btn,.used-parts-sub-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:11px 19px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:950;
+  transition:.2s ease;
+}
+.used-parts-main-btn{
+  background:linear-gradient(145deg,#11a873,#087a55);
+  color:#fff;
+  box-shadow:0 9px 22px rgba(11,145,97,.22);
+}
+.used-parts-sub-btn{
+  border:1px solid #bddfd2;
+  background:#fff;
+  color:#176349;
+}
+.used-parts-main-btn:hover,.used-parts-sub-btn:hover{transform:translateY(-2px)}
+.used-parts-visual{display:flex;justify-content:center}
+.inspection-card{
+  width:min(100%,330px);
+  padding:25px;
+  border-radius:22px;
+  background:linear-gradient(145deg,#082a24,#0b4638);
+  color:#fff;
+  box-shadow:0 22px 45px rgba(8,70,56,.23);
+}
+.inspection-label{
+  display:block;
+  margin-bottom:8px;
+  color:#8ee6c6;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:1.3px;
+}
+.inspection-card>strong{display:block;margin-bottom:18px;font-size:22px}
+.inspection-row{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  color:#c6ded6;
+  font-size:13px;
+}
+.inspection-row b{color:#fff}
+.inspection-status{
+  margin-top:18px;
+  padding:11px;
+  border:1px solid rgba(112,236,190,.25);
+  border-radius:11px;
+  background:rgba(112,236,190,.11);
+  color:#8ff0cc;
+  text-align:center;
+  font-size:14px;
+  font-weight:950;
+}
+@media(max-width:980px){
+  .used-parts-panel{grid-template-columns:1fr;gap:26px}
+  .used-parts-visual{justify-content:flex-start}
+}
+@media(max-width:760px){
+  .hero-btn.used-parts{grid-column:1/-1}
+  .used-parts-section{padding-top:62px}
+  .used-parts-panel{padding:24px 18px;border-radius:22px}
+  .used-parts-points{grid-template-columns:1fr}
+  .used-parts-actions{display:grid;grid-template-columns:1fr}
+  .used-parts-main-btn,.used-parts-sub-btn{width:100%}
+  .inspection-card{width:100%}
+  .mobile-quick{grid-template-columns:1fr 1fr 1fr!important}
+  .mobile-quick .used{
+    color:#08734e;
+    border:1px solid #a8dbc9;
+    background:#effbf7;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -658,6 +823,7 @@ img{-webkit-user-drag:none;user-drag:none}
 </div>
     <ul class="nav-menu">
       <li><a href="#section-services">서비스 안내</a></li>
+      <li><a class="used-parts-nav" href="used-parts.html">중고부품 구매대행</a></li>
       <li><a href="#section-features">우리의 강점</a></li>
       <li><a href="#section-process">진행 절차</a></li>
       <li><a href="#section-contact">견적 문의</a></li>
@@ -675,6 +841,7 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="hero-actions">
       <a class="hero-btn primary" href="#section-contact">무료 견적 문의</a>
       <a class="hero-btn secondary" href="tel:010-6706-4733">전화 상담하기</a>
+      <a class="hero-btn used-parts" href="used-parts.html" aria-label="LONGPC 중고 컴퓨터 부품 구매대행 및 검수 서비스">중고부품 안심구매</a>
       <a class="hero-btn download-profile" href="LONGPC_company_profile.pdf" download="LONGPC_업체소개서.pdf" aria-label="LONGPC 업체소개서 PDF 다운로드">회사소개서 다운로드</a>
       </div>
     </div>
@@ -696,6 +863,37 @@ img{-webkit-user-drag:none;user-drag:none}
         <div class="service-card"><div class="service-photo network" role="img" aria-label="학내망 및 네트워크 장비 이미지"></div><h3><span class="icon-badge">NET</span>컴퓨터실 구축 & 전산망</h3><p>• 컴퓨터실 신학기 단체 마스터 복구 솔루션 구축<br>• 학내 무선 AP(Wi-Fi) 전산망 점검 및 LAN 포트 케이블 정리<br>• 노후 장비 철거 및 중고 PC 자산 폐기/매입 일괄 대행</p></div>
     </div>
   </section>
+
+    <section id="section-used-parts" class="used-parts-section" aria-labelledby="used-parts-title">
+      <div class="used-parts-panel">
+        <div class="used-parts-copy">
+          <span class="section-kicker">NEW · SAFE USED PARTS</span>
+          <h2 class="section-title" id="used-parts-title">중고 컴퓨터 부품 안심구매·검수대행</h2>
+          <p class="section-desc">당근 등 중고거래에서 원하는 컴퓨터 부품을 함께 찾아보고, 고객님 승인 후 구매한 뒤 실제 장비에서 테스트하여 정상 여부를 확인해드립니다.</p>
+          <div class="used-parts-points">
+            <span>✓ 매물·시세 확인</span>
+            <span>✓ PC 호환성 확인</span>
+            <span>✓ 구매 후 실물 테스트</span>
+            <span>✓ 검수 결과 안내</span>
+          </div>
+          <div class="used-parts-actions">
+            <a href="used-parts.html" class="used-parts-main-btn">서비스 자세히 보기</a>
+            <a href="tel:010-6706-4733" class="used-parts-sub-btn">구매대행 전화상담</a>
+          </div>
+        </div>
+        <div class="used-parts-visual" aria-hidden="true">
+          <div class="inspection-card">
+            <span class="inspection-label">LONGPC INSPECTION</span>
+            <strong>중고 GPU 검수</strong>
+            <div class="inspection-row"><span>모델 / VRAM</span><b>확인</b></div>
+            <div class="inspection-row"><span>팬 / 출력포트</span><b>정상</b></div>
+            <div class="inspection-row"><span>3D 부하 테스트</span><b>PASS</b></div>
+            <div class="inspection-row"><span>최대 온도</span><b>71℃</b></div>
+            <div class="inspection-status">정상 작동 확인</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="section-features">
       <span class="section-kicker">Why LONGPC</span>
@@ -781,6 +979,7 @@ img{-webkit-user-drag:none;user-drag:none}
 
   <nav class="mobile-quick" aria-label="모바일 빠른 상담">
     <a class="call" href="tel:010-6706-4733">전화 상담</a>
+    <a class="used" href="used-parts.html">중고부품</a>
     <a class="quote" href="#section-contact">무료 견적</a>
   </nav>
 
