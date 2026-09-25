@@ -752,6 +752,13 @@ img{-webkit-user-drag:none;user-drag:none}
 .footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin:18px 0 10px}
 .footer-links a{font-weight:800;text-underline-offset:4px}
 @media(max-width:760px){.hero-btn.download-profile{grid-column:1/-1}.headline-nowrap{white-space:normal}.results-table{font-size:13px}}
+
+/* Optional background music */
+.bgm-control{position:fixed;left:18px;bottom:20px;z-index:1250;display:flex;align-items:center;gap:8px;max-width:calc(100vw - 36px);padding:11px 16px;border:1px solid #bdd4ed;border-radius:999px;background:rgba(255,255,255,.97);color:#0a4784;box-shadow:0 6px 22px rgba(9,45,88,.15);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.bgm-control:focus-visible{outline:3px solid #1268d8;outline-offset:3px}
+.bgm-control[aria-pressed="true"]{background:#edf5ff;border-color:#1268d8}
+.bgm-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:760px){.bgm-control{left:12px;bottom:calc(82px + env(safe-area-inset-bottom));padding:9px 13px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -1020,5 +1027,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+<audio id="site-bgm" loop preload="none" src="tech-background-lofi.mp3"></audio>
+<button id="bgm-toggle" class="bgm-control" type="button" aria-pressed="false" aria-controls="site-bgm"><span aria-hidden="true">♫</span><span id="bgm-label">배경음악 재생</span></button>
+<span id="bgm-status" class="bgm-status" role="status" aria-live="polite"></span>
+<script>
+(function () {
+  const audio = document.getElementById('site-bgm');
+  const button = document.getElementById('bgm-toggle');
+  const label = document.getElementById('bgm-label');
+  const status = document.getElementById('bgm-status');
+  audio.volume = 0.2;
+  function update() {
+    const playing = !audio.paused;
+    button.setAttribute('aria-pressed', String(playing));
+    label.textContent = playing ? '배경음악 정지' : '배경음악 재생';
+  }
+  audio.addEventListener('play', update);
+  audio.addEventListener('pause', update);
+  audio.addEventListener('error', function () {
+    audio.pause();
+    update();
+    status.textContent = '음악을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.';
+  });
+  button.addEventListener('click', async function () {
+    status.textContent = '';
+    if (!audio.paused) { audio.pause(); return; }
+    button.disabled = true;
+    try { await audio.play(); }
+    catch (_) { status.textContent = '음악을 재생하지 못했습니다. 재생 버튼을 다시 눌러 주세요.'; }
+    finally { button.disabled = false; update(); }
+  });
+})();
+</script>
 </body>
 </html>
